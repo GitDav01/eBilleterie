@@ -16,12 +16,12 @@ public class ProviderResource {
     @Autowired
     private ProviderService providerService;
 
-    @RequestMapping(method = RequestMethod.GET, path = {"/providers/{ProviderId}"})
+    @RequestMapping(method = RequestMethod.GET, path = {"/providers/{providerId}"})
     public ProviderDTO detailProvider(@PathVariable("providerId") String providerId) {
         return ProviderAdapter.adaptToProviderDTO(this.providerService.obtain(providerId));
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = {"/libraries"})
+    @RequestMapping(method = RequestMethod.GET, path = {"/providers"})
     public List<ProviderDTO> listAllProviders() {
         return ProviderAdapter.adaptToProviderDTOList(this.providerService.listAll());
     }
