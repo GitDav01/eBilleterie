@@ -2,6 +2,7 @@ package com.projetEbilleterie.ebilleterie.domain.eticket;
 
 public class Eticket {
     private String id;
+    private String reference;
     private String description;
     private String  law;
     private boolean nominatif;
@@ -14,11 +15,11 @@ public class Eticket {
     // Contructors
     public Eticket(){};
 
-    public Eticket(String id, String description, String law,
-                   boolean nominatif, String dateValidite,
-                   double internalPrice, double externalPrice,
-                   String chlidScale, String adultScale) {
+       public Eticket(String id, String reference, String description, String law,
+                   boolean nominatif, String dateValidite, double internalPrice,
+                   double externalPrice, String chlidScale, String adultScale) {
         this.id = id;
+        this.reference = reference;
         this.description = description;
         this.law = law;
         this.nominatif = nominatif;
@@ -31,6 +32,7 @@ public class Eticket {
 
     //Getter
     public String getId() { return id; }
+    public String getReference() {return reference;}
     public String getDescription() { return description; }
     public String getLaw() { return law; }
     public boolean isNominatif() { return nominatif; }

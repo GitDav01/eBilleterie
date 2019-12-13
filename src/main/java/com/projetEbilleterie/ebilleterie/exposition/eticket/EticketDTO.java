@@ -7,6 +7,8 @@ public class EticketDTO {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     String id;
     @JsonProperty
+    String reference;
+    @JsonProperty
     String description;
     @JsonProperty
     String  law;
@@ -24,12 +26,13 @@ public class EticketDTO {
     String adultScale;
 
     //Constructors
-   public  EticketDTO(){};
+   public  EticketDTO(){}
 
-    public EticketDTO(String id, String description, String law,
+    public EticketDTO(String id, String reference, String description, String law,
                       boolean nominatif, String dateValidite, double internalPrice,
                       double externalPrice, String chlidScale, String adultScale) {
         this.id = id;
+        this.reference = reference;
         this.description = description;
         this.law = law;
         this.nominatif = nominatif;
@@ -42,9 +45,12 @@ public class EticketDTO {
 
     //Getter
 
+
+
     public String getId() {
         return id;
     }
+    public String getReference() { return reference; }
     public String getDescription() {
         return description;
     }

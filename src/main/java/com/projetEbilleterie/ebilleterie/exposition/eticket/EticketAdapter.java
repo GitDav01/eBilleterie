@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 
 public class EticketAdapter {
 
+    private EticketAdapter(){}
+
     public static List<EticketDTO> adaptToEticketListDTO(List<Eticket> etickets) {
         return etickets.stream().map(EticketAdapter::adaptToEticketDTO).collect(Collectors.toList());
     }
@@ -15,6 +17,7 @@ public class EticketAdapter {
     public static EticketDTO adaptToEticketDTO(Eticket eticket) {
         return new EticketDTO(
                 eticket.getId(),
+                eticket.getReference(),
                 eticket.getDescription(),
                 eticket.getLaw(),
                 eticket.isNominatif(),

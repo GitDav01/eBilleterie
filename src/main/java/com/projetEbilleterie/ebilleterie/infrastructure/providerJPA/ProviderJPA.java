@@ -29,7 +29,8 @@ public class ProviderJPA {
     private List<EticketJPA> etickets ;
 
     //Constructors
-    private ProviderJPA(){};
+    private ProviderJPA(){}
+
     public ProviderJPA(Provider provider) {
         this.id = provider.getId();
         this.name = provider.getName();
@@ -43,9 +44,9 @@ public class ProviderJPA {
     public Provider toProvider() {
 
         List<Eticket> eticketList = etickets.stream()
-                .map(b -> new Eticket(b.getId(),b.getDescription(),b.getLaw(),
+                .map(b -> new Eticket(b.getId(),b.getReference(),b.getDescription(),b.getLaw(),
                         b.isNominatif(),b.getDateValidite(),b.getInternalPrice(),
-                        b.getExternalPrice(),  b.getChlidScale(),b.getAdultScale()))
+                        b.getExternalPrice(), b.getChlidScale(),b.getAdultScale()))
                 .collect(Collectors.toList());
         return new Provider(id, this.name, this.category,  eticketList);
     }

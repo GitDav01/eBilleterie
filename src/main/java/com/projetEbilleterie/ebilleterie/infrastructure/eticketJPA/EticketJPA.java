@@ -13,6 +13,9 @@ public class EticketJPA {
     @Column(name = "ID")
     private String id;
 
+    @Column(name = "REFERENCE")
+    private String reference;
+
     @Column(name = "DESCRIPTION")
     private String description;
 
@@ -22,7 +25,7 @@ public class EticketJPA {
     @Column(name = "NOMINATIF")
     private boolean nominatif;
 
-    @Column(name = "DATE_VALIDITED")
+    @Column(name = "DATE_VALIDITE")
     private String dateValidite ;
 
     @Column(name = "INTERNAL_PRICE")
@@ -39,21 +42,25 @@ public class EticketJPA {
     ;
 
     //Constructors
-    public EticketJPA(){};
+    public EticketJPA(){}
+
     public EticketJPA(Eticket eticket) {
         this.id = eticket.getId();
-        this.description = eticket.getDescription();
+        this.reference = eticket.getReference();
+        this.description = eticket.getDescription() ;
         this.law = eticket.getLaw();
         this.nominatif = eticket.isNominatif();
         this.dateValidite = eticket.getDateValidite();
-        this.internalPrice = eticket.getInternalPrice();
-        this.externalPrice =eticket.getExternalPrice();
+        this.internalPrice = eticket.getInternalPrice() ;
+        this.externalPrice = eticket.getExternalPrice();
         this.chlidScale = eticket.getChlidScale();
         this.adultScale = eticket.getAdultScale();
     }
 
+
     //Getter
     public String getId() { return id; }
+    public String getReference() {return reference;}
     public String getDescription() { return description; }
     public String getLaw() { return law;}
     public boolean isNominatif() { return nominatif; }
@@ -62,4 +69,6 @@ public class EticketJPA {
     public double getExternalPrice() { return externalPrice;}
     public String getChlidScale() { return chlidScale; }
     public String getAdultScale() { return adultScale; }
+
+
 }
