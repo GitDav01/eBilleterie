@@ -37,8 +37,8 @@ public class EticketDTO {
         this.law = law;
         this.nominatif = nominatif;
         this.dateValidite = dateValidite;
-        InternalPrice = internalPrice;
-        ExternalPrice = externalPrice;
+        this.InternalPrice = internalPrice;
+        this.ExternalPrice = externalPrice;
         this.chlidScale = chlidScale;
         this.adultScale = adultScale;
     }

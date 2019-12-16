@@ -21,6 +21,8 @@ public class ProviderService {
     public List<Provider> listAll() {
         return this.providerRepository.findAll();
     }
-
+    public String create(Provider newProvider) {
+        return this.providerRepository.save(newProvider);
+    }
 
 }

@@ -17,6 +17,12 @@ public class ProviderRepositoryImpl implements ProviderRepository {
     private ProviderDAO providerDAO;
 
     @Override
+    public String save(Provider provider) {
+        ProviderJPA providerJPA = providerDAO.save(new ProviderJPA(provider));
+        return providerJPA.getId();
+    }
+
+    @Override
     public Provider get(String id) {
         return providerDAO.findById(id)
                 .map(ProviderJPA::toProvider)

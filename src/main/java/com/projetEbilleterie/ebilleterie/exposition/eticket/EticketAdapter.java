@@ -3,6 +3,7 @@ package com.projetEbilleterie.ebilleterie.exposition.eticket;
 import com.projetEbilleterie.ebilleterie.domain.eticket.Eticket;
 import com.projetEbilleterie.ebilleterie.exposition.provider.ProviderAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,4 +29,19 @@ public class EticketAdapter {
                 eticket.getAdultScale()
         );
     }
+
+    public static List<Eticket> transformToEticketList(List<EticketDTO> eticketDTO) {
+        if(eticketDTO == null) {
+            return new ArrayList<>();
+        }
+        return eticketDTO.stream().map(EticketAdapter::transformToEticket).collect(Collectors.toList());
+    }
+
+    public static Eticket transformToEticket(EticketDTO eTicketDTO) {
+        return new Eticket(null, eTicketDTO.reference, eTicketDTO.description,eTicketDTO.law,eTicketDTO.nominatif,
+                eTicketDTO.dateValidite,eTicketDTO.InternalPrice,eTicketDTO.ExternalPrice,
+                eTicketDTO.chlidScale,eTicketDTO.adultScale);
+    }
+
+
 }
