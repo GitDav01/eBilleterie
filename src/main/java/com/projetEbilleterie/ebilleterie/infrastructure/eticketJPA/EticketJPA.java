@@ -28,18 +28,17 @@ public class EticketJPA {
     @Column(name = "DATE_VALIDITE")
     private String dateValidite ;
 
-    @Column(name = "INTERNAL_PRICE")
-    private double internalPrice;
+    @Column(name = "INTERNAL_ADULT_PRICE")
+    private double internalAdultPrice;
 
-    @Column(name = "EXTERNAL_PRICE")
-    private double externalPrice;
+    @Column(name = "EXTERNAL_ADULT_PRICE")
+    private double externalAdultPrice;
 
-    @Column(name = "CHILD_SCALE")
-    private String chlidScale ;
+    @Column(name = "INTERNAL_CHILD_PRICE")
+    private double internalChildPrice ;
 
-    @Column(name = "ADULT_SCALE")
-    private String adultScale;
-    ;
+    @Column(name = "EXTERNAL_CHILD_PRICE")
+    private double externalChildPrice;
 
     //Constructors
     public EticketJPA(){}
@@ -51,10 +50,10 @@ public class EticketJPA {
         this.law = eticket.getLaw();
         this.nominatif = eticket.isNominatif();
         this.dateValidite = eticket.getDateValidite();
-        this.internalPrice = eticket.getInternalPrice() ;
-        this.externalPrice = eticket.getExternalPrice();
-        this.chlidScale = eticket.getChlidScale();
-        this.adultScale = eticket.getAdultScale();
+        this.internalAdultPrice = eticket.getInternalAdultPrice() ;
+        this.externalAdultPrice = eticket.getExternalAdultPrice();
+        this.internalChildPrice = eticket.getInternalChildPrice();
+        this.externalChildPrice = eticket.getExternalChildPrice();
     }
 
 
@@ -65,10 +64,10 @@ public class EticketJPA {
     public String getLaw() { return law;}
     public boolean isNominatif() { return nominatif; }
     public String getDateValidite() { return dateValidite; }
-    public double getInternalPrice() {return internalPrice; }
-    public double getExternalPrice() { return externalPrice;}
-    public String getChlidScale() { return chlidScale; }
-    public String getAdultScale() { return adultScale; }
+    public double getInternalAdultPrice() {return internalAdultPrice; }
+    public double getExternalAdultPrice() { return externalAdultPrice;}
+    public double getInternalChildPrice() { return internalChildPrice; }
+    public double getExternalChildPrice() { return externalChildPrice; }
 
 
 }

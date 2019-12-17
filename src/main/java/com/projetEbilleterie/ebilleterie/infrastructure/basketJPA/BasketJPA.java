@@ -47,8 +47,8 @@ public class BasketJPA {
 
         List<Eticket> eticketList = etickets.stream()
                 .map(b -> new Eticket(b.getId(),b.getReference(),b.getDescription(),b.getLaw(),
-                        b.isNominatif(),b.getDateValidite(),b.getInternalPrice(),
-                        b.getExternalPrice(), b.getChlidScale(),b.getAdultScale()))
+                        b.isNominatif(),b.getDateValidite(),b.getInternalAdultPrice(),
+                        b.getExternalAdultPrice(), b.getInternalChildPrice(),b.getExternalChildPrice()))
                 .collect(Collectors.toList());
         return new Basket(id, this.quantity, this.status,  eticketList);
     }

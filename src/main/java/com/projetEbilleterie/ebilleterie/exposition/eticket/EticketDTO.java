@@ -17,35 +17,33 @@ public class EticketDTO {
     @JsonProperty
     String dateValidite ;
     @JsonProperty
-     double InternalPrice;
+    double internalAdultPrice;
     @JsonProperty
-    double ExternalPrice;
+    double externalAdultPrice;
     @JsonProperty
-    String chlidScale ;
+    double internalChildPrice ;
     @JsonProperty
-    String adultScale;
+    double externalChildPrice;
 
     //Constructors
    public  EticketDTO(){}
 
     public EticketDTO(String id, String reference, String description, String law,
-                      boolean nominatif, String dateValidite, double internalPrice,
-                      double externalPrice, String chlidScale, String adultScale) {
+                      boolean nominatif, String dateValidite, double internalAdultPrice,
+                      double externalAdultPrice, double internalChildPrice, double externalChildPrice) {
         this.id = id;
         this.reference = reference;
         this.description = description;
         this.law = law;
         this.nominatif = nominatif;
         this.dateValidite = dateValidite;
-        this.InternalPrice = internalPrice;
-        this.ExternalPrice = externalPrice;
-        this.chlidScale = chlidScale;
-        this.adultScale = adultScale;
+        this.internalAdultPrice = internalAdultPrice;
+        this.externalAdultPrice = externalAdultPrice;
+        this.internalChildPrice = internalChildPrice;
+        this.externalChildPrice = externalChildPrice;
     }
 
     //Getter
-
-
 
     public String getId() {
         return id;
@@ -63,16 +61,16 @@ public class EticketDTO {
     public String getDateValidite() {
         return dateValidite;
     }
-    public double getInternalPrice() {
-        return InternalPrice;
+    public double getInternalAdultPrice() {
+        return internalAdultPrice;
     }
-    public double getExternalPrice() {
-        return ExternalPrice;
+    public double getExternalAdultPrice() {
+        return externalAdultPrice;
     }
-    public String getChlidScale() {
-        return chlidScale;
+    public double getInternalChildPrice() {
+        return internalChildPrice;
     }
-    public String getAdultScale() {
-        return adultScale;
+    public double getExternalChildPrice() {
+        return externalChildPrice;
     }
 }

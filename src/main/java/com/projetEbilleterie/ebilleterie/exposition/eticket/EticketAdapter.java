@@ -23,10 +23,10 @@ public class EticketAdapter {
                 eticket.getLaw(),
                 eticket.isNominatif(),
                 eticket.getDateValidite(),
-                eticket.getInternalPrice(),
-                eticket.getExternalPrice(),
-                eticket.getChlidScale(),
-                eticket.getAdultScale()
+                eticket.getInternalAdultPrice(),
+                eticket.getExternalAdultPrice(),
+                eticket.getInternalChildPrice(),
+                eticket.getExternalChildPrice()
         );
     }
 
@@ -39,8 +39,8 @@ public class EticketAdapter {
 
     public static Eticket transformToEticket(EticketDTO eTicketDTO) {
         return new Eticket(null, eTicketDTO.reference, eTicketDTO.description,eTicketDTO.law,eTicketDTO.nominatif,
-                eTicketDTO.dateValidite,eTicketDTO.InternalPrice,eTicketDTO.ExternalPrice,
-                eTicketDTO.chlidScale,eTicketDTO.adultScale);
+                eTicketDTO.dateValidite,eTicketDTO.internalAdultPrice,eTicketDTO.externalAdultPrice,
+                eTicketDTO.internalChildPrice,eTicketDTO.externalChildPrice);
     }
 
 
