@@ -31,7 +31,7 @@ public class ProviderJPA {
     //Constructors
     private ProviderJPA(){}
 
-    public ProviderJPA(Provider provider) {
+    ProviderJPA(Provider provider) {
         this.id = provider.getId();
         this.name = provider.getName();
         this.category = provider.getCategory();
@@ -41,7 +41,8 @@ public class ProviderJPA {
                 .collect(Collectors.toList());
     }
 
-    public Provider toProvider() {
+    // Adapter JPA
+    Provider toProvider() {
 
         List<Eticket> eticketList = etickets.stream()
                 .map(b -> new Eticket(b.getId(),b.getReference(),b.getDescription(),b.getLaw(),

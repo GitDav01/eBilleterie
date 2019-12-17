@@ -27,7 +27,7 @@ public class ProviderRepositoryImpl implements ProviderRepository {
         return providerDAO.findById(id)
                 .map(ProviderJPA::toProvider)
                 .orElseThrow(()
-                -> new MyAppTicketException(ErrorCodes.LIBRARY_NOT_FOUND));
+                -> new MyAppTicketException(ErrorCodes.PROVIDER_NOT_FOUND));
     }
 
     @Override

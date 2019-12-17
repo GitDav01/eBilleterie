@@ -13,7 +13,7 @@ public class Eticket {
     private String adultScale;
 
     // Contructors
-    public Eticket(){};
+    public Eticket(){}
 
        public Eticket(String id, String reference, String description, String law,
                    boolean nominatif, String dateValidite, double internalPrice,
@@ -41,6 +41,26 @@ public class Eticket {
     public double getExternalPrice() {return ExternalPrice;}
     public String getChlidScale() {return chlidScale; }
     public String getAdultScale() {return adultScale; }
+
+
+    // Methode equals, hashcode et to string, notement pour les test d'equals sur l'Id
+
+    @Override public boolean equals(Object obj) {
+        if(obj == null) {return false; }
+        if(!this.getClass().isAssignableFrom(obj.getClass())) {return false; }
+        Eticket that = this.getClass().cast(obj);
+        return that.id.equals(this.id);
+    }
+
+    @Override public int hashCode() {
+        return this.id.hashCode();
+    }
+
+    @Override public String toString() {
+        return String.format("%s{id:%s)", this.getClass().getSimpleName(), id);
+    }
+
+
 }
 
 

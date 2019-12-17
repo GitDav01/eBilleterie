@@ -1,7 +1,6 @@
 package com.projetEbilleterie.ebilleterie.exposition.provider;
 
 import com.projetEbilleterie.ebilleterie.application.ProviderService;
-import com.projetEbilleterie.ebilleterie.domain.provider.Provider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

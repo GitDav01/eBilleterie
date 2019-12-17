@@ -4,5 +4,6 @@ public final class ErrorCodes {
 
     private ErrorCodes() {}
     public static final String NOT_FOUND = "ERR_0001";
-    public static final String LIBRARY_NOT_FOUND = NOT_FOUND + ".1";
+    public static final String PROVIDER_NOT_FOUND = NOT_FOUND + "ERR_0002";
+    public static final String BASKET_NOT_FOUND = NOT_FOUND + "ERR_0012";
 }

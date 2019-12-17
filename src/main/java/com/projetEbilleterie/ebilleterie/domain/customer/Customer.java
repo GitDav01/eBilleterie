@@ -1,6 +1,7 @@
 package com.projetEbilleterie.ebilleterie.domain.customer;
 
 import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
+import com.projetEbilleterie.ebilleterie.domain.provider.Provider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ public class Customer {
     private List<Relative> relatives = new ArrayList<>();
 
     // Constructors
-    public Customer(){};
+    public Customer(){}
     public Customer(String id, String lastname, String firstname, Profil profil,
                     Link link, Basket basket, List<Relative> relatives) {
         this.id = id;
@@ -37,7 +38,22 @@ public class Customer {
     public Basket getBasket() {return basket;}
     public List<Relative> getRelatives() {return relatives;}
 
+// Methode equals, hashcode et to string, notement pour les test d'equals sur l'Id
 
+    @Override public boolean equals(Object obj) {
+        if(obj == null) {return false; }
+        if(!this.getClass().isAssignableFrom(obj.getClass())) {return false; }
+        Customer that = this.getClass().cast(obj);
+        return that.id.equals(this.id);
+    }
+
+    @Override public int hashCode() {
+        return this.id.hashCode();
+    }
+
+    @Override public String toString() {
+        return String.format("%s{id:%s)", this.getClass().getSimpleName(), id);
+    }
 
 }
 

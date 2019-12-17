@@ -18,11 +18,10 @@ public class ProviderApplicationTests {
         Provider p1 =new Provider("1", "name1", Category.CINEMA,null);
         Provider p2 =new Provider("1", "name2", Category.CONCERT,null);
 
-        Assert.assertNotEquals(p1, p2);
+        Assert.assertEquals(p1, p2);
     }
 
     @Test
     public void value_objets_should_be_equal_if_same_properties(){
-
     }
 }
