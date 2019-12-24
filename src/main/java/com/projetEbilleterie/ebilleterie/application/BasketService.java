@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Transactional
 @Service
 public class BasketService {
@@ -13,10 +15,10 @@ public class BasketService {
     @Autowired
     private BasketRepository basketRepository;
 
-    public Basket obtainBasket(String id) {
-        return this.basketRepository.getBasket(id);
-    }
+    public Basket obtainBasket(String id) {return this.basketRepository.getBasket(id); }
     public String createBasket(Basket newBasket) {
         return this.basketRepository.saveBasket(newBasket);
     }
+    public List<Basket> listAllBasket() { return this.basketRepository.findAllBasket();}
+
 }

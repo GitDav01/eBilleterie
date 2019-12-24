@@ -1,7 +1,7 @@
 package com.projetEbilleterie.ebilleterie.domain.customer;
 
 import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
-import com.projetEbilleterie.ebilleterie.domain.provider.Provider;
+import com.projetEbilleterie.ebilleterie.domain.relative.Relative;
 
 import java.util.ArrayList;
 import java.util.List;

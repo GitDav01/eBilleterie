@@ -10,23 +10,19 @@ public class Provider {
     private String id;
     private String name;
     private Category category;
-    private List<Eticket> etickets = new ArrayList<>();
 
     //Cosntructors
     public Provider() {}
-    public Provider(String id, String name, Category category,
-                    List<Eticket> etickets) {
+    public Provider(String id, String name, Category category) {
         this.id = id;
         this.name = name;
         this.category = category;
-        this.etickets = etickets;
-    }
+       }
 
     //Getter
     public String getId() {return id;}
     public String getName() {return name; }
     public Category getCategory() {return category; }
-    public List<Eticket> getEtickets() { return etickets; }
 
     // Methode equals, hashcode et to string, notement pour les test d'equals sur l'Id
 

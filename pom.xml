@@ -10,7 +10,7 @@
 
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.bnpparibas.itg.projetEbilleterie</groupId>
+    <groupId>com.projetEbilleterie</groupId>
     <artifactId>ebilleterie</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>ebilleterie</name>

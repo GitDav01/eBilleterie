@@ -3,7 +3,6 @@ package com.projetEbilleterie.ebilleterie.infrastructure.basketJPA;
 
 import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
 import com.projetEbilleterie.ebilleterie.domain.eticket.Eticket;
-
 import com.projetEbilleterie.ebilleterie.infrastructure.eticketJPA.EticketJPA;
 
 import javax.persistence.*;
@@ -32,7 +31,7 @@ public class BasketJPA {
     //Constructors
     public BasketJPA(){}
 
-    BasketJPA(Basket basket) {
+    BasketJPA(Basket basket) {    // faux à completer pour le customer
         this.id = basket.getId();
         this.quantity = basket.getQuantity();
         this.status = basket.isStatus();
@@ -45,12 +44,12 @@ public class BasketJPA {
     //Adapter JPA
     Basket toBasket() {
 
-        List<Eticket> eticketList = etickets.stream()
-                .map(b -> new Eticket(b.getId(),b.getReference(),b.getDescription(),b.getLaw(),
-                        b.isNominatif(),b.getDateValidite(),b.getInternalAdultPrice(),
-                        b.getExternalAdultPrice(), b.getInternalChildPrice(),b.getExternalChildPrice()))
+        List<Eticket> eticketList = etickets.stream()    // Faux à compléter pour le customer
+                .map(b -> new Eticket(b.getId(),b.getCategory(),b.getReference(),b.getDescription(),b.getLaw(),
+                        b.isNominative(),b.getValidityDate(),b.getTypePrice(),
+                        b.getPrice(), b.getStock(),b.getLogo()))
                 .collect(Collectors.toList());
-        return new Basket(id, this.quantity, this.status,  eticketList);
+        return new Basket(id, this.quantity, this.status, eticketList);
     }
 
     // Getter

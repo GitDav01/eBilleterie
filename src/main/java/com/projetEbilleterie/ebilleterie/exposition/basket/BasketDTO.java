@@ -1,9 +1,7 @@
 package com.projetEbilleterie.ebilleterie.exposition.basket;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import com.projetEbilleterie.ebilleterie.exposition.eticket.EticketDTO;
-
 import java.util.List;
 
 public class BasketDTO {

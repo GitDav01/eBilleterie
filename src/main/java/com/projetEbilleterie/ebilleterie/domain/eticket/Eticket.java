@@ -2,46 +2,48 @@ package com.projetEbilleterie.ebilleterie.domain.eticket;
 
 public class Eticket {
     private String id;
+    private Category category;
     private String reference;
     private String description;
     private String  law;
-    private boolean nominatif;
-    private String dateValidite ;
-    private double internalAdultPrice;
-    private double externalAdultPrice;
-    private double internalChildPrice;
-    private double externalChildPrice;
+    private boolean nominative;
+    private String validityDate ;
+    private TypePrice typePrice;
+    private double price;
+    private int stock;
+    private String  logo;
 
     // Contructors
     public Eticket(){}
 
-       public Eticket(String id, String reference, String description, String law,
-                   boolean nominatif, String dateValidite, double internalAdultPrice,
-                   double externalAdultPrice, double internalChildPrice, double externalChildPrice) {
+       public Eticket(String id, Category category,String reference, String description, String law,
+                      boolean nominative, String validityDate, TypePrice typePrice,
+                      double price, int stock,String  logo) {
         this.id = id;
+        this.category= category;
         this.reference = reference;
         this.description = description;
         this.law = law;
-        this.nominatif = nominatif;
-        this.dateValidite = dateValidite;
-        this.internalAdultPrice = internalAdultPrice;
-        this.externalAdultPrice = externalAdultPrice;
-        this.internalChildPrice = internalChildPrice;
-        this.externalChildPrice = externalChildPrice;
+        this.nominative = nominative;
+        this.validityDate = validityDate;
+        this.typePrice = typePrice;
+        this.price = price;
+        this.stock = stock;
+        this.logo = logo;
     }
 
     //Getter
     public String getId() { return id; }
+    public Category getCategory() {return category; }
     public String getReference() {return reference;}
     public String getDescription() { return description; }
     public String getLaw() { return law; }
-    public boolean isNominatif() { return nominatif; }
-    public String getDateValidite() {return dateValidite; }
-    public double getInternalAdultPrice() {return internalAdultPrice;}
-    public double getExternalAdultPrice() {return externalAdultPrice;}
-    public double getInternalChildPrice() {return internalChildPrice; }
-    public double getExternalChildPrice() {return externalChildPrice; }
-
+    public boolean isNominative() { return nominative; }
+    public String getValidityDate() {return validityDate; }
+    public TypePrice getTypePrice() {return typePrice;}
+    public double getPrice() {return price;}
+    public int getStock() {return stock; }
+    public String getLogo() { return logo; }
 
     // Methode equals, hashcode et to string, notement pour les test d'equals sur l'Id
 

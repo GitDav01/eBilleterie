@@ -1,5 +1,6 @@
 package com.projetEbilleterie.ebilleterie.domain.basket;
 
+import com.projetEbilleterie.ebilleterie.domain.customer.Customer;
 import com.projetEbilleterie.ebilleterie.domain.eticket.Eticket;
 import com.projetEbilleterie.ebilleterie.domain.provider.Provider;
 

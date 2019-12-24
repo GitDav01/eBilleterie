@@ -1,6 +1,9 @@
 package com.projetEbilleterie.ebilleterie.exposition.eticket;
 
+import com.projetEbilleterie.ebilleterie.domain.customer.Customer;
 import com.projetEbilleterie.ebilleterie.domain.eticket.Eticket;
+import com.projetEbilleterie.ebilleterie.exposition.customer.CustomerAdapter;
+import com.projetEbilleterie.ebilleterie.exposition.customer.CustomerDTO;
 import com.projetEbilleterie.ebilleterie.exposition.provider.ProviderAdapter;
 
 import java.util.ArrayList;
@@ -18,15 +21,16 @@ public class EticketAdapter {
     public static EticketDTO adaptToEticketDTO(Eticket eticket) {
         return new EticketDTO(
                 eticket.getId(),
+                eticket.getCategory(),
                 eticket.getReference(),
                 eticket.getDescription(),
                 eticket.getLaw(),
-                eticket.isNominatif(),
-                eticket.getDateValidite(),
-                eticket.getInternalAdultPrice(),
-                eticket.getExternalAdultPrice(),
-                eticket.getInternalChildPrice(),
-                eticket.getExternalChildPrice()
+                eticket.isNominative(),
+                eticket.getValidityDate(),
+                eticket.getTypePrice(),
+                eticket.getPrice(),
+                eticket.getStock(),
+                eticket.getLogo()
         );
     }
 
@@ -38,10 +42,12 @@ public class EticketAdapter {
     }
 
     public static Eticket transformToEticket(EticketDTO eTicketDTO) {
-        return new Eticket(null, eTicketDTO.reference, eTicketDTO.description,eTicketDTO.law,eTicketDTO.nominatif,
-                eTicketDTO.dateValidite,eTicketDTO.internalAdultPrice,eTicketDTO.externalAdultPrice,
-                eTicketDTO.internalChildPrice,eTicketDTO.externalChildPrice);
+        return new Eticket(null, eTicketDTO.category,eTicketDTO.reference, eTicketDTO.description,eTicketDTO.law,eTicketDTO.nominative,
+                eTicketDTO.validityDate,eTicketDTO.typePrice,eTicketDTO.price,
+                eTicketDTO.stock,eTicketDTO.logo);
     }
-
+    static List<EticketDTO> adaptToEticketDTOList(List<Eticket> etickets) {
+        return etickets.stream().map(EticketAdapter::adaptToEticketDTO).collect(Collectors.toList());
+    }
 
 }

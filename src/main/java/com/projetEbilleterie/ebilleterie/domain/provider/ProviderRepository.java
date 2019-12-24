@@ -5,7 +5,6 @@ import java.util.List;
 public interface ProviderRepository {
 
     String save(Provider newProvider);
-    Provider get(String id);
+    Provider get(String id) ;
     List<Provider> findAll();
-
 }

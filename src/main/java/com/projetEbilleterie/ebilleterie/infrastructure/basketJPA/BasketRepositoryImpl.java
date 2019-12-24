@@ -8,6 +8,8 @@ import com.projetEbilleterie.ebilleterie.domain.exception.MyAppTicketException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class BasketRepositoryImpl implements BasketRepository {
 
@@ -26,5 +28,10 @@ public class BasketRepositoryImpl implements BasketRepository {
                 .map(BasketJPA::toBasket)
                 .orElseThrow(()
                 -> new MyAppTicketException(ErrorCodes.BASKET_NOT_FOUND));
+    }
+
+    @Override
+    public List<Basket> findAllBasket() {
+        return null;
     }
 }

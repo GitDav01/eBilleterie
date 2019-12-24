@@ -6,13 +6,13 @@ import java.util.List;
 public class Link {
     // Attributs
     private String email;
-    private List<String> phoneNumber = new ArrayList<>();
+    private String phoneNumber;
     private Adress adress;
 
     //Cosntructors
-    public Link() {};
+    public Link() {}
 
-    public Link(String email, List<String> phoneNumber, Adress adress) {
+    public Link(String email, String phoneNumber, Adress adress) {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.adress = adress;
@@ -20,8 +20,8 @@ public class Link {
 
     //Getter
     public String getEmail() { return email; }
-    public List<String> getPhoneNumber() { return phoneNumber; }
-    public Adress getAdress() {return adress; }
+    public String getPhoneNumber() {return phoneNumber;}
+    public Adress getAdress() {return adress;}
 
     //Méthodes primales
     @Override

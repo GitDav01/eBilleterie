@@ -1,11 +1,15 @@
 package com.projetEbilleterie.ebilleterie.exposition.eticket;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.projetEbilleterie.ebilleterie.domain.eticket.Category;
+import com.projetEbilleterie.ebilleterie.domain.eticket.TypePrice;
 
 public class EticketDTO {
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     String id;
+    @JsonProperty
+    Category category;
     @JsonProperty
     String reference;
     @JsonProperty
@@ -13,34 +17,35 @@ public class EticketDTO {
     @JsonProperty
     String  law;
     @JsonProperty
-    boolean nominatif;
+    boolean nominative;
     @JsonProperty
-    String dateValidite ;
+    String validityDate ;
     @JsonProperty
-    double internalAdultPrice;
+    TypePrice typePrice;
     @JsonProperty
-    double externalAdultPrice;
+    double price;
     @JsonProperty
-    double internalChildPrice ;
+    int stock ;
     @JsonProperty
-    double externalChildPrice;
+    String  logo;
 
     //Constructors
    public  EticketDTO(){}
 
-    public EticketDTO(String id, String reference, String description, String law,
-                      boolean nominatif, String dateValidite, double internalAdultPrice,
-                      double externalAdultPrice, double internalChildPrice, double externalChildPrice) {
+    public EticketDTO(String id, Category category, String reference, String description, String law,
+                      boolean nominative, String validityDate, TypePrice typePrice,
+                      double price, int stock,  String  logo) {
         this.id = id;
+        this.category = category;
         this.reference = reference;
         this.description = description;
         this.law = law;
-        this.nominatif = nominatif;
-        this.dateValidite = dateValidite;
-        this.internalAdultPrice = internalAdultPrice;
-        this.externalAdultPrice = externalAdultPrice;
-        this.internalChildPrice = internalChildPrice;
-        this.externalChildPrice = externalChildPrice;
+        this.nominative = nominative;
+        this.validityDate = validityDate;
+        this.typePrice = typePrice;
+        this.price = price;
+        this.stock = stock;
+        this.logo = logo;
     }
 
     //Getter
@@ -48,6 +53,7 @@ public class EticketDTO {
     public String getId() {
         return id;
     }
+    public Category getCategory() {return category;}
     public String getReference() { return reference; }
     public String getDescription() {
         return description;
@@ -55,22 +61,23 @@ public class EticketDTO {
     public String getLaw() {
         return law;
     }
-    public boolean isNominatif() {
-        return nominatif;
+    public boolean isNominative() {
+        return nominative;
     }
-    public String getDateValidite() {
-        return dateValidite;
+    public String getValidityDate() {
+        return validityDate;
     }
-    public double getInternalAdultPrice() {
-        return internalAdultPrice;
+    public TypePrice getTypePrice() {
+        return typePrice;
     }
-    public double getExternalAdultPrice() {
-        return externalAdultPrice;
+    public double getPrice() {
+        return price;
     }
-    public double getInternalChildPrice() {
-        return internalChildPrice;
+    public int getStock() {
+        return stock;
     }
-    public double getExternalChildPrice() {
-        return externalChildPrice;
+    public String getLogo() {
+        return logo;
     }
+
 }

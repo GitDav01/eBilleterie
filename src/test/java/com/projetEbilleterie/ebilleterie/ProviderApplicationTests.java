@@ -15,8 +15,8 @@ public class ProviderApplicationTests {
     @Test
     public void entities_should_be_equal_if_same_identity() {
 
-        Provider p1 =new Provider("1", "name1", Category.CINEMA,null);
-        Provider p2 =new Provider("1", "name2", Category.CONCERT,null);
+        Provider p1 =new Provider("1", "name1", Category.CINEMA);
+        Provider p2 =new Provider("1", "name2", Category.CONCERT);
 
         Assert.assertEquals(p1, p2);
     }

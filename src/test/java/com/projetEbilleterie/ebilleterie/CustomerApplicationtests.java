@@ -16,9 +16,9 @@ public class CustomerApplicationtests {
     @Test
     public void entities_should_be_equal_if_same_identity() {
 
-        Customer c1 =new Customer("1", "lastname1","firstname1", Profil.EXTERNE,
+        Customer c1 =new Customer("1", "lastname1","firstname1", Profil.EXTERNAL,
                 null,null,null);
-        Customer c2 =new Customer("1", "lastname2","firstname2", Profil.INTERNE,
+        Customer c2 =new Customer("1", "lastname2","firstname2", Profil.INTERNAL,
                 null,null,null);
 
 

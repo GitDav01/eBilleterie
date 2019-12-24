@@ -1,8 +1,6 @@
 package com.projetEbilleterie.ebilleterie.exposition.provider;
 
 import com.projetEbilleterie.ebilleterie.domain.provider.Provider;
-import com.projetEbilleterie.ebilleterie.exposition.eticket.EticketAdapter;
-
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -15,9 +13,8 @@ public final class ProviderAdapter {
         return new ProviderDTO(
                 provider.getId(),
                 provider.getName(),
-                provider.getCategory(),
-                EticketAdapter.adaptToEticketListDTO(provider.getEtickets())
-                );
+                provider.getCategory()
+        );
     }
 
     static List<ProviderDTO> adaptToProviderDTOList(List<Provider> providers) {
@@ -25,9 +22,8 @@ public final class ProviderAdapter {
     }
 
     static Provider transformToProvider(ProviderDTO providerDTO) {
-
         String id = (providerDTO.id == null || providerDTO.id.trim().equals(""))? UUID.randomUUID().toString() : providerDTO.id;
-        return new Provider(id,providerDTO.name,providerDTO.category,EticketAdapter.transformToEticketList(providerDTO.etickets));
+        return new Provider(id,providerDTO.name,providerDTO.category);
     }
 
 
