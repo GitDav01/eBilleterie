@@ -11,14 +11,15 @@ public class Eticket {
     private TypePrice typePrice;
     private double price;
     private int stock;
-    private String  logo;
+    private String  image;
+    private String provider;
 
     // Contructors
     public Eticket(){}
 
        public Eticket(String id, Category category,String reference, String description, String law,
                       boolean nominative, String validityDate, TypePrice typePrice,
-                      double price, int stock,String  logo) {
+                      double price, int stock,String  image, String provider) {
         this.id = id;
         this.category= category;
         this.reference = reference;
@@ -29,7 +30,8 @@ public class Eticket {
         this.typePrice = typePrice;
         this.price = price;
         this.stock = stock;
-        this.logo = logo;
+        this.image = image;
+        this.provider = provider;
     }
 
     //Getter
@@ -43,7 +45,8 @@ public class Eticket {
     public TypePrice getTypePrice() {return typePrice;}
     public double getPrice() {return price;}
     public int getStock() {return stock; }
-    public String getLogo() { return logo; }
+    public String getImage() { return image; }
+    public String getProvider() { return provider; }
 
     // Methode equals, hashcode et to string, notement pour les test d'equals sur l'Id
 

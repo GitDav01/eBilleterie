@@ -32,8 +32,10 @@ public class EticketJPA {
     private double price;
     @Column(name = "STOCK")
     private int stock ;
-    @Column(name = "LOGO")
-    private String  logo;
+    @Column(name = "IMAGE")
+    private String  image;
+    @Column(name = "PROVIDER")
+    private String  provider;
 
     //Constructors
     public EticketJPA(){}
@@ -49,14 +51,15 @@ public class EticketJPA {
         this.typePrice = eticket.getTypePrice() ;
         this.price = eticket.getPrice();
         this.stock = eticket.getStock();
-        this.logo = eticket.getLogo();
+        this.image = eticket.getImage();
+        this.provider = eticket.getProvider();
     }
 
     // Adapter JPA
     Eticket toEticket() {
         return new Eticket(id, this.category,  this.reference, this.description,
                 this.law,  this.nominative,  this.validityDate, this.typePrice,
-                this.price , this.stock, this.logo );
+                this.price , this.stock, this.image,this.provider );
     }
 
     //Getter
@@ -70,6 +73,7 @@ public class EticketJPA {
     public TypePrice getTypePrice() {return typePrice; }
     public double getPrice() { return price;}
     public int getStock() { return stock; }
-    public String getLogo() { return logo;}
+    public String getImage() { return image;}
+    public String getProvider() { return provider;}
 
 }

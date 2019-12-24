@@ -3,13 +3,19 @@ package com.projetEbilleterie.ebilleterie.exposition.eticket;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.projetEbilleterie.ebilleterie.domain.eticket.Category;
 import com.projetEbilleterie.ebilleterie.domain.eticket.TypePrice;
+import com.projetEbilleterie.ebilleterie.domain.exception.ErrorCodes;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class EticketDTO {
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     String id;
+    @NotNull(message = ErrorCodes.ETICKET_MUST_HAVE_A_CATEGORY)
     @JsonProperty
     Category category;
+    @NotBlank(message = ErrorCodes.ETICKET_MUST_HAVE_A_REFERENCE)
     @JsonProperty
     String reference;
     @JsonProperty
@@ -27,14 +33,16 @@ public class EticketDTO {
     @JsonProperty
     int stock ;
     @JsonProperty
-    String  logo;
+    String  image;
+    @JsonProperty
+    String  provider;
 
     //Constructors
    public  EticketDTO(){}
 
     public EticketDTO(String id, Category category, String reference, String description, String law,
                       boolean nominative, String validityDate, TypePrice typePrice,
-                      double price, int stock,  String  logo) {
+                      double price, int stock,  String  image, String  provider) {
         this.id = id;
         this.category = category;
         this.reference = reference;
@@ -45,11 +53,11 @@ public class EticketDTO {
         this.typePrice = typePrice;
         this.price = price;
         this.stock = stock;
-        this.logo = logo;
+        this.image = image;
+        this.provider = provider;
     }
 
     //Getter
-
     public String getId() {
         return id;
     }
@@ -76,8 +84,7 @@ public class EticketDTO {
     public int getStock() {
         return stock;
     }
-    public String getLogo() {
-        return logo;
-    }
+    public String getImage() {return image;}
+    public String getProvider() {return provider;}
 
 }

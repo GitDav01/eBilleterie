@@ -30,7 +30,8 @@ public class EticketAdapter {
                 eticket.getTypePrice(),
                 eticket.getPrice(),
                 eticket.getStock(),
-                eticket.getLogo()
+                eticket.getImage(),
+                eticket.getProvider()
         );
     }
 
@@ -44,7 +45,7 @@ public class EticketAdapter {
     public static Eticket transformToEticket(EticketDTO eTicketDTO) {
         return new Eticket(null, eTicketDTO.category,eTicketDTO.reference, eTicketDTO.description,eTicketDTO.law,eTicketDTO.nominative,
                 eTicketDTO.validityDate,eTicketDTO.typePrice,eTicketDTO.price,
-                eTicketDTO.stock,eTicketDTO.logo);
+                eTicketDTO.stock,eTicketDTO.image,eTicketDTO.provider);
     }
     static List<EticketDTO> adaptToEticketDTOList(List<Eticket> etickets) {
         return etickets.stream().map(EticketAdapter::adaptToEticketDTO).collect(Collectors.toList());
