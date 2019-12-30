@@ -43,7 +43,6 @@ public class BasketJPA {
 
     //Adapter JPA
     Basket toBasket() {
-
         List<Eticket> eticketList = etickets.stream()    // Faux à compléter pour le customer
                 .map(b -> new Eticket(b.getId(),b.getCategory(),b.getReference(),b.getDescription(),b.getLaw(),
                         b.isNominative(),b.getValidityDate(),b.getTypePrice(),

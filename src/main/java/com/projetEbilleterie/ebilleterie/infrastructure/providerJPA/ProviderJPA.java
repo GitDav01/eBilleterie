@@ -22,7 +22,7 @@ public class ProviderJPA {
     private Category category;
 
       //Constructors
-    private ProviderJPA(){}
+    public ProviderJPA(){}
 
     ProviderJPA(Provider provider) {
         this.id = provider.getId();

@@ -1,9 +1,14 @@
 package com.projetEbilleterie.ebilleterie.infrastructure.customerJPA;
 
+import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
+import com.projetEbilleterie.ebilleterie.domain.customer.Adress;
 import com.projetEbilleterie.ebilleterie.domain.customer.Customer;
 import com.projetEbilleterie.ebilleterie.domain.customer.Profil;
+import com.projetEbilleterie.ebilleterie.domain.eticket.Eticket;
+import com.projetEbilleterie.ebilleterie.domain.relative.Relative;
 import com.projetEbilleterie.ebilleterie.infrastructure.RelativeJPA.RelativeJPA;
 import com.projetEbilleterie.ebilleterie.infrastructure.basketJPA.BasketJPA;
+import com.projetEbilleterie.ebilleterie.infrastructure.eticketJPA.EticketJPA;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -21,59 +26,92 @@ public class CustomerJPA {
     private String lastname;
     @Column(name = "FIRSTNAME")
     private String firstname;
+    @Enumerated(EnumType.STRING)
     @Column(name = "PROFILE")
     private Profil profil;
     @Column(name = "EMAIL")
-    private String linkEmail;
+    private String email;
     @Column(name = "PHONE_NUMBER")
-    private String linkPhoneNumber;
-    @Column(name = "NUMBER")
-    private int linkNumber;
-    @Column(name = "STREET")
-    private String linkSreet;
-    @Column(name = "POSTAL_CODE")
-    private int linkPostalCode;
-    @Column(name = "CITY")
-    private String linkCity;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "BASKET_ID", referencedColumnName = "ID")
-    private BasketJPA basket;
+    private String phoneNumber;
+    @Column(name = "ADDRESS_NUMBER")
+    private int adressNumber;
+    @Column(name = "ADDRESS_STREET")
+    private String adressSreet;
+    @Column(name = "ADDRESS_POSTAL_CODE")
+    private int adressPostalCode;
+    @Column(name = "ADDRESS_CITY")
+    private String adressCity;
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
     @JoinColumn(name="CUSTOMER_ID", referencedColumnName = "ID")
     private List<RelativeJPA> relatives = new ArrayList<>() ;
+    @Column(name = "PASSWORD")
+    private String password;
+  // @OneToMany(cascade = CascadeType.ALL)
+  //  @JoinColumn(name = "CUSTOMER_ID", referencedColumnName = "ID")
+  //  private List<BasketJPA> baskets = new ArrayList<>() ;
 
     //Constructors
     public CustomerJPA(){}
 
-    public CustomerJPA(Customer customer) {
+    CustomerJPA(Customer customer) {
         this.id = customer.getId();
         this.lastname = customer.getLastname();
         this.firstname = customer.getFirstname();
         this.profil = customer.getProfil();
-        this.linkEmail = customer.getLink().getEmail();
-        this.linkPhoneNumber = customer.getLink().getPhoneNumber();
-        this.linkNumber = customer.getLink().getAdress().getNumber();
-        this.linkSreet = customer.getLink().getAdress().getStreet();
-        this.linkPostalCode = customer.getLink().getAdress().getPostalCode();
-        this.linkCity = customer.getLink().getAdress().getCity();
-     //   this.basket = customer.getBasket();
+        this.email = customer.getEmail();
+        this.phoneNumber = customer.getPhoneNumber();
+        this.adressNumber = customer.getAdress().getNumber();
+        this.adressSreet = customer.getAdress().getStreet();
+        this.adressPostalCode = customer.getAdress().getPostalCode();
+        this.adressCity = customer.getAdress().getCity();
         this.relatives = customer.getRelatives()
-                .stream()
-                .map(RelativeJPA::new)
-                .collect(Collectors.toList());
+                        .stream()
+                        .map(RelativeJPA::new)
+                        .collect(Collectors.toList());
+        this.password = customer.getPassword();
+    //         this.baskets = customer.getBaskets()
+    //                .stream()
+    //                .map(BasketJPA::new)
+    //                .collect(Collectors.toList());
     }
+
+    //Adapter JPA
+    Customer toCustomer() {
+        List<Relative> relativeList = relatives.stream()    // Faux à compléter pour le customer
+                .map(b -> new Relative(b.getId(),b.getLastname(),b.getFirstname(),b.getEmail(),b.getPhoneNumber()))
+                .collect(Collectors.toList());
+
+ //       List<Basket> basketList = baskets.stream()    // Faux à compléter pour le customer
+ //               .map(b -> new Basket(b.getId(),b.getQuantity(),b.isStatus(),listEtickets(b.getEtickets())))
+ //               .collect(Collectors.toList());
+        Adress adress = new Adress(this.adressNumber, this.adressSreet, this.adressPostalCode, this.adressCity);
+        return new Customer(id, this.lastname,this.firstname,this.profil,this.email,
+                            this.phoneNumber,adress,relativeList,password/* ,basketList */);
+    }
+
+    private List<Eticket> listEtickets(List<EticketJPA> etickets) {
+        List<Eticket> eticketList = etickets
+                .stream()
+                .map(b -> new Eticket(b.getId(),b.getCategory(),b.getReference(),b.getDescription(),b.getLaw(),
+                        b.isNominative(),b.getValidityDate(),b.getTypePrice(),
+                        b.getPrice(), b.getStock(),b.getImage(),b.getProvider()))
+                .collect(Collectors.toList());
+        return eticketList;
+    }
+
 
     //Getter
     public String getId() {return id;}
     public String getLastname() {return lastname;}
     public String getFirstname() {return firstname;}
     public Profil getProfil() {return profil;}
-    public String getLinkEmail() {return linkEmail;}
-    public String getLinkPhoneNumber() { return linkPhoneNumber;}
-    public int geLinktNumber() { return linkNumber;}
-    public String getLinkStreet() {return linkSreet;}
-    public int getLinkPostalCode() {return linkPostalCode;}
-    public String getLinkCity() {return linkCity;}
-    public BasketJPA getBasket() {return basket;}
+    public String getEmail() {return email;}
+    public String getPhoneNumber() { return phoneNumber;}
+    public int getAdressNumber() { return adressNumber;}
+    public String getAdressStreet() {return adressSreet;}
+    public int getAdressPostalCode() {return adressPostalCode;}
+    public String getAadressCity() {return adressCity;}
     public List<RelativeJPA> getRelatives() { return relatives;}
+    public String getPassword() {return password;}
+ //   public List<BasketJPA> getBaskets() {return baskets;}
 }

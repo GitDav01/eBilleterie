@@ -16,9 +16,12 @@ public class CustomerAdapter {
                 customer.getLastname(),
                 customer.getFirstname(),
                 customer.getProfil(),
-                customer.getLink(),
-                customer.getBasket(),
-                customer.getRelatives()
+                customer.getEmail(),
+                customer.getPhoneNumber(),
+                customer.getAdress(),
+                customer.getRelatives(),
+                customer.getPassword()
+                //,customer.getBaskets()
         );
     }
     static Customer transformToCustomer(CustomerDTO customerDTO) {

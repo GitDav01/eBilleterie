@@ -1,33 +1,31 @@
 package com.projetEbilleterie.ebilleterie.domain.relative;
 
-import com.projetEbilleterie.ebilleterie.domain.customer.Customer;
-import com.projetEbilleterie.ebilleterie.domain.customer.Link;
-
 public class Relative {
     //Attributs
     private String id;
     private String lastname;
     private String firstname;
-    private Link link;
-    private Customer customer;
+    private String email;
+    private String phoneNumber;
+
 
     // Constructors
     public Relative() {}
 
-    public Relative(String id, String lastname, String firstname, Link link,Customer customer) {
+    public Relative(String id, String lastname, String firstname, String email, String phoneNumber) {
         this.id = id;
         this.lastname = lastname;
         this.firstname = firstname;
-        this.link = link;
-        this.customer = customer;
-    }
+        this.email = email;
+        this.phoneNumber=phoneNumber;
+        }
 
     //Getter
     public String getId() {return id; }
     public String getLastname() { return lastname; }
     public String getFirstname() {return firstname; }
-    public Link getLink() {return link; }
-    public Customer getCustomer() {return customer; }
+    public String getEmail() {return email; }
+    public String getPhoneNumber() {return phoneNumber; }
 
     // Methode equals, hashcode et to string, notement pour les test d'equals sur l'Id
 

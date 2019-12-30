@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class BasketRepositoryImpl implements BasketRepository {
@@ -32,6 +33,9 @@ public class BasketRepositoryImpl implements BasketRepository {
 
     @Override
     public List<Basket> findAllBasket() {
-        return null;
+        return basketDAO.findAll()
+                .stream()
+                .map(BasketJPA::toBasket)
+                .collect(Collectors.toList());
     }
 }

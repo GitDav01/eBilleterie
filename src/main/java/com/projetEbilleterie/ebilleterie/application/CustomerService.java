@@ -16,6 +16,6 @@ public class CustomerService {
     private CustomerRepository customerRepository;
 
     public Customer obtainCustomer(String id) { return this.customerRepository.getCustomer(id); }
-    public String createCustomer(Customer newCustomer) { return this.customerRepository.saveCustomer(newCustomer);    }
+    public String createCustomer(Customer newCustomer) { return this.customerRepository.saveCustomer(newCustomer);}
     public List<Customer> listAllCustomer() { return this.customerRepository.findAllCustomer();}
 }

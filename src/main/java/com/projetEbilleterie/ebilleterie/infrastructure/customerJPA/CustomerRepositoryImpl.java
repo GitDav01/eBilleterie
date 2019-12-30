@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class CustomerRepositoryImpl implements CustomerRepository {
@@ -19,16 +20,20 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public Customer getCustomer(String id) {
-    return null;
+        return customerDAO.findById(id)
+                .map(CustomerJPA::toCustomer)
+                .orElseThrow(()
+                -> new MyAppTicketException(ErrorCodes.CUSTOMER_NOT_FOUND));
     }
 
     @Override
     public String saveCustomer(Customer customer) {
-      return null;
+        CustomerJPA customerJPA = customerDAO.save(new CustomerJPA(customer));
+        return customerJPA.getId();
     }
 
-    @Override
+    @Override // inutile dans les uses cases
     public List<Customer> findAllCustomer() {
-        return null;
+      return null;
     }
 }

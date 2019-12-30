@@ -5,6 +5,7 @@ import com.projetEbilleterie.ebilleterie.domain.eticket.Eticket;
 import com.projetEbilleterie.ebilleterie.domain.eticket.TypePrice;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity(name = "ETICKET")
 public class EticketJPA {
@@ -17,6 +18,7 @@ public class EticketJPA {
     private Category category;
     @Column(name = "REFERENCE")
     private String reference;
+    @Size(max = 1337)
     @Column(name = "DESCRIPTION")
     private String description;
     @Column(name = "LAW")

@@ -16,8 +16,8 @@ public class RelativeService {
     RelativeRepository relativeRepository;
 
     public Relative obtainRelative(String id) {return this.relativeRepository.getRelative(id); }
-    public String createRelative(Relative newEticket) {
-        return this.relativeRepository.saveRelative(newEticket);
+    public String createRelative(Relative newRelative) {
+        return this.relativeRepository.saveRelative(newRelative);
     }
     public List<Relative> listAllRelative() {
         return this.relativeRepository.findAllRelative();
