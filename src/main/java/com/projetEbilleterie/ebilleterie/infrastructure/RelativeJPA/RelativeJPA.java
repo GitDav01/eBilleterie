@@ -6,6 +6,7 @@ import com.projetEbilleterie.ebilleterie.domain.relative.Relative;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
 public class RelativeJPA {
 
     @Id
-    //@GeneratedValue()
+    @GeneratedValue()
     @Column(name = "ID")
     private String id;
     @Column(name = "LASTNAME")

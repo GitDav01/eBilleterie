@@ -7,7 +7,6 @@ import com.projetEbilleterie.ebilleterie.domain.customer.Profil;
 import com.projetEbilleterie.ebilleterie.domain.eticket.Eticket;
 import com.projetEbilleterie.ebilleterie.domain.relative.Relative;
 import com.projetEbilleterie.ebilleterie.infrastructure.RelativeJPA.RelativeJPA;
-import com.projetEbilleterie.ebilleterie.infrastructure.basketJPA.BasketJPA;
 import com.projetEbilleterie.ebilleterie.infrastructure.eticketJPA.EticketJPA;
 
 import javax.persistence.*;
@@ -19,7 +18,7 @@ import java.util.stream.Collectors;
 public class CustomerJPA {
 
     @Id
-    //@GeneratedValue()
+    @GeneratedValue()
     @Column(name = "ID")
     private String id;
     @Column(name = "NAME")
@@ -41,7 +40,7 @@ public class CustomerJPA {
     private int adressPostalCode;
     @Column(name = "ADDRESS_CITY")
     private String adressCity;
-    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="CUSTOMER_ID", referencedColumnName = "ID")
     private List<RelativeJPA> relatives = new ArrayList<>() ;
     @Column(name = "PASSWORD")
@@ -84,7 +83,7 @@ public class CustomerJPA {
  //       List<Basket> basketList = baskets.stream()    // Faux à compléter pour le customer
  //               .map(b -> new Basket(b.getId(),b.getQuantity(),b.isStatus(),listEtickets(b.getEtickets())))
  //               .collect(Collectors.toList());
-        Adress adress = new Adress(this.adressNumber, this.adressSreet, this.adressPostalCode, this.adressCity);
+        Adress adress = new Adress(adressNumber, adressSreet, adressPostalCode, adressCity);
         return new Customer(id, this.lastname,this.firstname,this.profil,this.email,
                             this.phoneNumber,adress,relativeList,password/* ,basketList */);
     }

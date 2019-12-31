@@ -59,5 +59,5 @@ public class CustomerDTO {
     public Adress getAdress() {return adress;}
     public List<Relative> getRelatives() {return relatives;}
     public String getPassword() {return password;}
-   // public List<Basket> getBaskets() {return baskets;}
+   //  public List<Basket> getBaskets() {return baskets;}
 }

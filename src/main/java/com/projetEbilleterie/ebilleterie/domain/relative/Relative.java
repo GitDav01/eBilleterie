@@ -20,6 +20,13 @@ public class Relative {
         this.phoneNumber=phoneNumber;
         }
 
+    public void update(Relative relativeWithNewInformation) {
+        this.lastname = relativeWithNewInformation.getLastname();
+        this.firstname = relativeWithNewInformation.getFirstname();
+        this.email = relativeWithNewInformation.getEmail();
+        this.phoneNumber= relativeWithNewInformation.getPhoneNumber();
+    }
+
     //Getter
     public String getId() {return id; }
     public String getLastname() { return lastname; }
@@ -27,11 +34,13 @@ public class Relative {
     public String getEmail() {return email; }
     public String getPhoneNumber() {return phoneNumber; }
 
-    // Methode equals, hashcode et to string, notement pour les test d'equals sur l'Id
-
     @Override public boolean equals(Object obj) {
-        if(obj == null) {return false; }
-        if(!this.getClass().isAssignableFrom(obj.getClass())) {return false; }
+        if(obj == null) {
+            return false;
+        }
+        if(!this.getClass().isAssignableFrom(obj.getClass())) {
+            return false;
+        }
         Relative that = this.getClass().cast(obj);
         return that.id.equals(this.id);
     }
@@ -43,4 +52,5 @@ public class Relative {
     @Override public String toString() {
         return String.format("%s{id:%s)", this.getClass().getSimpleName(), id);
     }
+
 }

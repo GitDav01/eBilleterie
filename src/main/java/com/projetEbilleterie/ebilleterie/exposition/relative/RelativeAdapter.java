@@ -10,7 +10,7 @@ public final class RelativeAdapter {
 
     static RelativeDTO adaptToRelativeDTO(Relative relative) {
         return new RelativeDTO(
-                relative.getId(),
+             //   relative.getId(),
                 relative.getLastname(),
                 relative.getFirstname(),
                 relative.getEmail(),
@@ -23,7 +23,7 @@ public final class RelativeAdapter {
     }
 
     static Relative transformToRelative(RelativeDTO relativeDTO) {
-        String id = (relativeDTO.id == null || relativeDTO.id.trim().equals(""))? UUID.randomUUID().toString() : relativeDTO.id;
-        return new Relative(id,relativeDTO.lastname,relativeDTO.firstname,relativeDTO.email,relativeDTO.phoneNumber);
+      //  String id = (relativeDTO.id == null || relativeDTO.id.trim().equals(""))? UUID.randomUUID().toString() : relativeDTO.id;
+        return new Relative(null,relativeDTO.lastname,relativeDTO.firstname,relativeDTO.email,relativeDTO.phoneNumber);
     }
 }

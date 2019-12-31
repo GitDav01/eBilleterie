@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface RelativeRepository {
 
-    String saveRelative(Relative newRelative);
-    Relative getRelative(String id) ;
+ //   String saveRelative(Relative newRelative);
+ //   Relative getRelative(String id) ;
     List<Relative> findAllRelative();
 }

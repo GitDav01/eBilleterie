@@ -59,7 +59,7 @@ public class EticketJPA {
 
     // Adapter JPA
     Eticket toEticket() {
-        return new Eticket(id, this.category,  this.reference, this.description,
+        return new Eticket(this.id, this.category,  this.reference, this.description,
                 this.law,  this.nominative,  this.validityDate, this.typePrice,
                 this.price , this.stock, this.image,this.provider );
     }

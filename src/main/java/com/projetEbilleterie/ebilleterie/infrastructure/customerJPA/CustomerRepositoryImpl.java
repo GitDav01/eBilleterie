@@ -34,6 +34,9 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override // inutile dans les uses cases
     public List<Customer> findAllCustomer() {
-      return null;
+        return customerDAO.findAll()
+                .stream()
+                .map(CustomerJPA::toCustomer)
+                .collect(Collectors.toList());
     }
 }
