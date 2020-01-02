@@ -17,31 +17,33 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
-    public Customer obtainCustomer(String id) { return this.customerRepository.getCustomer(id); }
-    public String createCustomer(Customer newCustomer) { return this.customerRepository.saveCustomer(newCustomer);}
+    public Customer obtainCustomer(Long id) { return this.customerRepository.getCustomer(id); }
+    public Customer searchByEmailQuery(String email) { return this.customerRepository.searchByEmailQuery(email); }
     public List<Customer> listAllCustomer() { return this.customerRepository.findAllCustomer();}
 
     // Methodes liées aux Relatives construites avec les fonctions primales supérieures
-    public List<Relative> listAllRelatives(String customerId) {
+    //----------------------------------------------------------------------------------
+    public List<Relative> listAllRelatives(Long customerId) {
         Customer customer = obtainCustomer(customerId);
         return Collections.unmodifiableList(customer.getRelatives());
     }
-    public void addRelative(String customerId, Relative relative) {
+    public void addRelative(Long customerId, Relative relative) {
         Customer customer = obtainCustomer(customerId);
         customer.addRelative(relative);
-      //  String retour = createCustomer(customer);
         this.customerRepository.saveCustomer(customer);
     }
-    public void removeRelative(String customerId, String relativeId) {
+    public void removeRelative(Long customerId, Long relativeId) {
         Customer customer = obtainCustomer(customerId);
         customer.removeRelative(relativeId);
         this.customerRepository.saveCustomer(customer);
     }
 
-    public void updateRelative(String customerId, String relativeId, Relative relative) {
+    public void updateRelative(Long customerId, Long relativeId, Relative relative) {
         Customer customer = obtainCustomer(customerId);
         customer.updateRelative(relativeId, relative);
         this.customerRepository.saveCustomer(customer);
     }
 
+    // Methodes liées aux baskets construites avec les fonctions primales supérieures
+    //----------------------------------------------------------------------------------
 }

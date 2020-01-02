@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Customer {
     // Attributs
-    private String id;
+    private Long id;
     private String lastname;
     private String firstname;
     private Profil profil;
@@ -19,13 +19,13 @@ public class Customer {
     private Adress adress ;
     private List<Relative> relatives = new ArrayList<>();
     private String password;
-    //private List<Basket> baskets = new ArrayList<>();
+    private List<Basket> baskets = new ArrayList<>();
 
     // Constructors
     public Customer(){}
-    public Customer(String id, String lastname, String firstname, Profil profil,
-                    String email, String phoneNumber, Adress adress, List<Relative> relatives,String password /* ,
-                    List<Basket> baskets */ ) {
+    public Customer(Long id, String lastname, String firstname, Profil profil,
+                    String email, String phoneNumber, Adress adress, List<Relative> relatives,String password,
+                    List<Basket> baskets) {
         this.id = id;
         this.lastname = lastname;
         this.firstname = firstname;
@@ -35,7 +35,7 @@ public class Customer {
         this.adress = adress;
         this.relatives = relatives;
         this.password = password;
-       // this.baskets = baskets;
+        this.baskets = baskets;
     }
 
     public void update(Customer customerWithNewInformation) {
@@ -51,9 +51,9 @@ public class Customer {
 
     // Méthode liées aux Relatives
 
-    private Relative searchRelative(String relativeId) {
-        Relative relative = this.relatives.stream().
-                filter(l -> l.getId().equals(relativeId))
+    private Relative searchRelative(Long relativeId) {
+        Relative relative = this.relatives.stream()
+                .filter(l -> l.getId().equals(relativeId))
                 .findFirst().orElseThrow(() -> new MyAppTicketException(ErrorCodes.RELATIVE_NOT_FOUND));
         return relative;
     }
@@ -61,18 +61,18 @@ public class Customer {
         this.getRelatives().add(relative);
     }
 
-    public void removeRelative(String relativeId) {
+    public void removeRelative(Long relativeId) {
         Relative relative = searchRelative(relativeId);
         this.relatives.remove(relative);
     }
 
-    public void updateRelative(String relativeId, Relative relativeWithNewInformation) {
+    public void updateRelative(Long relativeId, Relative relativeWithNewInformation) {
         Relative relative = searchRelative(relativeId);
         relative.update(relativeWithNewInformation);
     }
 
     // Getter
-    public String getId() { return id;}
+    public Long getId() { return id;}
     public String getLastname() {return lastname; }
     public String getFirstname() { return firstname; }
     public Profil getProfil() {return profil;}
@@ -81,10 +81,10 @@ public class Customer {
     public Adress getAdress () {return adress;}
     public List<Relative> getRelatives() {return relatives;}
     public String getPassword() {return password;}
-    //  public List<Basket> getBaskets() {return baskets ;}
+    public List<Basket> getBaskets() {return baskets ;}
 
     // Methode equals, hashcode et to string, notement pour les test d'equals sur l'Id
-
+    //--------------------------------------------------------------------------------
     @Override public boolean equals(Object obj) {
         if(obj == null) {return false; }
         if(!this.getClass().isAssignableFrom(obj.getClass())) {return false; }

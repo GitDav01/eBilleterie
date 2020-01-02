@@ -16,15 +16,20 @@ public class CustomerResource {
     private CustomerService customerService;
 
     @CrossOrigin
-    @RequestMapping(method = RequestMethod.POST, path = {"/customers"})
-    @ResponseStatus(HttpStatus.CREATED)
-    public void createCustomer(@Valid @RequestBody CustomerDTO customerDTO) {
-        this.customerService.createCustomer(CustomerAdapter.transformToCustomer(customerDTO));
+
+    // recherche customer par email
+    @RequestMapping(method = RequestMethod.GET, path = {"/customers/customer/email/{email}"})
+    public CustomerDTO searchByEmailQuery(@PathVariable("email") String email) {
+        return CustomerAdapter.adaptToCustomerDTO(this.customerService.searchByEmailQuery(email));
     }
+
+    // recherche customer par ID
     @RequestMapping(method = RequestMethod.GET, path = {"/customers/{customerId}"})
-    public CustomerDTO detailCustomer(@PathVariable("customerId") String customerId) {
+    public CustomerDTO detailCustomer(@PathVariable("customerId") Long customerId) {
         return CustomerAdapter.adaptToCustomerDTO(this.customerService.obtainCustomer(customerId));
     }
+
+    // Récupère la liste de tous les customers
     @RequestMapping(method = RequestMethod.GET, path = {"/customers"})
     public List<CustomerDTO> listAllCustomers() {
         return CustomerAdapter.adaptToCustomerDTOList(this.customerService.listAllCustomer());

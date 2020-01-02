@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class RAteResource {
+public class RateResource {
 
     @Autowired
     RateService rateservice;
@@ -22,7 +22,7 @@ public class RAteResource {
         return RateAdapter.adaptToRateDTOList(this.rateservice.listAllRate());
     }
     @RequestMapping(method = RequestMethod.GET, path = {"/etickets/{eticketId}/rates"})
-    public List<RateDTO> listAllRatesFromEticket(@PathVariable("eticketId") String eticketId) {
+    public List<RateDTO> listAllRatesFromEticket(@PathVariable("eticketId") Long eticketId) {
         List<Rate> rates = this.eticket2Service.listAllRates(eticketId);
         return RateAdapter.adaptToRateDTOList(rates);
     }

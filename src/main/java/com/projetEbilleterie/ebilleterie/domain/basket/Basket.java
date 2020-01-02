@@ -9,26 +9,26 @@ import java.util.List;
 
 public class Basket {
     // Attributs
-    private String id;
-    private Integer quantity;
-    private Boolean status;
-    private List<Eticket> etickets = new ArrayList<>();
+    private Long id;
+    private int quantity;
+    private boolean status;
+    //private List<Eticket> etickets = new ArrayList<>();
 
     //Constructors
     public Basket(){}
-    public Basket(String id, Integer quantity, Boolean status,
-                  List<Eticket> etickets) {
+    public Basket(Long id, int quantity, boolean status/*,
+                  List<Eticket> etickets*/) {
         this.id = id;
         this.quantity = quantity;
         this.status = status;
-        this.etickets = etickets;
+     //   this.etickets = etickets;
     }
 
     //Getter
-    public String getId() {return id; }
-    public Integer getQuantity() {return quantity; }
-    public Boolean isStatus() {return status;}
-    public List<Eticket> getEtickets() {return etickets;}
+    public Long getId() {return id; }
+    public int getQuantity() {return quantity; }
+    public boolean isStatus() {return status;}
+  //  public List<Eticket> getEtickets() {return etickets;}
 
     // Methode equals, hashcode et to string, notement pour les test d'equals sur l'Id
 

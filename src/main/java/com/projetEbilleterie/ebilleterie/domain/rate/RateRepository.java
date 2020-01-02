@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface RateRepository {
 
-    Rate getRate(String id);
+    Rate getRate(Long id);
     List<Rate> findAllRate();
 }

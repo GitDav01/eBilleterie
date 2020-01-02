@@ -21,7 +21,7 @@ public class BasketResource {
         this.basketService.createBasket(BasketAdapter.transformToBasket(basketDTO));
     }
     @RequestMapping(method = RequestMethod.GET, path = {"/baskets/{basketId}"})
-    public BasketDTO detailBasket(@PathVariable("basketId") String basketId) {
+    public BasketDTO detailBasket(@PathVariable("basketId") Long basketId) {
         return BasketAdapter.adaptToBasketDTO(this.basketService.obtainBasket(basketId));
     }
     @RequestMapping(method = RequestMethod.GET, path = {"/baskets"})

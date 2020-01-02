@@ -17,11 +17,11 @@ public class RateRepositoryImpl implements RateRepository {
     private RateDAO rateDAO;
 
     @Override
-    public Rate getRate(String id) {
+    public Rate getRate(Long id) {
         return rateDAO.findById(id)
                 .map(RateJPA::toRate)
                 .orElseThrow(()
-                        -> new MyAppTicketException(ErrorCodes.PROVIDER_NOT_FOUND));
+                -> new MyAppTicketException(ErrorCodes.PROVIDER_NOT_FOUND));
     }
 
     @Override

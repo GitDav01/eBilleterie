@@ -1,6 +1,8 @@
 package com.projetEbilleterie.ebilleterie.exposition.customer;
 
 import com.projetEbilleterie.ebilleterie.domain.customer.Customer;
+import com.projetEbilleterie.ebilleterie.exposition.basket.BasketAdapter;
+import com.projetEbilleterie.ebilleterie.exposition.relative.RelativeAdapter;
 
 import java.util.List;
 import java.util.UUID;
@@ -19,14 +21,16 @@ public class CustomerAdapter {
                 customer.getEmail(),
                 customer.getPhoneNumber(),
                 customer.getAdress(),
-                customer.getRelatives(),
-                customer.getPassword()
-                //,customer.getBaskets()
-        );
+                RelativeAdapter.adaptToRelativeDTOList(customer.getRelatives()),
+                customer.getPassword(),
+                BasketAdapter.adaptToBasketDTOList(customer.getBaskets())
+               );
     }
     static Customer transformToCustomer(CustomerDTO customerDTO) {
-        String id = (customerDTO.id == null || customerDTO.id.trim().equals(""))? UUID.randomUUID().toString() : customerDTO.id;
-        return null;
+        return new Customer(customerDTO.id,customerDTO.lastname, customerDTO.firstname,
+                customerDTO.profil, customerDTO.email, customerDTO.phoneNumber, customerDTO.adress,
+                RelativeAdapter.transformToRelativeList(customerDTO.relatives),customerDTO.password,
+                BasketAdapter.transformToBasketList(customerDTO.baskets));
     }
 
     static List<CustomerDTO> adaptToCustomerDTOList(List<Customer> customers) {

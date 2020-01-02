@@ -2,7 +2,6 @@ package com.projetEbilleterie.ebilleterie.infrastructure.customerJPA;
 
 import com.projetEbilleterie.ebilleterie.domain.customer.Customer;
 import com.projetEbilleterie.ebilleterie.domain.customer.CustomerRepository;
-
 import com.projetEbilleterie.ebilleterie.domain.exception.ErrorCodes;
 import com.projetEbilleterie.ebilleterie.domain.exception.MyAppTicketException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
 
     @Override
-    public Customer getCustomer(String id) {
+    public Customer getCustomer(Long id) {
         return customerDAO.findById(id)
                 .map(CustomerJPA::toCustomer)
                 .orElseThrow(()
@@ -27,7 +26,15 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     }
 
     @Override
-    public String saveCustomer(Customer customer) {
+    public Customer searchByEmailQuery(String email) {
+        return this.customerDAO.searchByEmailQuery(email)
+                .toCustomer();
+//                .map(CustomerJPA::toCustomer)
+//                .orElseThrow(()
+//                -> new MyAppTicketException(ErrorCodes.CUSTOMER_NOT_FOUND));
+    }
+    @Override
+    public Long saveCustomer(Customer customer) {
         CustomerJPA customerJPA = customerDAO.save(new CustomerJPA(customer));
         return customerJPA.getId();
     }

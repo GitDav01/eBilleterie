@@ -15,8 +15,8 @@ public class BasketService {
     @Autowired
     private BasketRepository basketRepository;
 
-    public Basket obtainBasket(String id) {return this.basketRepository.getBasket(id); }
-    public String createBasket(Basket newBasket) {
+    public Basket obtainBasket(Long id) {return this.basketRepository.getBasket(id); }
+    public Long createBasket(Basket newBasket) {
         return this.basketRepository.saveBasket(newBasket);
     }
     public List<Basket> listAllBasket() { return this.basketRepository.findAllBasket();}

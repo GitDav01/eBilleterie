@@ -10,7 +10,7 @@ public class RateJPA {
 
     @Id
     @GeneratedValue()
-    private String id;
+    private Long id;
     @Column(name = "NAME")
     private String name;
     @Column(name = "PRICE")
@@ -24,7 +24,7 @@ public class RateJPA {
 
     public RateJPA() {}
 
-    public RateJPA(String id, String name, double price, int quantity, TypePrice typePrice) {
+    public RateJPA(Long id, String name, double price, int quantity, TypePrice typePrice) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -39,7 +39,7 @@ public class RateJPA {
     }
 
     //Getters
-    public String getId() { return id; }
+    public Long getId() { return id; }
     public String getName() { return name; }
     public double getPrice() {return price; }
     public int getQuantity() {return quantity;}

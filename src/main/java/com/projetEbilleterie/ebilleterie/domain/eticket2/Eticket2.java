@@ -8,22 +8,21 @@ import java.util.List;
 
 public class Eticket2 {
 
-    private String id;
+    private Long id;
     private Category category;
     private String reference;
     private String description;
     private String  law;
     private boolean nominative;
     private String validityDate ;
-    private List<Rate> rates = new ArrayList<>();;
+    private List<Rate> rates = new ArrayList<>();
     private String  image;
     private String provider;
-
 
     // Contructors
     public Eticket2(){}
 
-    public Eticket2(String id, Category category,String reference, String description, String law,
+    public Eticket2(Long id, Category category,String reference, String description, String law,
                    boolean nominative, String validityDate, List<Rate> rates,String  image, String provider) {
         this.id = id;
         this.category= category;
@@ -38,7 +37,7 @@ public class Eticket2 {
     }
 
     //Getter
-    public String getId() { return id;}
+    public Long getId() { return id;}
     public Category getCategory() {return category;}
     public String getReference() {return reference;}
     public String getDescription() { return description;}

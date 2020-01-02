@@ -1,5 +1,7 @@
 package com.projetEbilleterie.ebilleterie.infrastructure.customerJPA;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
 import com.projetEbilleterie.ebilleterie.domain.customer.Adress;
 import com.projetEbilleterie.ebilleterie.domain.customer.Customer;
@@ -7,6 +9,7 @@ import com.projetEbilleterie.ebilleterie.domain.customer.Profil;
 import com.projetEbilleterie.ebilleterie.domain.eticket.Eticket;
 import com.projetEbilleterie.ebilleterie.domain.relative.Relative;
 import com.projetEbilleterie.ebilleterie.infrastructure.RelativeJPA.RelativeJPA;
+import com.projetEbilleterie.ebilleterie.infrastructure.basketJPA.BasketJPA;
 import com.projetEbilleterie.ebilleterie.infrastructure.eticketJPA.EticketJPA;
 
 import javax.persistence.*;
@@ -14,13 +17,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+//@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 @Entity(name = "CUSTOMER")
 public class CustomerJPA {
 
     @Id
     @GeneratedValue()
     @Column(name = "ID")
-    private String id;
+    private Long id;
     @Column(name = "NAME")
     private String lastname;
     @Column(name = "FIRSTNAME")
@@ -45,9 +49,9 @@ public class CustomerJPA {
     private List<RelativeJPA> relatives = new ArrayList<>() ;
     @Column(name = "PASSWORD")
     private String password;
-  // @OneToMany(cascade = CascadeType.ALL)
-  //  @JoinColumn(name = "CUSTOMER_ID", referencedColumnName = "ID")
-  //  private List<BasketJPA> baskets = new ArrayList<>() ;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CUSTOMER_ID", referencedColumnName = "ID")
+    private List<BasketJPA> baskets = new ArrayList<>() ;
 
     //Constructors
     public CustomerJPA(){}
@@ -68,10 +72,10 @@ public class CustomerJPA {
                         .map(RelativeJPA::new)
                         .collect(Collectors.toList());
         this.password = customer.getPassword();
-    //         this.baskets = customer.getBaskets()
-    //                .stream()
-    //                .map(BasketJPA::new)
-    //                .collect(Collectors.toList());
+        this.baskets = customer.getBaskets()
+                    .stream()
+                    .map(BasketJPA::new)
+                    .collect(Collectors.toList());
     }
 
     //Adapter JPA
@@ -79,13 +83,12 @@ public class CustomerJPA {
         List<Relative> relativeList = relatives.stream()
                 .map(b -> new Relative(b.getId(),b.getLastname(),b.getFirstname(),b.getEmail(),b.getPhoneNumber()))
                 .collect(Collectors.toList());
-
- //       List<Basket> basketList = baskets.stream()
- //               .map(b -> new Basket(b.getId(),b.getQuantity(),b.isStatus(),listEtickets(b.getEtickets())))
- //               .collect(Collectors.toList());
+        List<Basket> basketList = baskets.stream()
+                .map(c -> new Basket(c.getId(),c.getQuantity(),c.isStatus()/*,listEtickets(b.getEtickets())*/))
+                .collect(Collectors.toList());
         Adress adress = new Adress(adressNumber, adressSreet, adressPostalCode, adressCity);
         return new Customer(id, this.lastname,this.firstname,this.profil,this.email,
-                            this.phoneNumber,adress,relativeList,password/* ,basketList */);
+                            this.phoneNumber,adress,relativeList,password ,basketList);
     }
 
     private List<Eticket> listEtickets(List<EticketJPA> etickets) {
@@ -100,7 +103,9 @@ public class CustomerJPA {
 
 
     //Getter
-    public String getId() {return id;}
+    public Long getId() {
+        return id;
+    }
     public String getLastname() {return lastname;}
     public String getFirstname() {return firstname;}
     public Profil getProfil() {return profil;}
@@ -112,5 +117,5 @@ public class CustomerJPA {
     public String getAadressCity() {return adressCity;}
     public List<RelativeJPA> getRelatives() { return relatives;}
     public String getPassword() {return password;}
- //   public List<BasketJPA> getBaskets() {return baskets;}
+    public List<BasketJPA> getBaskets() {return baskets;}
 }

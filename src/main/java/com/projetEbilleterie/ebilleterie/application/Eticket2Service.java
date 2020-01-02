@@ -18,8 +18,8 @@ public class Eticket2Service {
     @Autowired
     private Eticket2Repository eticket2Repository;
 
-    public Eticket2 obtainEticket(String id) {return this.eticket2Repository.getEticket(id); }
-    public String createEticket(Eticket2 newEticket) {
+    public Eticket2 obtainEticket(Long id) {return this.eticket2Repository.getEticket(id); }
+    public Long createEticket(Eticket2 newEticket) {
         return this.eticket2Repository.saveEticket(newEticket);
     }
     public List<Eticket2> listAllEticket() {
@@ -27,7 +27,7 @@ public class Eticket2Service {
     }
 
     // Methodes liées aux Rates construites avec les fonctions primales supérieures
-    public List<Rate> listAllRates(String eticketId) {
+    public List<Rate> listAllRates(Long eticketId) {
         Eticket2 eticket2 = obtainEticket(eticketId);
         return Collections.unmodifiableList(eticket2.getRates());
     }

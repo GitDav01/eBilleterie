@@ -22,7 +22,7 @@ public class Eticket2Resource {
         this.eticket2Service.createEticket(Eticket2Adapter.transformToEticket(eticket2DTO));
     }
     @RequestMapping(method = RequestMethod.GET, path = {"/etickets2/{eticketId}"})
-    public Eticket2DTO detailEticket2(@PathVariable("eticketId") String eticketId) {
+    public Eticket2DTO detailEticket2(@PathVariable("eticketId") Long eticketId) {
         return Eticket2Adapter.adaptToEticketDTO(this.eticket2Service.obtainEticket(eticketId));
     }
     @RequestMapping(method = RequestMethod.GET, path = {"/etickets2"})

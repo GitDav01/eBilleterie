@@ -5,8 +5,8 @@ import java.util.List;
 
 public interface BasketRepository {
 
-    String saveBasket(Basket newBasket);
-    Basket getBasket(String id);
+    Long saveBasket(Basket newBasket);
+    Basket getBasket(Long id);
     List<Basket> findAllBasket();
 
 }

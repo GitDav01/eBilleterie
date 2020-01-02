@@ -18,13 +18,13 @@ public class BasketRepositoryImpl implements BasketRepository {
     private BasketDAO basketDAO;
 
     @Override
-    public String saveBasket(Basket basket) {
+    public Long saveBasket(Basket basket) {
        BasketJPA basketJPA = basketDAO.save(new BasketJPA(basket));
         return basketJPA.getId();
     }
 
     @Override
-    public Basket getBasket(String id) {
+    public Basket getBasket(Long id) {
         return basketDAO.findById(id)
                 .map(BasketJPA::toBasket)
                 .orElseThrow(()

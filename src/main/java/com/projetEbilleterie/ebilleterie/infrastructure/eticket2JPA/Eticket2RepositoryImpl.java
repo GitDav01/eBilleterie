@@ -4,7 +4,6 @@ import com.projetEbilleterie.ebilleterie.domain.eticket2.Eticket2;
 import com.projetEbilleterie.ebilleterie.domain.eticket2.Eticket2Repository;
 import com.projetEbilleterie.ebilleterie.domain.exception.ErrorCodes;
 import com.projetEbilleterie.ebilleterie.domain.exception.MyAppTicketException;
-import com.projetEbilleterie.ebilleterie.infrastructure.eticketJPA.EticketJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -18,7 +17,7 @@ public class Eticket2RepositoryImpl implements Eticket2Repository {
     private Eticket2DAO eticket2DAO;
 
     @Override
-    public Eticket2 getEticket(String id) {
+    public Eticket2 getEticket(Long id) {
         return eticket2DAO.findById(id)
                 .map(Eticket2JPA::toEticket2)
                 .orElseThrow(()
@@ -26,7 +25,7 @@ public class Eticket2RepositoryImpl implements Eticket2Repository {
     }
 
     @Override
-    public String saveEticket(Eticket2 newEticket) {
+    public Long saveEticket(Eticket2 newEticket) {
         return null;
     }
 

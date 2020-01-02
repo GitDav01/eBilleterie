@@ -2,7 +2,7 @@ package com.projetEbilleterie.ebilleterie.domain.relative;
 
 public class Relative {
     //Attributs
-    private String id;
+    private Long id;
     private String lastname;
     private String firstname;
     private String email;
@@ -12,7 +12,7 @@ public class Relative {
     // Constructors
     public Relative() {}
 
-    public Relative(String id, String lastname, String firstname, String email, String phoneNumber) {
+    public Relative(Long id, String lastname, String firstname, String email, String phoneNumber) {
         this.id = id;
         this.lastname = lastname;
         this.firstname = firstname;
@@ -28,7 +28,7 @@ public class Relative {
     }
 
     //Getter
-    public String getId() {return id; }
+    public Long getId() {return id; }
     public String getLastname() { return lastname; }
     public String getFirstname() {return firstname; }
     public String getEmail() {return email; }

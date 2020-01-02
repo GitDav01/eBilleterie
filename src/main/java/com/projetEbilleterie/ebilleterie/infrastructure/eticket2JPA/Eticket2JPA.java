@@ -17,9 +17,9 @@ import java.util.stream.Collectors;
 public class Eticket2JPA {
 
     @Id
-    //@GeneratedValue()
+    @GeneratedValue()
     @Column(name = "ID")
-    private String id;
+    private Long id;
     @Enumerated(EnumType.STRING)
     @Column(name = "CATEGORY")
     private Category category;
@@ -28,6 +28,7 @@ public class Eticket2JPA {
     @Size(max = 1337)
     @Column(name = "DESCRIPTION")
     private String description;
+    @Size(max = 1337)
     @Column(name = "LAW")
     private String  law;
     @Column(name = "NOMINATIVE")
@@ -48,7 +49,7 @@ public class Eticket2JPA {
 
     public Eticket2JPA() {}
 
-    public Eticket2JPA(String id, Category category, String reference, @Size(max = 1337) String description, String law,
+    public Eticket2JPA(Long id, Category category, String reference, @Size(max = 1337) String description, String law,
                        boolean nominative, String validityDate, List<RateJPA> rates, String image, String provider) {
         this.id = id;
         this.category = category;
@@ -67,13 +68,13 @@ public class Eticket2JPA {
         List<Rate> rateList = rates.stream()
                 .map(b -> new Rate(b.getId(),b.getName(),b.getPrice(),b.getQuantity(),b.getTypePrice()))
                 .collect(Collectors.toList());
-        return new Eticket2(this.id, this.category,  this.reference, this.description,
+        return new Eticket2(id, this.category,  this.reference, this.description,
                 this.law,  this.nominative,  this.validityDate, rateList,
                 this.image,this.provider );
     }
 
     //Getter
-    public String getId() { return id; }
+    public Long getId() { return id; }
     public Category getCategory() { return category; }
     public String getReference() {return reference;}
     public String getDescription() { return description; }

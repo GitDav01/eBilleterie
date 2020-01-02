@@ -17,7 +17,7 @@ public class RelativeJPA {
     @Id
     @GeneratedValue()
     @Column(name = "ID")
-    private String id;
+    private Long id;
     @Column(name = "LASTNAME")
     private String lastname;
     @Column(name = "FIRSTNAME")
@@ -45,7 +45,7 @@ public class RelativeJPA {
     }
 
     // Getter
-    public String getId() {return id;}
+    public Long getId() {return id;}
     public String getLastname() {return lastname;  }
     public String getFirstname() {return firstname;}
     public String getEmail() { return email; }

@@ -17,8 +17,8 @@ public class RelativeService {
     @Autowired
     RelativeRepository relativeRepository;
 
- //   public Relative obtainRelative(String id) {return this.relativeRepository.getRelative(id); }
- //   public String createRelative(Relative newRelative) {return this.relativeRepository.saveRelative(newRelative);}
+ //   public Relative obtainRelative(Long id) {return this.relativeRepository.getRelative(id); }
+ //   public Long createRelative(Relative newRelative) {return this.relativeRepository.saveRelative(newRelative);}
     public List<Relative> listAllRelative() {
         return this.relativeRepository.findAllRelative();
     }

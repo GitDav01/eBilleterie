@@ -5,7 +5,7 @@ import com.projetEbilleterie.ebilleterie.domain.eticket.TypePrice;
 public class Rate {
 
     //Attributs
-    private String id;
+    private Long id;
     private String name;
     private double price;
     private int quantity;
@@ -15,7 +15,7 @@ public class Rate {
     // Constructors
     public Rate() {}
 
-    public Rate(String id, String name,double price, int quantity, TypePrice typePrice) {
+    public Rate(Long id, String name,double price, int quantity, TypePrice typePrice) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -24,7 +24,7 @@ public class Rate {
     }
 
     // Getter
-    public String getId() { return id; }
+    public Long getId() { return id; }
     public String getName() { return name; }
     public double getPrice() {return price; }
     public int getQuantity() {return quantity;}

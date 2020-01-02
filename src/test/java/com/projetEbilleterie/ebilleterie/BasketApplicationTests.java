@@ -16,8 +16,8 @@ public class BasketApplicationTests {
     @Test
     public void entities_should_be_equal_if_same_identity() {
 
-        Basket b1 =new Basket("1", 3, true,null);
-        Basket b2 =new Basket("1", 4, false,null);
+        Basket b1 =new Basket(1L, 3, true);
+        Basket b2 =new Basket(1L, 4, false);
 
         Assert.assertEquals(b1, b2);
     }

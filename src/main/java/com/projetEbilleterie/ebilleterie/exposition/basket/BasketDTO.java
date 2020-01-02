@@ -7,27 +7,27 @@ import java.util.List;
 public class BasketDTO {
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    String id;
+    Long id;
     @JsonProperty
-    Integer quantity;
+    int quantity;
     @JsonProperty
-    Boolean status;
-    @JsonProperty
-    List<EticketDTO> etickets ;
+    boolean status;
+  //  @JsonProperty
+  //  List<EticketDTO> etickets ;
 
     //Constructors
     public BasketDTO(){}
 
-    BasketDTO(String id, int quantity, boolean status, List<EticketDTO> etickets) {
+    BasketDTO(Long id, int quantity, boolean status/*, List<EticketDTO> etickets*/) {
         this.id = id;
         this.quantity = quantity;
         this.status = status;
-        this.etickets = etickets;
+   //     this.etickets = etickets;
     }
 
     //Getter
-    public String getId() {return id;}
-    public Integer getQuantity() { return quantity;}
-    public Boolean isStatus() { return status;}
-    public List<EticketDTO> getEtickets() {return etickets;}
+    public Long getId() {return id;}
+    public int getQuantity() { return quantity;}
+    public boolean isStatus() { return status;}
+ //   public List<EticketDTO> getEtickets() {return etickets;}
 }

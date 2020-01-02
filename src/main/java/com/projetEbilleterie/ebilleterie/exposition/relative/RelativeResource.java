@@ -36,25 +36,25 @@ public class RelativeResource {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = {"/customers/{customerId}/relatives"})
-    public List<RelativeDTO> listAllRelativesFromCustomer(@PathVariable("customerId") String customerId) {
+    public List<RelativeDTO> listAllRelativesFromCustomer(@PathVariable("customerId") Long customerId) {
         List<Relative> relatives = this.customerService.listAllRelatives(customerId);
         return RelativeAdapter.adaptToRelativeDTOList(relatives);
     }
 
     @RequestMapping(method = RequestMethod.POST, path = {"/customers/{customerId}/relative"})
     @ResponseStatus(HttpStatus.CREATED)
-    public void addRelativeToCustomer(@PathVariable("customerId") String customerId, @RequestBody RelativeDTO relativeDTO) {
+    public void addRelativeToCustomer(@PathVariable("customerId") Long customerId, @RequestBody RelativeDTO relativeDTO) {
         this.customerService.addRelative(customerId, RelativeAdapter.transformToRelative(relativeDTO));
     }
 
     @RequestMapping(method = RequestMethod.DELETE, path = {"/customers/{customerId}/relatives/{relativeId}"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void removeRelativeFromCustomer(@PathVariable("customerId") String customerId, @PathVariable("relativeId") String relativeId) {
+    public void removeRelativeFromCustomer(@PathVariable("customerId") Long customerId, @PathVariable("relativeId") Long relativeId) {
         this.customerService.removeRelative(customerId, relativeId);
     }
 
     @RequestMapping(method = RequestMethod.PUT, path = {"/customers/{customerId}/relatives/{relativeId}"})
-    public void updateRelative(@PathVariable("customerId") String customerId, @PathVariable("relativeId") String relativeId, @RequestBody RelativeDTO relativeDTO) {
+    public void updateRelative(@PathVariable("customerId") Long customerId, @PathVariable("relativeId") Long relativeId, @RequestBody RelativeDTO relativeDTO) {
         this.customerService.updateRelative(customerId, relativeId, RelativeAdapter.transformToRelative(relativeDTO));
     }
 }

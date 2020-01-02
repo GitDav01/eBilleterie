@@ -8,6 +8,7 @@ import com.projetEbilleterie.ebilleterie.exposition.provider.ProviderAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class EticketAdapter {
@@ -43,6 +44,7 @@ public class EticketAdapter {
     }
 
     public static Eticket transformToEticket(EticketDTO eTicketDTO) {
+        String id = (eTicketDTO.id == null || eTicketDTO.id.trim().equals(""))? UUID.randomUUID().toString() : eTicketDTO.id;
         return new Eticket(null, eTicketDTO.category,eTicketDTO.reference, eTicketDTO.description,eTicketDTO.law,eTicketDTO.nominative,
                 eTicketDTO.validityDate,eTicketDTO.typePrice,eTicketDTO.price,
                 eTicketDTO.stock,eTicketDTO.image,eTicketDTO.provider);
