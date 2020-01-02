@@ -76,11 +76,11 @@ public class CustomerJPA {
 
     //Adapter JPA
     Customer toCustomer() {
-        List<Relative> relativeList = relatives.stream()    // Faux à compléter pour le customer
+        List<Relative> relativeList = relatives.stream()
                 .map(b -> new Relative(b.getId(),b.getLastname(),b.getFirstname(),b.getEmail(),b.getPhoneNumber()))
                 .collect(Collectors.toList());
 
- //       List<Basket> basketList = baskets.stream()    // Faux à compléter pour le customer
+ //       List<Basket> basketList = baskets.stream()
  //               .map(b -> new Basket(b.getId(),b.getQuantity(),b.isStatus(),listEtickets(b.getEtickets())))
  //               .collect(Collectors.toList());
         Adress adress = new Adress(adressNumber, adressSreet, adressPostalCode, adressCity);

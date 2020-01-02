@@ -7,6 +7,9 @@ import com.projetEbilleterie.ebilleterie.domain.rate.RateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Repository
 public class RateRepositoryImpl implements RateRepository {
 
@@ -19,6 +22,14 @@ public class RateRepositoryImpl implements RateRepository {
                 .map(RateJPA::toRate)
                 .orElseThrow(()
                         -> new MyAppTicketException(ErrorCodes.PROVIDER_NOT_FOUND));
+    }
+
+    @Override
+    public List<Rate> findAllRate() {
+        return rateDAO.findAll()
+                .stream()
+                .map(RateJPA::toRate)
+                .collect(Collectors.toList());
     }
 
 }

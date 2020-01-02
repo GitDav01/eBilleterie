@@ -18,7 +18,7 @@ public class RelativeResource {
     @Autowired
     CustomerService customerService;
 
- //   @CrossOrigin
+
  //   @RequestMapping(method = RequestMethod.POST, path = {"/relatives"})
  //   @ResponseStatus(HttpStatus.CREATED)
  //   public void createRelative(@Valid @RequestBody RelativeDTO relativeDTO) {
@@ -29,6 +29,7 @@ public class RelativeResource {
  //       return RelativeAdapter.adaptToRelativeDTO(this.relativeService.obtainRelative(relativeId));
   //  }
 
+    @CrossOrigin
     @RequestMapping(method = RequestMethod.GET, path = {"/relatives"})
     public List<RelativeDTO> listAllRelatives() {
         return RelativeAdapter.adaptToRelativeDTOList(this.relativeService.listAllRelative());

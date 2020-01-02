@@ -2,6 +2,8 @@ package com.projetEbilleterie.ebilleterie.infrastructure.eticket2JPA;
 
 import com.projetEbilleterie.ebilleterie.domain.eticket.Category;
 import com.projetEbilleterie.ebilleterie.domain.eticket.TypePrice;
+import com.projetEbilleterie.ebilleterie.domain.eticket2.Eticket2;
+import com.projetEbilleterie.ebilleterie.domain.rate.Rate;
 import com.projetEbilleterie.ebilleterie.infrastructure.eticketJPA.EticketJPA;
 import com.projetEbilleterie.ebilleterie.infrastructure.rateJPA.RateJPA;
 
@@ -9,6 +11,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity(name = "ETICKET2")
 public class Eticket2JPA {
@@ -57,6 +60,16 @@ public class Eticket2JPA {
         this.rates = rates;
         this.image = image;
         this.provider = provider;
+    }
+
+    // Adapter JPA
+    Eticket2 toEticket2() {
+        List<Rate> rateList = rates.stream()
+                .map(b -> new Rate(b.getId(),b.getName(),b.getPrice(),b.getQuantity(),b.getTypePrice()))
+                .collect(Collectors.toList());
+        return new Eticket2(this.id, this.category,  this.reference, this.description,
+                this.law,  this.nominative,  this.validityDate, rateList,
+                this.image,this.provider );
     }
 
     //Getter

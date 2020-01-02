@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class Eticket2Adapter {
 
-    public static List<Eticket2DTO> adaptToEticketListDTO(List<Eticket2> etickets) {
+    public static List<Eticket2DTO> adaptToEticket2DTOList(List<Eticket2> etickets) {
         return etickets.stream().map(Eticket2Adapter::adaptToEticketDTO).collect(Collectors.toList());
     }
 

@@ -29,8 +29,8 @@ public class CustomerService {
     public void addRelative(String customerId, Relative relative) {
         Customer customer = obtainCustomer(customerId);
         customer.addRelative(relative);
-        String retour = createCustomer(customer);
-   //     this.customerRepository.saveCustomer(customer);
+      //  String retour = createCustomer(customer);
+        this.customerRepository.saveCustomer(customer);
     }
     public void removeRelative(String customerId, String relativeId) {
         Customer customer = obtainCustomer(customerId);

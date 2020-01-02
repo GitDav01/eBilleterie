@@ -3,6 +3,7 @@ package com.projetEbilleterie.ebilleterie.domain.eticket2;
 import com.projetEbilleterie.ebilleterie.domain.eticket.Category;
 import com.projetEbilleterie.ebilleterie.domain.rate.Rate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Eticket2 {
@@ -14,7 +15,7 @@ public class Eticket2 {
     private String  law;
     private boolean nominative;
     private String validityDate ;
-    private List<Rate> rates;
+    private List<Rate> rates = new ArrayList<>();;
     private String  image;
     private String provider;
 

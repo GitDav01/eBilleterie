@@ -69,3 +69,34 @@ INSERT INTO RELATIVE (ID,LASTNAME,FIRSTNAME,EMAIL,PHONE_NUMBER,CUSTOMER_ID)
 VALUES('4','MORILLE_Chritina_2','LUDOVIC','MORILLE@gmail.com','0674552457','2');
 
 
+INSERT INTO ETICKET2 (id, category,reference, description,law,nominative,VALIDITY_DATE,image,provider)
+VALUES ('1', 'CINEMA','CARTE UGC SOLO','La carte UGC solo permet d obtenir une place de cinema valable tous les jours, a toutes les seances'
+,'tarif UGC 10 Cartes UGC Solo (1 lot par trimestre civil) PRIX INTERNE 51,50 € • CLIENT 68 €',false,'06122020','/assets/imageUGC','UGC');
+INSERT INTO ETICKET2 (id, category,reference, description,law,nominative,VALIDITY_DATE,image,provider)
+VALUES ('2','CINEMA', 'LA CONTREMARQUE CINÉCHÈQUE','La  contremarque Cinéchèque  permet d obtenir une place de cinema valable tous les jours, a toutes les seances'
+,'tarif CinéChèque 10 contremarques CinéChèque (1 lot par trimestre civil) PRIX INTERNE 54 € • CLIENT 71,50 € '
+,false,'06122020','https://cineCHEQUE','CINECHEQUE');
+INSERT INTO ETICKET2 (id, category,reference, description,law,nominative,VALIDITY_DATE,image,provider)
+VALUES ('3', 'LOISIRS','ZOO DE BEAUVAL','Il fait partie des classiques tout en renouvelant chaque année l expérience proposée à ses visiteurs ! Le Zoo Parc de Beauval vous invite à découvrir ses nouveautés 2019 '
+,'Tarif enfant (3 à 10 ans inclus) CSEEPF 12 € • extérieur 18 € • public 23 € Tarif adulte (11 ans et plus) INTERNE 17 € • CLIENT 23 € • public 29  '
+,false,'06122020','https://Jardin Zoo de beauval','ZOO DE BEAUVAL');
+
+
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES('1','CARTE UGC SOLO',51.5,200,'INTERNAL_UNIQUE_PRICE','1');
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES('2','CARTE UGC SOLO',68,200,'EXTERNAL_UNIQUE_PRICE','1');
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES('3','LA CONTREMARQUE CINÉCHÈQUE',54,200,'INTERNAL_UNIQUE_PRICE','2');
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES('4','LA CONTREMARQUE CINÉCHÈQUE',71.5,500,'EXTERNAL_UNIQUE_PRICE','2');
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES('5','ZOO DE BEAUVAL',12,700,'INTERNAL_CHILD_PRICE','3');
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES('6','ZOO DE BEAUVAL',18,300,'EXTERNAL_CHILD_PRICE','3');
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES('7','ZOO DE BEAUVAL',17,200,'INTERNAL_ADULT_PRICE','3');
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES('8','ZOO DE BEAUVAL',23,100,'EXTERNAL_ADULT_PRICE','3');
+
+

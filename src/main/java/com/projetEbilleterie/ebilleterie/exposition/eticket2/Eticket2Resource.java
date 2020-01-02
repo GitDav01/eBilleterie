@@ -2,9 +2,6 @@ package com.projetEbilleterie.ebilleterie.exposition.eticket2;
 
 
 import com.projetEbilleterie.ebilleterie.application.Eticket2Service;
-import com.projetEbilleterie.ebilleterie.application.EticketService;
-import com.projetEbilleterie.ebilleterie.exposition.eticket.EticketAdapter;
-import com.projetEbilleterie.ebilleterie.exposition.eticket.EticketDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +27,6 @@ public class Eticket2Resource {
     }
     @RequestMapping(method = RequestMethod.GET, path = {"/etickets2"})
     public List<Eticket2DTO> listAllEtickets2() {
-        return Eticket2Adapter.adaptToEticketDTOList(this.eticket2Service.listAllEticket());
+        return Eticket2Adapter.adaptToEticket2DTOList(this.eticket2Service.listAllEticket());
     }
 }
