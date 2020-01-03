@@ -27,7 +27,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public Customer searchByEmailQuery(String email) {
-        return this.customerDAO.searchByEmailQuery(email)
+        return this.customerDAO.findByEmail(email)
                 .toCustomer();
 //                .map(CustomerJPA::toCustomer)
 //                .orElseThrow(()

@@ -1,5 +1,5 @@
 package com.projetEbilleterie.ebilleterie.domain.eticket2;
-
+import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
 import com.projetEbilleterie.ebilleterie.domain.eticket.Category;
 import com.projetEbilleterie.ebilleterie.domain.rate.Rate;
 
@@ -18,12 +18,14 @@ public class Eticket2 {
     private List<Rate> rates = new ArrayList<>();
     private String  image;
     private String provider;
+    private List<Basket> baskets = new ArrayList<>();
 
     // Contructors
     public Eticket2(){}
 
     public Eticket2(Long id, Category category,String reference, String description, String law,
-                   boolean nominative, String validityDate, List<Rate> rates,String  image, String provider) {
+                   boolean nominative, String validityDate, List<Rate> rates,String  image,
+                    String provider, List<Basket> baskets) {
         this.id = id;
         this.category= category;
         this.reference = reference;
@@ -34,6 +36,7 @@ public class Eticket2 {
         this.rates = rates;
         this.image = image;
         this.provider = provider;
+        this.baskets= baskets;
     }
 
     //Getter
@@ -47,9 +50,10 @@ public class Eticket2 {
     public List<Rate> getRates() {return rates;}
     public String getImage() { return image; }
     public String getProvider() { return provider;}
+    public List<Basket> getBaskets() {return baskets;}
 
     // Methode equals, hashcode et to string, notement pour les test d'equals sur l'Id
-
+    // -------------------------------------------------------------------------------
     @Override public boolean equals(Object obj) {
         if(obj == null) {return false; }
         if(!this.getClass().isAssignableFrom(obj.getClass())) {return false; }

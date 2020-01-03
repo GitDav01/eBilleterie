@@ -45,7 +45,9 @@ public class Customer {
         this.email = customerWithNewInformation.getEmail();
         this.phoneNumber = customerWithNewInformation.getPhoneNumber();
         this.adress = customerWithNewInformation.getAdress();
+        this.relatives = customerWithNewInformation.getRelatives();
         this.password = customerWithNewInformation.getPassword();
+        this.baskets =  customerWithNewInformation.getBaskets();
     //    validate();
     }
 

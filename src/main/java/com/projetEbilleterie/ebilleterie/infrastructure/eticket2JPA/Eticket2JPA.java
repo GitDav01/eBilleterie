@@ -1,10 +1,10 @@
 package com.projetEbilleterie.ebilleterie.infrastructure.eticket2JPA;
 
+import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
 import com.projetEbilleterie.ebilleterie.domain.eticket.Category;
-import com.projetEbilleterie.ebilleterie.domain.eticket.TypePrice;
 import com.projetEbilleterie.ebilleterie.domain.eticket2.Eticket2;
 import com.projetEbilleterie.ebilleterie.domain.rate.Rate;
-import com.projetEbilleterie.ebilleterie.infrastructure.eticketJPA.EticketJPA;
+import com.projetEbilleterie.ebilleterie.infrastructure.basketJPA.BasketJPA;
 import com.projetEbilleterie.ebilleterie.infrastructure.rateJPA.RateJPA;
 
 import javax.persistence.*;
@@ -35,22 +35,24 @@ public class Eticket2JPA {
     private boolean nominative;
     @Column(name = "VALIDITY_DATE")
     private String validityDate ;
-
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="ETICKET_ID", referencedColumnName = "ID")
     private List<RateJPA> rates = new ArrayList<>();
-
     @Column(name = "IMAGE")
     private String  image;
     @Column(name = "PROVIDER")
     private String  provider;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="ETICKET_ID", referencedColumnName = "ID")
+    private List<BasketJPA> baskets = new ArrayList<>();
 
     // Constructors
 
     public Eticket2JPA() {}
 
-    public Eticket2JPA(Long id, Category category, String reference, @Size(max = 1337) String description, String law,
-                       boolean nominative, String validityDate, List<RateJPA> rates, String image, String provider) {
+    public Eticket2JPA(Long id, Category category, String reference, @Size(max = 1337) String description,
+                       @Size(max = 1337) String law, boolean nominative, String validityDate, List<RateJPA> rates,
+                       String image, String provider,List<BasketJPA> baskets) {
         this.id = id;
         this.category = category;
         this.reference = reference;
@@ -61,6 +63,7 @@ public class Eticket2JPA {
         this.rates = rates;
         this.image = image;
         this.provider = provider;
+        this.baskets = baskets;
     }
 
     // Adapter JPA
@@ -68,9 +71,11 @@ public class Eticket2JPA {
         List<Rate> rateList = rates.stream()
                 .map(b -> new Rate(b.getId(),b.getName(),b.getPrice(),b.getQuantity(),b.getTypePrice()))
                 .collect(Collectors.toList());
+        List<Basket> basketList = baskets.stream()
+                .map(c -> new Basket(c.getId(),c.getQuantity(),c.isStatus())).collect(Collectors.toList());
         return new Eticket2(id, this.category,  this.reference, this.description,
                 this.law,  this.nominative,  this.validityDate, rateList,
-                this.image,this.provider );
+                this.image,this.provider, basketList);
     }
 
     //Getter
@@ -84,7 +89,5 @@ public class Eticket2JPA {
     public List<RateJPA> getRates() { return rates; }
     public String getImage() { return image;}
     public String getProvider() { return provider;}
-
-
-
+    public List<BasketJPA> getBaskets() {return baskets;}
 }

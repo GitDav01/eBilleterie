@@ -1,7 +1,5 @@
 package com.projetEbilleterie.ebilleterie.infrastructure.customerJPA;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
 import com.projetEbilleterie.ebilleterie.domain.customer.Adress;
 import com.projetEbilleterie.ebilleterie.domain.customer.Customer;
@@ -17,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@UUID")
 @Entity(name = "CUSTOMER")
 public class CustomerJPA {
 
@@ -101,11 +98,8 @@ public class CustomerJPA {
         return eticketList;
     }
 
-
     //Getter
-    public Long getId() {
-        return id;
-    }
+    public Long getId() {return id;}
     public String getLastname() {return lastname;}
     public String getFirstname() {return firstname;}
     public Profil getProfil() {return profil;}
