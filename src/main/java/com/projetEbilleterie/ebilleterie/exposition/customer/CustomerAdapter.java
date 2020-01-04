@@ -2,6 +2,7 @@ package com.projetEbilleterie.ebilleterie.exposition.customer;
 
 import com.projetEbilleterie.ebilleterie.domain.customer.Customer;
 import com.projetEbilleterie.ebilleterie.exposition.basket.BasketAdapter;
+import com.projetEbilleterie.ebilleterie.exposition.basket2.Basket2Adapter;
 import com.projetEbilleterie.ebilleterie.exposition.relative.RelativeAdapter;
 
 import java.util.List;
@@ -23,14 +24,14 @@ public class CustomerAdapter {
                 customer.getAdress(),
                 RelativeAdapter.adaptToRelativeDTOList(customer.getRelatives()),
                 customer.getPassword(),
-                BasketAdapter.adaptToBasketDTOList(customer.getBaskets())
+                Basket2Adapter.adaptToBasket2DTOList(customer.getBasket2s())
                );
     }
     static Customer transformToCustomer(CustomerDTO customerDTO) {
         return new Customer(customerDTO.id,customerDTO.lastname, customerDTO.firstname,
                 customerDTO.profil, customerDTO.email, customerDTO.phoneNumber, customerDTO.adress,
                 RelativeAdapter.transformToRelativeList(customerDTO.relatives),customerDTO.password,
-                BasketAdapter.transformToBasketList(customerDTO.baskets));
+                Basket2Adapter.transformToBasket2List(customerDTO.basket2s));
     }
 
     static List<CustomerDTO> adaptToCustomerDTOList(List<Customer> customers) {

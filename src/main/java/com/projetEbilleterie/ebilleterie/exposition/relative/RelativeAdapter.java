@@ -29,7 +29,6 @@ public final class RelativeAdapter {
     }
 
     static Relative transformToRelative(RelativeDTO relativeDTO) {
-      //  String id = (relativeDTO.id == null || relativeDTO.id.trim().equals(""))? UUID.randomUUID().toString() : relativeDTO.id;
         return new Relative(null,relativeDTO.lastname,relativeDTO.firstname,relativeDTO.email,relativeDTO.phoneNumber);
     }
 }

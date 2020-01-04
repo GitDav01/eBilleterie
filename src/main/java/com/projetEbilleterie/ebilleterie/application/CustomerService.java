@@ -1,7 +1,10 @@
 package com.projetEbilleterie.ebilleterie.application;
 
+import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
+import com.projetEbilleterie.ebilleterie.domain.basket2.Basket2;
 import com.projetEbilleterie.ebilleterie.domain.customer.Customer;
 import com.projetEbilleterie.ebilleterie.domain.customer.CustomerRepository;
+import com.projetEbilleterie.ebilleterie.domain.eticket2.Eticket2;
 import com.projetEbilleterie.ebilleterie.domain.relative.Relative;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +19,9 @@ public class CustomerService {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Autowired
+    private Eticket2Service eticket2Service;
 
     public Customer obtainCustomer(Long id) { return this.customerRepository.getCustomer(id); }
     public Customer searchByEmailQuery(String email) { return this.customerRepository.searchByEmailQuery(email); }
@@ -44,6 +50,34 @@ public class CustomerService {
         this.customerRepository.saveCustomer(customer);
     }
 
+    // Methodes liées ux baskets
+    //--------------------------
+    public void addBasket2(Long customerId, Basket2 basket2) {
+        Customer customer = obtainCustomer(customerId);
+        customer.addBasket2(basket2);
+        this.customerRepository.saveCustomer(customer);
+    }
+
+    public void removeBasket2(Long customerId, Long basket2Id) {
+        Customer customer = obtainCustomer(customerId);
+        customer.removeBasket2(basket2Id);
+        this.customerRepository.saveCustomer(customer);
+    }
+
+    public void updateBasket2(Long customerId, Long basket2Id, Basket2 basket2) {
+        Customer customer = obtainCustomer(customerId);
+        customer.updateBasket2(basket2Id, basket2);
+        this.customerRepository.saveCustomer(customer);
+    }
+
     // Methodes liées aux baskets construites avec les fonctions primales supérieures
     //----------------------------------------------------------------------------------
+
+   // public void addBasket(Long customerId, Long eticketId, Basket basket) {
+    //    Customer customer = obtainCustomer(customerId);
+    //    Eticket2 eticket = eticket2Service.obtainEticket(eticketId);
+    //    customer.addBasket(basket, eticketId);
+    //    this.customerRepository.saveCustomer(customer);
+  //  }
+
 }

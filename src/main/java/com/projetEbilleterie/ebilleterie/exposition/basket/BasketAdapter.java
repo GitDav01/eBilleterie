@@ -15,8 +15,7 @@ public class BasketAdapter {
                 basket.getId(),
                 basket.getQuantity(),
                 basket.isStatus()
-     //           EticketAdapter.adaptToEticketListDTO(basket.getEtickets())
-        );
+            );
     }
 
     public static List<Basket> transformToBasketList(List<BasketDTO> basketDTO) {
@@ -25,8 +24,7 @@ public class BasketAdapter {
     }
 
     static Basket transformToBasket(BasketDTO basketDTO) {
-        //String id = (basketDTO.id == null || basketDTO.id.trim().equals(""))? UUID.randomUUID().toString() : basketDTO.id;
-        return new Basket(null,basketDTO.quantity, basketDTO.status/*,EticketAdapter.transformToEticketList(basketDTO.etickets)*/);
+        return new Basket(null,basketDTO.quantity, basketDTO.status);
     }
 
      public static List<BasketDTO> adaptToBasketDTOList(List<Basket> baskets) {

@@ -19,11 +19,7 @@ public class RelativeResource {
     CustomerService customerService;
 
 
- //   @RequestMapping(method = RequestMethod.POST, path = {"/relatives"})
- //   @ResponseStatus(HttpStatus.CREATED)
- //   public void createRelative(@Valid @RequestBody RelativeDTO relativeDTO) {
- //       this.relativeService.createRelative(RelativeAdapter.transformToRelative(relativeDTO));
- //   }
+
  //   @RequestMapping(method = RequestMethod.GET, path = {"/relatives/{relativeId}"})
  //   public RelativeDTO detailRelative(@PathVariable("relativeId") String relativeId) {
  //       return RelativeAdapter.adaptToRelativeDTO(this.relativeService.obtainRelative(relativeId));

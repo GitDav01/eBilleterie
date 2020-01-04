@@ -1,12 +1,14 @@
 package com.projetEbilleterie.ebilleterie.infrastructure.customerJPA;
 
 import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
+import com.projetEbilleterie.ebilleterie.domain.basket2.Basket2;
 import com.projetEbilleterie.ebilleterie.domain.customer.Adress;
 import com.projetEbilleterie.ebilleterie.domain.customer.Customer;
 import com.projetEbilleterie.ebilleterie.domain.customer.Profil;
 import com.projetEbilleterie.ebilleterie.domain.eticket.Eticket;
 import com.projetEbilleterie.ebilleterie.domain.relative.Relative;
 import com.projetEbilleterie.ebilleterie.infrastructure.RelativeJPA.RelativeJPA;
+import com.projetEbilleterie.ebilleterie.infrastructure.basket2JPA.Basket2JPA;
 import com.projetEbilleterie.ebilleterie.infrastructure.basketJPA.BasketJPA;
 import com.projetEbilleterie.ebilleterie.infrastructure.eticketJPA.EticketJPA;
 
@@ -48,7 +50,7 @@ public class CustomerJPA {
     private String password;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "CUSTOMER_ID", referencedColumnName = "ID")
-    private List<BasketJPA> baskets = new ArrayList<>() ;
+    private List<Basket2JPA> basket2s = new ArrayList<>() ;
 
     //Constructors
     public CustomerJPA(){}
@@ -69,9 +71,9 @@ public class CustomerJPA {
                         .map(RelativeJPA::new)
                         .collect(Collectors.toList());
         this.password = customer.getPassword();
-        this.baskets = customer.getBaskets()
+        this.basket2s = customer.getBasket2s()
                     .stream()
-                    .map(BasketJPA::new)
+                    .map(Basket2JPA::new)
                     .collect(Collectors.toList());
     }
 
@@ -80,12 +82,13 @@ public class CustomerJPA {
         List<Relative> relativeList = relatives.stream()
                 .map(b -> new Relative(b.getId(),b.getLastname(),b.getFirstname(),b.getEmail(),b.getPhoneNumber()))
                 .collect(Collectors.toList());
-        List<Basket> basketList = baskets.stream()
-                .map(c -> new Basket(c.getId(),c.getQuantity(),c.isStatus()/*,listEtickets(b.getEtickets())*/))
+        List<Basket2> basket2List = basket2s.stream()
+                .map(c -> new Basket2(c.getId(),c.getQuantity(),c.isStatus(),c.getCategory(),
+                        c.getReference(),c.getPrice(),c.getTypePrice(),c.getPurchaseDate()))
                 .collect(Collectors.toList());
         Adress adress = new Adress(adressNumber, adressSreet, adressPostalCode, adressCity);
         return new Customer(id, this.lastname,this.firstname,this.profil,this.email,
-                            this.phoneNumber,adress,relativeList,password ,basketList);
+                            this.phoneNumber,adress,relativeList,password ,basket2List);
     }
 
     private List<Eticket> listEtickets(List<EticketJPA> etickets) {
@@ -111,5 +114,5 @@ public class CustomerJPA {
     public String getAadressCity() {return adressCity;}
     public List<RelativeJPA> getRelatives() { return relatives;}
     public String getPassword() {return password;}
-    public List<BasketJPA> getBaskets() {return baskets;}
+    public List<Basket2JPA> getBasket2s() {return basket2s;}
 }

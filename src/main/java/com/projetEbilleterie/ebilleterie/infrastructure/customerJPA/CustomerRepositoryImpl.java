@@ -16,7 +16,6 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     @Autowired
     private CustomerDAO customerDAO;
 
-
     @Override
     public Customer getCustomer(Long id) {
         return customerDAO.findById(id)

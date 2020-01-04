@@ -1,6 +1,7 @@
 package com.projetEbilleterie.ebilleterie.exposition.basket;
 
 import com.projetEbilleterie.ebilleterie.application.BasketService;
+import com.projetEbilleterie.ebilleterie.application.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +13,10 @@ import java.util.List;
 public class BasketResource {
 
     @Autowired
-    private BasketService basketService;
+    BasketService basketService;
 
     @CrossOrigin
-    @RequestMapping(method = RequestMethod.POST, path = {"/baskets"})
+    @RequestMapping(method = RequestMethod.POST, path = {"/basket"})
     @ResponseStatus(HttpStatus.CREATED)
     public void createBasket(@Valid @RequestBody BasketDTO basketDTO) {
         this.basketService.createBasket(BasketAdapter.transformToBasket(basketDTO));
@@ -28,4 +29,13 @@ public class BasketResource {
     public List<BasketDTO> listAllBaskets() {
         return BasketAdapter.adaptToBasketDTOList(this.basketService.listAllBasket());
     }
+    // Creatino du basket avec l'ID Customer et l'id ticket
+    //@RequestMapping(method = RequestMethod.POST, path = {"/customers/{customerId}/tickets/{ticketId}/basket"})
+    //@ResponseStatus(HttpStatus.CREATED)
+    //public void addBasketToCustomer(@PathVariable("customerId") Long customerId,
+    //                                  @PathVariable("ticketId") Long ticketId,
+    //                                  @RequestBody BasketDTO basketDTO) {
+    //    this.basketService.addBasketQuery(customerId, ticketId, BasketAdapter.transformToBasket(basketDTO));
+   // }
+
 }

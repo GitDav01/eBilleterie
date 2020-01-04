@@ -20,5 +20,7 @@ public class BasketService {
         return this.basketRepository.saveBasket(newBasket);
     }
     public List<Basket> listAllBasket() { return this.basketRepository.findAllBasket();}
+    public Long addBasketQuery(Long customerId, Long eticketId, Basket newBasket) {
+        return this.basketRepository.addBasketQuery(customerId,eticketId,newBasket);}
 
 }

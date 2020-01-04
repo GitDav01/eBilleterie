@@ -38,4 +38,13 @@ public class BasketRepositoryImpl implements BasketRepository {
                 .map(BasketJPA::toBasket)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public Long addBasketQuery(Long customerId, Long eticketId, Basket newBasket) {
+    //    Long id = 9874L;
+    //    int quantity = newBasket.getQuantity();
+    //    boolean status = newBasket.isStatus();
+    //    basketDAO.addBasketQuery(id,quantity,status,customerId,eticketId);
+        return null;
+    }
 }

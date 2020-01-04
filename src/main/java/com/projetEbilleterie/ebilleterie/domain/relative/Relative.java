@@ -20,6 +20,7 @@ public class Relative {
         this.phoneNumber=phoneNumber;
         }
 
+        // Méthodezs
     public void update(Relative relativeWithNewInformation) {
         this.lastname = relativeWithNewInformation.getLastname();
         this.firstname = relativeWithNewInformation.getFirstname();
