@@ -1,5 +1,6 @@
 package com.projetEbilleterie.ebilleterie.domain.basket2;
 
+import com.projetEbilleterie.ebilleterie.domain.eticket.Category;
 import com.projetEbilleterie.ebilleterie.domain.eticket.TypePrice;
 
 import java.util.Date;
@@ -9,7 +10,7 @@ public class Basket2 {
     private Long id;
     private int quantity;
     private boolean status;
-    private String category;
+    private Category category;
     private String reference;
     private double price;
     private TypePrice typePrice;
@@ -18,7 +19,7 @@ public class Basket2 {
     //Constructors
     public Basket2(){}
 
-    public Basket2(Long id, int quantity, boolean status, String category, String reference,
+    public Basket2(Long id, int quantity, boolean status, Category category, String reference,
                    double price, TypePrice typePrice, Date purchaseDate) {
         this.id = id;
         this.quantity = quantity;
@@ -45,7 +46,7 @@ public class Basket2 {
     public Long getId() {return id; }
     public int getQuantity() {return quantity; }
     public boolean isStatus() {return status;}
-    public String getCategory() {return category;}
+    public Category getCategory() {return category;}
     public String getReference() {return reference;}
     public double getPrice() {return price;}
     public TypePrice getTypePrice() {return typePrice;}

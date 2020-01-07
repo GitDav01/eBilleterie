@@ -3,6 +3,7 @@ package com.projetEbilleterie.ebilleterie.infrastructure.basket2JPA;
 
 import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
 import com.projetEbilleterie.ebilleterie.domain.basket2.Basket2;
+import com.projetEbilleterie.ebilleterie.domain.eticket.Category;
 import com.projetEbilleterie.ebilleterie.domain.eticket.TypePrice;
 
 import javax.persistence.*;
@@ -19,8 +20,9 @@ public class Basket2JPA {
     private int quantity;
     @Column(name = "STATUS")
     private boolean status;
+    @Enumerated(EnumType.STRING)
     @Column(name = "CATEGORY")
-    private String category;
+    private Category category;
     @Column(name = "REFERENCE")
     private String reference;
     @Column(name = "PRICE")
@@ -57,7 +59,7 @@ public class Basket2JPA {
     public Long getId() {return id;}
     public int getQuantity() {return quantity;}
     public Boolean isStatus() {return status; }
-    public String getCategory() {return category;}
+    public Category getCategory() {return category;}
     public String getReference() {return reference;}
     public double getPrice() {return price;}
     public TypePrice getTypePrice() {return typePrice;}

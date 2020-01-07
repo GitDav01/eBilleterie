@@ -16,7 +16,7 @@ public class Eticket2Resource {
     Eticket2Service eticket2Service;
 
     @CrossOrigin
-    @RequestMapping(method = RequestMethod.POST, path = {"/etickets2"})
+    @RequestMapping(method = RequestMethod.POST, path = {"/eticket2"})
     @ResponseStatus(HttpStatus.CREATED)
     public void createEticket2(@Valid @RequestBody Eticket2DTO eticket2DTO) {
         this.eticket2Service.createEticket(Eticket2Adapter.transformToEticket(eticket2DTO));

@@ -50,7 +50,8 @@ public class RelativeResource {
     }
 
     @RequestMapping(method = RequestMethod.PUT, path = {"/customers/{customerId}/relatives/{relativeId}"})
-    public void updateRelative(@PathVariable("customerId") Long customerId, @PathVariable("relativeId") Long relativeId, @RequestBody RelativeDTO relativeDTO) {
+    public void updateRelative(@PathVariable("customerId") Long customerId, @PathVariable("relativeId") Long relativeId,
+                               @RequestBody RelativeDTO relativeDTO) {
         this.customerService.updateRelative(customerId, relativeId, RelativeAdapter.transformToRelative(relativeDTO));
     }
 }

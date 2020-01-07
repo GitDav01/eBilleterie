@@ -25,10 +25,10 @@ public class Eticket2JPA {
     private Category category;
     @Column(name = "REFERENCE")
     private String reference;
-    @Size(max = 1337)
+    @Size(max = 1000)
     @Column(name = "DESCRIPTION")
     private String description;
-    @Size(max = 1337)
+    @Size(max = 1000)
     @Column(name = "LAW")
     private String  law;
     @Column(name = "NOMINATIVE")
@@ -50,8 +50,8 @@ public class Eticket2JPA {
 
     public Eticket2JPA() {}
 
-    public Eticket2JPA(Long id, Category category, String reference, @Size(max = 1337) String description,
-                       @Size(max = 1337) String law, boolean nominative, String validityDate, List<RateJPA> rates,
+    public Eticket2JPA(Long id, Category category, String reference, @Size(max = 1000) String description,
+                       @Size(max = 1000) String law, boolean nominative, String validityDate, List<RateJPA> rates,
                        String image, String provider,List<BasketJPA> baskets) {
         this.id = id;
         this.category = category;

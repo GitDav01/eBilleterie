@@ -1,6 +1,7 @@
 package com.projetEbilleterie.ebilleterie.exposition.basket2;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.projetEbilleterie.ebilleterie.domain.eticket.Category;
 import com.projetEbilleterie.ebilleterie.domain.eticket.TypePrice;
 
 import java.util.Date;
@@ -14,7 +15,7 @@ public class Basket2DTO {
     @JsonProperty
     boolean status;
     @JsonProperty
-    String category;
+    Category category;
     @JsonProperty
     String reference;
     @JsonProperty
@@ -27,7 +28,7 @@ public class Basket2DTO {
     //Constructors
     public Basket2DTO(){}
 
-    public Basket2DTO(/*Long id, */ int quantity, boolean status, String category, String reference,
+    public Basket2DTO(/*Long id, */ int quantity, boolean status, Category category, String reference,
                       double price, TypePrice typePrice, Date purchaseDate) {
      //   this.id = id;
         this.quantity = quantity;
@@ -43,7 +44,7 @@ public class Basket2DTO {
  //   public Long getId() {return id;}
     public int getQuantity() { return quantity;}
     public boolean isStatus() { return status;}
-    public String getCategory() {return category;}
+    public Category getCategory() {return category;}
     public String getReference() {return reference;}
     public double getPrice() {return price;}
     public TypePrice getTypePrice() {return typePrice;}

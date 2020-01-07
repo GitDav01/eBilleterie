@@ -52,6 +52,11 @@ public class CustomerService {
 
     // Methodes liées ux baskets
     //--------------------------
+
+    public List<Basket2> listAllBasket2s(Long customerId) {
+        Customer customer = obtainCustomer(customerId);
+        return Collections.unmodifiableList(customer.getBasket2s());
+    }
     public void addBasket2(Long customerId, Basket2 basket2) {
         Customer customer = obtainCustomer(customerId);
         customer.addBasket2(basket2);
