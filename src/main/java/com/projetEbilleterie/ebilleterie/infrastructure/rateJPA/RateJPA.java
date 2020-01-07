@@ -1,6 +1,6 @@
 package com.projetEbilleterie.ebilleterie.infrastructure.rateJPA;
 
-import com.projetEbilleterie.ebilleterie.domain.eticket.TypePrice;
+import com.projetEbilleterie.ebilleterie.domain.eticket2.TypePrice;
 import com.projetEbilleterie.ebilleterie.domain.rate.Rate;
 
 import javax.persistence.*;

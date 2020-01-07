@@ -1,4 +1,4 @@
-package com.projetEbilleterie.ebilleterie.domain.eticket;
+package com.projetEbilleterie.ebilleterie.domain.eticket2;
 
 public enum TypePrice {
     INTERNAL_CHILD_PRICE,  EXTERNAL_CHILD_PRICE,

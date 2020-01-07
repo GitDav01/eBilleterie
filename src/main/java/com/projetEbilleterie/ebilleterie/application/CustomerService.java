@@ -1,10 +1,8 @@
 package com.projetEbilleterie.ebilleterie.application;
 
-import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
 import com.projetEbilleterie.ebilleterie.domain.basket2.Basket2;
 import com.projetEbilleterie.ebilleterie.domain.customer.Customer;
 import com.projetEbilleterie.ebilleterie.domain.customer.CustomerRepository;
-import com.projetEbilleterie.ebilleterie.domain.eticket2.Eticket2;
 import com.projetEbilleterie.ebilleterie.domain.relative.Relative;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -75,14 +73,4 @@ public class CustomerService {
         this.customerRepository.saveCustomer(customer);
     }
 
-    // Methodes liées aux baskets construites avec les fonctions primales supérieures
-    //----------------------------------------------------------------------------------
-
-   // public void addBasket(Long customerId, Long eticketId, Basket basket) {
-    //    Customer customer = obtainCustomer(customerId);
-    //    Eticket2 eticket = eticket2Service.obtainEticket(eticketId);
-    //    customer.addBasket(basket, eticketId);
-    //    this.customerRepository.saveCustomer(customer);
-  //  }
-
-}
+ }

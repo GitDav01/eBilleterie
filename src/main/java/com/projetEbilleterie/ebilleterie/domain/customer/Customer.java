@@ -1,6 +1,5 @@
 package com.projetEbilleterie.ebilleterie.domain.customer;
 
-import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
 import com.projetEbilleterie.ebilleterie.domain.basket2.Basket2;
 import com.projetEbilleterie.ebilleterie.domain.exception.ErrorCodes;
 import com.projetEbilleterie.ebilleterie.domain.exception.MyAppTicketException;

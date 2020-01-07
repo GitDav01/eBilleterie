@@ -1,6 +1,5 @@
 package com.projetEbilleterie.ebilleterie.domain.provider;
 
-import com.projetEbilleterie.ebilleterie.domain.eticket.Eticket;
 
 import java.util.ArrayList;
 import java.util.List;

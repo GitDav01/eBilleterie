@@ -21,6 +21,7 @@ public class RateResource {
     public List<RateDTO> listAllRates() {
         return RateAdapter.adaptToRateDTOList(this.rateservice.listAllRate());
     }
+
     @RequestMapping(method = RequestMethod.GET, path = {"/etickets/{eticketId}/rates"})
     public List<RateDTO> listAllRatesFromEticket(@PathVariable("eticketId") Long eticketId) {
         List<Rate> rates = this.eticket2Service.listAllRates(eticketId);

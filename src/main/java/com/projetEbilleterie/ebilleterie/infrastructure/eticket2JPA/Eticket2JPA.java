@@ -1,10 +1,8 @@
 package com.projetEbilleterie.ebilleterie.infrastructure.eticket2JPA;
 
-import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
-import com.projetEbilleterie.ebilleterie.domain.eticket.Category;
+import com.projetEbilleterie.ebilleterie.domain.eticket2.Category;
 import com.projetEbilleterie.ebilleterie.domain.eticket2.Eticket2;
 import com.projetEbilleterie.ebilleterie.domain.rate.Rate;
-import com.projetEbilleterie.ebilleterie.infrastructure.basketJPA.BasketJPA;
 import com.projetEbilleterie.ebilleterie.infrastructure.rateJPA.RateJPA;
 
 import javax.persistence.*;
@@ -42,9 +40,6 @@ public class Eticket2JPA {
     private String  image;
     @Column(name = "PROVIDER")
     private String  provider;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="ETICKET_ID", referencedColumnName = "ID")
-    private List<BasketJPA> baskets = new ArrayList<>();
 
     // Constructors
 
@@ -52,7 +47,7 @@ public class Eticket2JPA {
 
     public Eticket2JPA(Long id, Category category, String reference, @Size(max = 1000) String description,
                        @Size(max = 1000) String law, boolean nominative, String validityDate, List<RateJPA> rates,
-                       String image, String provider,List<BasketJPA> baskets) {
+                       String image, String provider) {
         this.id = id;
         this.category = category;
         this.reference = reference;
@@ -63,19 +58,16 @@ public class Eticket2JPA {
         this.rates = rates;
         this.image = image;
         this.provider = provider;
-        this.baskets = baskets;
-    }
+         }
 
     // Adapter JPA
     Eticket2 toEticket2() {
         List<Rate> rateList = rates.stream()
                 .map(b -> new Rate(b.getId(),b.getName(),b.getPrice(),b.getQuantity(),b.getTypePrice()))
                 .collect(Collectors.toList());
-        List<Basket> basketList = baskets.stream()
-                .map(c -> new Basket(c.getId(),c.getQuantity(),c.isStatus())).collect(Collectors.toList());
-        return new Eticket2(id, this.category,  this.reference, this.description,
+                return new Eticket2(id, this.category,  this.reference, this.description,
                 this.law,  this.nominative,  this.validityDate, rateList,
-                this.image,this.provider, basketList);
+                this.image,this.provider);
     }
 
     //Getter
@@ -89,5 +81,4 @@ public class Eticket2JPA {
     public List<RateJPA> getRates() { return rates; }
     public String getImage() { return image;}
     public String getProvider() { return provider;}
-    public List<BasketJPA> getBaskets() {return baskets;}
-}
+  }

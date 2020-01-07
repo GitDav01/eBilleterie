@@ -1,6 +1,5 @@
 package com.projetEbilleterie.ebilleterie;
 
-import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
 import com.projetEbilleterie.ebilleterie.domain.customer.Customer;
 import com.projetEbilleterie.ebilleterie.domain.customer.Profil;
 import org.junit.Assert;

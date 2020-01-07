@@ -1,7 +1,7 @@
 package com.projetEbilleterie.ebilleterie.exposition.eticket2;
 
 import com.projetEbilleterie.ebilleterie.domain.eticket2.Eticket2;
-import com.projetEbilleterie.ebilleterie.exposition.basket.BasketAdapter;
+import com.projetEbilleterie.ebilleterie.exposition.customer.CustomerAdapter;
 import com.projetEbilleterie.ebilleterie.exposition.rate.RateAdapter;
 
 import java.util.ArrayList;
@@ -25,9 +25,8 @@ public class Eticket2Adapter {
                 eticket.getValidityDate(),
                 RateAdapter.adaptToRateDTOList(eticket.getRates()),
                 eticket.getImage(),
-                eticket.getProvider(),
-                BasketAdapter.adaptToBasketDTOList(eticket.getBaskets())
-        );
+                eticket.getProvider()
+              );
     }
 
     public static List<Eticket2> transformToEticketList(List<Eticket2DTO> eticketDTO) {
@@ -39,7 +38,7 @@ public class Eticket2Adapter {
        // String id = (eTicketDTO.id == null || eTicketDTO.id.trim().equals(""))? UUID.randomUUID().toString() : eTicketDTO.id;
         return new Eticket2(null, eTicketDTO.category,eTicketDTO.reference, eTicketDTO.description,eTicketDTO.law,eTicketDTO.nominative,
                 eTicketDTO.validityDate, RateAdapter.transformToRateList(eTicketDTO.rates),
-                eTicketDTO.image,eTicketDTO.provider,BasketAdapter.transformToBasketList(eTicketDTO.baskets));
+                eTicketDTO.image,eTicketDTO.provider);
     }
     static List<Eticket2DTO> adaptToEticketDTOList(List<Eticket2> etickets) {
         return etickets.stream().map(Eticket2Adapter::adaptToEticketDTO).collect(Collectors.toList());

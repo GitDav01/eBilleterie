@@ -1,7 +1,7 @@
 package com.projetEbilleterie.ebilleterie.exposition.rate;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.projetEbilleterie.ebilleterie.domain.eticket.TypePrice;
+import com.projetEbilleterie.ebilleterie.domain.eticket2.TypePrice;
 
 public class RateDTO {
 

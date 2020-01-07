@@ -1,7 +1,4 @@
 package com.projetEbilleterie.ebilleterie.infrastructure.RelativeJPA;
-
-import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
-import com.projetEbilleterie.ebilleterie.domain.eticket.Eticket;
 import com.projetEbilleterie.ebilleterie.domain.relative.Relative;
 
 import javax.persistence.Column;

@@ -1,16 +1,14 @@
 package com.projetEbilleterie.ebilleterie.infrastructure.customerJPA;
 
-import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
 import com.projetEbilleterie.ebilleterie.domain.basket2.Basket2;
 import com.projetEbilleterie.ebilleterie.domain.customer.Adress;
 import com.projetEbilleterie.ebilleterie.domain.customer.Customer;
 import com.projetEbilleterie.ebilleterie.domain.customer.Profil;
-import com.projetEbilleterie.ebilleterie.domain.eticket.Eticket;
+import com.projetEbilleterie.ebilleterie.domain.eticket2.Eticket2;
 import com.projetEbilleterie.ebilleterie.domain.relative.Relative;
 import com.projetEbilleterie.ebilleterie.infrastructure.RelativeJPA.RelativeJPA;
 import com.projetEbilleterie.ebilleterie.infrastructure.basket2JPA.Basket2JPA;
-import com.projetEbilleterie.ebilleterie.infrastructure.basketJPA.BasketJPA;
-import com.projetEbilleterie.ebilleterie.infrastructure.eticketJPA.EticketJPA;
+import com.projetEbilleterie.ebilleterie.infrastructure.eticket2JPA.Eticket2JPA;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -91,15 +89,6 @@ public class CustomerJPA {
                             this.phoneNumber,adress,relativeList,password ,basket2List);
     }
 
-    private List<Eticket> listEtickets(List<EticketJPA> etickets) {
-        List<Eticket> eticketList = etickets
-                .stream()
-                .map(b -> new Eticket(b.getId(),b.getCategory(),b.getReference(),b.getDescription(),b.getLaw(),
-                        b.isNominative(),b.getValidityDate(),b.getTypePrice(),
-                        b.getPrice(), b.getStock(),b.getImage(),b.getProvider()))
-                .collect(Collectors.toList());
-        return eticketList;
-    }
 
     //Getter
     public Long getId() {return id;}

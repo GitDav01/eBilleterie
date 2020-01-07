@@ -1,6 +1,6 @@
 package com.projetEbilleterie.ebilleterie.domain.rate;
 
-import com.projetEbilleterie.ebilleterie.domain.eticket.TypePrice;
+import com.projetEbilleterie.ebilleterie.domain.eticket2.TypePrice;
 
 public class Rate {
 

@@ -1,10 +1,9 @@
 package com.projetEbilleterie.ebilleterie.infrastructure.basket2JPA;
 
 
-import com.projetEbilleterie.ebilleterie.domain.basket.Basket;
 import com.projetEbilleterie.ebilleterie.domain.basket2.Basket2;
-import com.projetEbilleterie.ebilleterie.domain.eticket.Category;
-import com.projetEbilleterie.ebilleterie.domain.eticket.TypePrice;
+import com.projetEbilleterie.ebilleterie.domain.eticket2.Category;
+import com.projetEbilleterie.ebilleterie.domain.eticket2.TypePrice;
 
 import javax.persistence.*;
 import java.util.Date;

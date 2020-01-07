@@ -1,9 +1,8 @@
 package com.projetEbilleterie.ebilleterie.exposition.eticket2;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.projetEbilleterie.ebilleterie.domain.eticket.Category;
+import com.projetEbilleterie.ebilleterie.domain.eticket2.Category;
 import com.projetEbilleterie.ebilleterie.domain.exception.ErrorCodes;
-import com.projetEbilleterie.ebilleterie.exposition.basket.BasketDTO;
 import com.projetEbilleterie.ebilleterie.exposition.rate.RateDTO;
 
 import javax.validation.constraints.NotBlank;
@@ -15,27 +14,16 @@ public class Eticket2DTO {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     Long id;
     @NotNull(message = ErrorCodes.ETICKET_MUST_HAVE_A_CATEGORY)
-    @JsonProperty
-    Category category;
+    @JsonProperty Category category;
     @NotBlank(message = ErrorCodes.ETICKET_MUST_HAVE_A_REFERENCE)
-    @JsonProperty
-    String reference;
-    @JsonProperty
-    String description;
-    @JsonProperty
-    String  law;
-    @JsonProperty
-    boolean nominative;
-    @JsonProperty
-    String validityDate ;
-    @JsonProperty
-    List<RateDTO> rates;
-    @JsonProperty
-    String  image;
-    @JsonProperty
-    String  provider;
-    @JsonProperty
-    List<BasketDTO> baskets;
+    @JsonProperty  String reference;
+    @JsonProperty  String description;
+    @JsonProperty  String  law;
+    @JsonProperty  boolean nominative;
+    @JsonProperty  String validityDate ;
+    @JsonProperty  List<RateDTO> rates;
+    @JsonProperty  String  image;
+    @JsonProperty  String  provider;
 
     //Constructors
     public  Eticket2DTO(){}
@@ -43,7 +31,7 @@ public class Eticket2DTO {
     public Eticket2DTO(Long id, @NotNull(message = ErrorCodes.ETICKET_MUST_HAVE_A_CATEGORY) Category category,
                        @NotBlank(message = ErrorCodes.ETICKET_MUST_HAVE_A_REFERENCE) String reference, String description,
                        String law, boolean nominative, String validityDate, List<RateDTO> rates,
-                       String image, String provider, List<BasketDTO> baskets) {
+                       String image, String provider) {
         this.id = id;
         this.category = category;
         this.reference = reference;
@@ -54,8 +42,7 @@ public class Eticket2DTO {
         this.rates = rates;
         this.image = image;
         this.provider = provider;
-        this.baskets = baskets;
-    }
+       }
 
     //Getter
     public Long getId() { return id;}
@@ -68,5 +55,4 @@ public class Eticket2DTO {
     public List<RateDTO> getRates() {return rates;}
     public String getImage() { return image; }
     public String getProvider() { return provider;}
-    public List<BasketDTO> getBaskets() {return baskets;}
-}
+  }
