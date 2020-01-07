@@ -1,7 +1,5 @@
 package com.projetEbilleterie.ebilleterie.infrastructure.customerJPA;
 
-import com.projetEbilleterie.ebilleterie.domain.customer.Customer;
-import com.projetEbilleterie.ebilleterie.infrastructure.providerJPA.ProviderJPA;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
