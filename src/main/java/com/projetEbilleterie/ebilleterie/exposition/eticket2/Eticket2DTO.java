@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-public class Eticket2DTO {
+public class  Eticket2DTO {
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     String id;

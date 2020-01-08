@@ -6,27 +6,27 @@ VALUES ('2', 'UGC CINE','CINEMA');
 INSERT INTO ETICKET (id, category,reference, description,law,nominative,VALIDITY_DATE,type_Price,price,stock,image,provider)
 VALUES ('1', 'CINEMA','CARTE UGC SOLO','La carte UGC solo permet d obtenir une place de cinema valable tous les jours, a toutes les seances'
 ,'tarif UGC 10 Cartes UGC Solo (1 lot par trimestre civil) PRIX INTERNE 51,50 € • CLIENT 68 €'
-,false,'06122020','INTERNAL_UNIQUE_PRICE',51.50,200,'/assets/imageUGC','UGC');
+,false,'06122020','INTERNAL_UNIQUE_PRICE',51.50,200,'assets/ugc240x318.png','UGC');
 INSERT INTO ETICKET (id, category,reference, description,law,nominative,VALIDITY_DATE,type_Price,price,stock,image,provider)
 VALUES ('2', 'CINEMA','CARTE UGC SOLO','La carte UGC solo permet d obtenir une place de cinema valable tous les jours, a toutes les seances'
 ,'tarif UGC 10 Cartes UGC Solo (1 lot par trimestre civil) PRIX INTERNE 51,50 € • CLIENT 68 €'
-,false,'06122020','EXTERNAL_UNIQUE_PRICE',68,100,':assets//imageUGC','UGC');
+,false,'06122020','EXTERNAL_UNIQUE_PRICE',68,100,'assets/ugc240x318.png','UGC');
 INSERT INTO ETICKET (id, category,reference, description,law,nominative,VALIDITY_DATE,type_Price,price,stock,image,provider)
 VALUES ('3','CINEMA', 'LA CONTREMARQUE CINÉCHÈQUE','La  contremarque Cinéchèque  permet d obtenir une place de cinema valable tous les jours, a toutes les seances'
 ,'tarif CinéChèque 10 contremarques CinéChèque (1 lot par trimestre civil) PRIX INTERNE 54 € • CLIENT 71,50 € '
-,false,'06122020','INTERNAL_UNIQUE_PRICE',54,300,'https://cineCHEQUE','CINECHEQUE');
+,false,'06122020','INTERNAL_UNIQUE_PRICE',54,300,'assets/cinecheque240x318.png','CINECHEQUE');
 INSERT INTO ETICKET (id, category,reference, description,law,nominative,VALIDITY_DATE,type_Price,price,stock,image,provider)
 VALUES ('4', 'CINEMA','LA CONTREMARQUE CINÉCHÈQUE','La  contremarque Cinéchèque  permet d obtenir une place de cinema valable tous les jours, a toutes les seances'
 ,'tarif CinéChèque 10 contremarques CinéChèque (1 lot par trimestre civil) PRIX INTERNE 54 € • CLIENT 71,50 € '
-,false,'06122020','EXTERNAL_UNIQUE_PRICE',71.50,600,'https://cineCHEQUE','CINECHEQUE');
+,false,'06122020','EXTERNAL_UNIQUE_PRICE',71.50,600,'assets/cinecheque240x318.png','CINECHEQUE');
 INSERT INTO ETICKET (id, category,reference, description,law,nominative,VALIDITY_DATE,type_Price,price,stock,image,provider)
-VALUES ('5', 'CINEMA','PATHE GAUMONT LA CARTE « CINÉ ACCÈS » ','La  contremarque Cinéchèque  permet d obtenir une place de cinema valable tous les jours, a toutes les seances'
+VALUES ('5', 'CINEMA','PATHE GAUMONT LA CARTE « CINÉ ACCÈS » ','10 Cartes Ciné Accès - La carte Ciné Accès permet d’obtenir une place de cinéma valable tous les jours, à toutes les séances, dans toutes les salles Gaumont et Pathé* en France, ainsi que dans les cinémas affiliés, dans la limite de la date de validité et des restrictions éventuelles mentionnées au verso de la carte.Vous bénéficiez en plus d’une carte de fidélité Gaumont et Pathé disponible dans les salles de cinéma à activer sur www.cinemasgaumontpathe.com pour profiter des différentes offres.'
 ,'tarif Ciné Accès 10 Cartes Ciné Accès (1 lot par trimestre civil) PRIX INTERNE 64 € • CLIENT 85 € '
-,false,'06122020','INTERNAL_UNIQUE_PRICE',64,300,'https://Gaumont Pathe','PATHE GAUMONT');
+,false,'06122020','INTERNAL_UNIQUE_PRICE',64,300,'assets/gaumont240x318.png','PATHE GAUMONT');
 INSERT INTO ETICKET (id, category,reference, description,law,nominative,VALIDITY_DATE,type_Price,price,stock,image,provider)
-VALUES ('6', 'CINEMA','PATHE GAUMONT LA CARTE « CINÉ ACCÈS » ','La  contremarque Cinéchèque  permet d obtenir une place de cinema valable tous les jours, a toutes les seances'
+VALUES ('6', 'CINEMA','PATHE GAUMONT LA CARTE « CINÉ ACCÈS » ','10 Cartes Ciné Accès - La carte Ciné Accès permet d’obtenir une place de cinéma valable tous les jours, à toutes les séances, dans toutes les salles Gaumont et Pathé* en France, ainsi que dans les cinémas affiliés, dans la limite de la date de validité et des restrictions éventuelles mentionnées au verso de la carte.Vous bénéficiez en plus d’une carte de fidélité Gaumont et Pathé disponible dans les salles de cinéma à activer sur www.cinemasgaumontpathe.com pour profiter des différentes offres.'
 ,'tarif Ciné Accès 10 Cartes Ciné Accès (1 lot par trimestre civil) PRIX INTERNE 64 € • CLIENT 85 € '
-,false,'06122020','INTERNAL_UNIQUE_PRICE',85,200,'https://Gaumont Pathe','PATHE GAUMONT');
+,false,'06122020','INTERNAL_UNIQUE_PRICE',85,200,'assets/gaumont240x318.png','PATHE GAUMONT');
 INSERT INTO ETICKET (id, category,reference, description,law,nominative,VALIDITY_DATE,type_Price,price,stock,image,provider)
 VALUES ('7', 'LOISIRS','JARDIN D ACCLIMATATION  ','Du nouveau au Jardin d Acclimatation Plongez dans la première réserve virtuelle avec la nouvelle attraction du Jardin '
 ,'Tarif unique - de 3 ans : entrée est gratuite (mais pas les manèges),INTERNE 15 € • CLIENT 21 € • '
@@ -38,19 +38,20 @@ VALUES ('8', 'LOISIRS','JARDIN D ACCLIMATATION  ','Du nouveau au Jardin d Acclim
 INSERT INTO ETICKET (id, category,reference, description,law,nominative,VALIDITY_DATE,type_Price,price,stock,image,provider)
 VALUES ('9  ', 'LOISIRS','ZOO DE BEAUVAL  ','Il fait partie des classiques tout en renouvelant chaque année l expérience proposée à ses visiteurs ! Le Zoo Parc de Beauval vous invite à découvrir ses nouveautés 2019 '
 ,'TTarif enfant (3 à 10 ans inclus) CSEEPF 12 € • extérieur 18 € • public 23 € Tarif adulte (11 ans et plus) INTERNE 17 € • CLIENT 23 € • public 29  '
-,false,'06122020','INTERNAL_CHILD_PRICE',12,100,'https://Jardin Zoo de beauval','ZOO DE BEAUVAL');
+,false,'06122020','INTERNAL_CHILD_PRICE',12,100,'assets/zooBeauval240x318.png','ZOO DE BEAUVAL');
 INSERT INTO ETICKET (id, category,reference, description,law,nominative,VALIDITY_DATE,type_Price,price,stock,image,provider)
 VALUES ('10  ', 'LOISIRS','ZOO DE BEAUVAL  ','Il fait partie des classiques tout en renouvelant chaque année l expérience proposée à ses visiteurs ! Le Zoo Parc de Beauval vous invite à découvrir ses nouveautés 2019 '
 ,'TTarif enfant (3 à 10 ans inclus) CSEEPF 12 € • extérieur 18 € • public 23 € Tarif adulte (11 ans et plus) INTERNE 17 € • CLIENT 23 € • public 29  '
-,false,'06122020','EXTERNAL_CHILD_PRICE',18,100,'https://Jardin Zoo de beauval','ZOO DE BEAUVAL');
+,false,'06122020','EXTERNAL_CHILD_PRICE',18,100,'assets/zooBeauval240x318.png','ZOO DE BEAUVAL');
 INSERT INTO ETICKET (id, category,reference, description,law,nominative,VALIDITY_DATE,type_Price,price,stock,image,provider)
 VALUES ('11  ', 'LOISIRS','ZOO DE BEAUVAL  ','Il fait partie des classiques tout en renouvelant chaque année l expérience proposée à ses visiteurs ! Le Zoo Parc de Beauval vous invite à découvrir ses nouveautés 2019 '
 ,'TTarif enfant (3 à 10 ans inclus) CSEEPF 12 € • extérieur 18 € • public 23 € Tarif adulte (11 ans et plus) INTERNE 17 € • CLIENT 23 € • public 29  '
-,false,'06122020','INTERNAL_CHILD_PRICE',17,100,'https://Jardin Zoo de beauval','ZOO DE BEAUVAL');
+,false,'06122020','INTERNAL_CHILD_PRICE',17,100,'assets/zooBeauval240x318.png','ZOO DE BEAUVAL');
 INSERT INTO ETICKET (id, category,reference, description,law,nominative,VALIDITY_DATE,type_Price,price,stock,image,provider)
 VALUES ('12  ', 'LOISIRS','ZOO DE BEAUVAL  ','Il fait partie des classiques tout en renouvelant chaque année l expérience proposée à ses visiteurs ! Le Zoo Parc de Beauval vous invite à découvrir ses nouveautés 2019 '
 ,'TTarif enfant (3 à 10 ans inclus) CSEEPF 12 € • extérieur 18 € • public 23 € Tarif adulte (11 ans et plus) INTERNE 17 € • CLIENT 23 € • public 29  '
-,false,'06122020','EXTERNAL_CHILD_PRICE',23,400,'https://Jardin Zoo de beauval','ZOO DE BEAUVAL');
+,false,'06122020','EXTERNAL_CHILD_PRICE',23,400,'assets/zooBeauval240x318.png','ZOO DE BEAUVAL');
+
 
 INSERT INTO CUSTOMER (ID,NAME,FIRSTNAME,PROFILE,EMAIL,PHONE_NUMBER,ADDRESS_NUMBER,ADDRESS_STREET,ADDRESS_POSTAL_CODE,ADDRESS_CITY,PASSWORD)
 VALUES('1','LUDOVIC','LOUIS','INTERNAL','ludo@gmail.com','0671878998',6, 'rue docteur Strauss', 98500,'ORION','password');
@@ -71,15 +72,15 @@ VALUES('4','MORILLE_Chritina_2','LUDOVIC','MORILLE@gmail.com','0674552457','2');
 
 INSERT INTO ETICKET2 (id, category,reference, description,law,nominative,VALIDITY_DATE,image,provider)
 VALUES ('1', 'CINEMA','CARTE UGC SOLO','La carte UGC solo permet d obtenir une place de cinema valable tous les jours, a toutes les seances'
-,'tarif UGC 10 Cartes UGC Solo (1 lot par trimestre civil) PRIX INTERNE 51,50 € • CLIENT 68 €',false,'06122020','/assets/imageUGC','UGC');
+,'tarif UGC 10 Cartes UGC Solo (1 lot par trimestre civil) PRIX INTERNE 51,50 € • CLIENT 68 €',false,'06122020','assets/ugc240x318.png','UGC');
 INSERT INTO ETICKET2 (id, category,reference, description,law,nominative,VALIDITY_DATE,image,provider)
 VALUES ('2','CINEMA', 'LA CONTREMARQUE CINÉCHÈQUE','La  contremarque Cinéchèque  permet d obtenir une place de cinema valable tous les jours, a toutes les seances'
 ,'tarif CinéChèque 10 contremarques CinéChèque (1 lot par trimestre civil) PRIX INTERNE 54 € • CLIENT 71,50 € '
-,false,'06122020','https://cineCHEQUE','CINECHEQUE');
+,false,'06122020','assets/cinecheque240x318.png','CINECHEQUE');
 INSERT INTO ETICKET2 (id, category,reference, description,law,nominative,VALIDITY_DATE,image,provider)
 VALUES ('3', 'LOISIRS','ZOO DE BEAUVAL','Il fait partie des classiques tout en renouvelant chaque année l expérience proposée à ses visiteurs ! Le Zoo Parc de Beauval vous invite à découvrir ses nouveautés 2019 '
 ,'Tarif enfant (3 à 10 ans inclus) CSEEPF 12 € • extérieur 18 € • public 23 € Tarif adulte (11 ans et plus) INTERNE 17 € • CLIENT 23 € • public 29  '
-,false,'06122020','https://Jardin Zoo de beauval','ZOO DE BEAUVAL');
+,false,'06122020','assets/zooBeauval240x318.png','ZOO DE BEAUVAL');
 
 
 INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
