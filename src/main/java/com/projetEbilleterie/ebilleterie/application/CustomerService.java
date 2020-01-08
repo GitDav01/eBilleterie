@@ -25,7 +25,7 @@ public class CustomerService {
     public Customer searchByEmailQuery(String email) { return this.customerRepository.searchByEmailQuery(email); }
     public List<Customer> listAllCustomer() { return this.customerRepository.findAllCustomer();}
 
-    // Methodes liÃ©es aux Relatives construites avec les fonctions primales supÃ©rieures
+    // Methodes liées aux Relatives construites avec les fonctions primales supérieures
     //----------------------------------------------------------------------------------
     public List<Relative> listAllRelatives(Long customerId) {
         Customer customer = obtainCustomer(customerId);
@@ -48,7 +48,7 @@ public class CustomerService {
         this.customerRepository.saveCustomer(customer);
     }
 
-    // Methodes liÃ©es ux baskets
+    // Methodes liées ux baskets
     //--------------------------
 
     public List<Basket2> listAllBasket2s(Long customerId) {
