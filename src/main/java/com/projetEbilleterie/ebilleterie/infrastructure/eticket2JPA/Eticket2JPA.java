@@ -35,7 +35,7 @@ public class Eticket2JPA {
     private String validityDate ;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="ETICKET_ID", referencedColumnName = "ID")
-    private List<RateJPA> rates = new ArrayList<>();
+    private List<RateJPA> rates  = new ArrayList<>();
     @Column(name = "IMAGE")
     private String  image;
     @Column(name = "PROVIDER")
@@ -45,19 +45,20 @@ public class Eticket2JPA {
 
     public Eticket2JPA() {}
 
-    public Eticket2JPA(Long id, Category category, String reference, @Size(max = 1000) String description,
-                       @Size(max = 1000) String law, boolean nominative, String validityDate, List<RateJPA> rates,
-                       String image, String provider) {
-        this.id = id;
-        this.category = category;
-        this.reference = reference;
-        this.description = description;
-        this.law = law;
-        this.nominative = nominative;
-        this.validityDate = validityDate;
-        this.rates = rates;
-        this.image = image;
-        this.provider = provider;
+    public Eticket2JPA(Eticket2 eticket2) {
+        this.id = eticket2.getId();
+        this.category = eticket2.getCategory();
+        this.reference = eticket2.getReference();
+        this.description = eticket2.getDescription();
+        this.law = eticket2.getLaw();
+        this.nominative = eticket2.isNominative();
+        this.validityDate = eticket2.getValidityDate();
+        this.rates = eticket2.getRates()
+                .stream()
+                .map(RateJPA::new)
+                .collect(Collectors.toList());
+        this.image = eticket2.getImage();
+        this.provider = eticket2.getProvider();
          }
 
     // Adapter JPA

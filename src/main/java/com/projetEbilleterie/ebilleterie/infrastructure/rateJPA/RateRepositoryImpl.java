@@ -1,5 +1,6 @@
 package com.projetEbilleterie.ebilleterie.infrastructure.rateJPA;
 
+import com.projetEbilleterie.ebilleterie.domain.eticket2.TypePrice;
 import com.projetEbilleterie.ebilleterie.domain.exception.ErrorCodes;
 import com.projetEbilleterie.ebilleterie.domain.exception.MyAppTicketException;
 import com.projetEbilleterie.ebilleterie.domain.rate.Rate;
@@ -31,5 +32,9 @@ public class RateRepositoryImpl implements RateRepository {
                 .map(RateJPA::toRate)
                 .collect(Collectors.toList());
     }
-
+ //   @Override
+ //   public Long updateStockRateQuery(int newQuantity, Long eticketId, TypePrice typePrice) {
+ //       this.rateDAO.updateStockRateQuery(newQuantity, eticketId, typePrice);
+ //       return eticketId;
+ //   }
 }

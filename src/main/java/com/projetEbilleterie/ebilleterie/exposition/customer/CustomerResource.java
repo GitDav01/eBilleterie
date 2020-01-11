@@ -44,6 +44,13 @@ public class CustomerResource {
         return CustomerAdapter.adaptToRelativeDTOList(relatives);
     }
 
+    @RequestMapping(method = RequestMethod.GET, path = {"/customers/{customerId}/relativesMail/{email}"})
+    public CustomerDTO.RelativeDTO getRelativeByMailFromCustomer(@PathVariable("customerId") Long customerId,
+                                                                 @PathVariable("email") String email) {
+        Relative relative = this.customerService.getRelativeByMailFromCustomer(customerId,email);
+        return CustomerAdapter.adaptToRelativeDTO(relative);
+    }
+
     @RequestMapping(method = RequestMethod.POST, path = {"/customers/{customerId}/relative"})
     @ResponseStatus(HttpStatus.CREATED)
     public void addRelativeToCustomer(@PathVariable("customerId") Long customerId, @RequestBody CustomerDTO.RelativeDTO relativeDTO) {
@@ -54,6 +61,12 @@ public class CustomerResource {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removeRelativeFromCustomer(@PathVariable("customerId") Long customerId, @PathVariable("relativeId") Long relativeId) {
         this.customerService.removeRelative(customerId, relativeId);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, path = {"/customers/{customerId}/relativesMail/{email}"})
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeRelativeByMailFromCustomer(@PathVariable("customerId") Long customerId, @PathVariable("email") String email) {
+        this.customerService.removeRelativeByMail(customerId, email);
     }
 
     @RequestMapping(method = RequestMethod.PUT, path = {"/customers/{customerId}/relatives/{relativeId}"})

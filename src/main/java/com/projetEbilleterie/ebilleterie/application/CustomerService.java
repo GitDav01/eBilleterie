@@ -18,9 +18,6 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
-    @Autowired
-    private Eticket2Service eticket2Service;
-
     public Customer obtainCustomer(Long id) { return this.customerRepository.getCustomer(id); }
     public Customer searchByEmailQuery(String email) { return this.customerRepository.searchByEmailQuery(email); }
     public List<Customer> listAllCustomer() { return this.customerRepository.findAllCustomer();}
@@ -31,6 +28,13 @@ public class CustomerService {
         Customer customer = obtainCustomer(customerId);
         return Collections.unmodifiableList(customer.getRelatives());
     }
+
+    public Relative getRelativeByMailFromCustomer(long customerId, String email) {
+        Customer customer = obtainCustomer(customerId);
+        return customer.getRelativeByMailFromCustomer(email);
+    }
+
+
     public void addRelative(Long customerId, Relative relative) {
         Customer customer = obtainCustomer(customerId);
         customer.addRelative(relative);
@@ -39,6 +43,12 @@ public class CustomerService {
     public void removeRelative(Long customerId, Long relativeId) {
         Customer customer = obtainCustomer(customerId);
         customer.removeRelative(relativeId);
+        this.customerRepository.saveCustomer(customer);
+    }
+
+    public void removeRelativeByMail(Long customerId, String email) {
+        Customer customer = obtainCustomer(customerId);
+        customer.removeRelativeByMail(email);
         this.customerRepository.saveCustomer(customer);
     }
 

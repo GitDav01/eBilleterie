@@ -24,7 +24,6 @@ public class RelativeJPA {
     @Column(name = "PHONE_NUMBER")
     private String phoneNumber;
 
-
     //Constructors
     public RelativeJPA(){}
 

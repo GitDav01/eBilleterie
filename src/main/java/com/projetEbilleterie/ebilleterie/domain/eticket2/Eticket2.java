@@ -1,4 +1,6 @@
 package com.projetEbilleterie.ebilleterie.domain.eticket2;
+import com.projetEbilleterie.ebilleterie.domain.exception.ErrorCodes;
+import com.projetEbilleterie.ebilleterie.domain.exception.MyAppTicketException;
 import com.projetEbilleterie.ebilleterie.domain.rate.Rate;
 
 import java.util.ArrayList;
@@ -34,6 +36,25 @@ public class Eticket2 {
         this.image = image;
         this.provider = provider;
         }
+    // Méthodes liées aux Rate
+    //---------------------------
+
+    private Rate searchRate(TypePrice typePrice) {
+        Rate rate = this.rates.stream()
+                .filter(l -> l.getTypePrice().equals(typePrice))
+                .findFirst().orElseThrow(() -> new MyAppTicketException(ErrorCodes.RATE_NOT_FOUND));
+        return rate;
+    }
+
+    public void addRate(Rate rate) { this.getRates().add(rate);}
+    public void removeRate(TypePrice typePrice) {
+        Rate rate = searchRate(typePrice);
+        this.rates.remove(rate);
+    }
+    public void updateRate(TypePrice typePrice, Rate rateWithNewInformation) {
+        Rate rate = searchRate(typePrice);
+        rate.update(rateWithNewInformation);
+    }
 
     //Getter
     public Long getId() { return id;}

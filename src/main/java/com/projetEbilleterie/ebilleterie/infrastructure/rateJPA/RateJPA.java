@@ -24,12 +24,12 @@ public class RateJPA {
 
     public RateJPA() {}
 
-    public RateJPA(Long id, String name, double price, int quantity, TypePrice typePrice) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.quantity = quantity;
-        this.typePrice = typePrice;
+    public RateJPA(Rate rate) {
+        this.id = rate.getId();
+        this.name = rate.getName();
+        this.price = rate.getPrice();
+        this.quantity = rate.getQuantity();
+        this.typePrice = rate.getTypePrice();
     }
 
     // Adapter JPA

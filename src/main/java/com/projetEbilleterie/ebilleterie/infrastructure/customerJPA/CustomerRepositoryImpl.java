@@ -28,9 +28,6 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     public Customer searchByEmailQuery(String email) {
         return this.customerDAO.findByEmail(email)
                 .toCustomer();
-//                .map(CustomerJPA::toCustomer)
-//                .orElseThrow(()
-//                -> new MyAppTicketException(ErrorCodes.CUSTOMER_NOT_FOUND));
     }
     @Override
     public Long saveCustomer(Customer customer) {

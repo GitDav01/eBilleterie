@@ -59,6 +59,16 @@ public class Customer {
                 .findFirst().orElseThrow(() -> new MyAppTicketException(ErrorCodes.RELATIVE_NOT_FOUND));
         return relative;
     }
+
+    private Relative searchRelativeByMail(String mail) {
+        Relative relative = this.relatives.stream()
+                .filter(l -> l.getEmail().equals(mail))
+                .findFirst().orElseThrow(() -> new MyAppTicketException(ErrorCodes.RELATIVE_NOT_FOUND));
+        return relative;
+    }
+
+    public Relative getRelativeByMailFromCustomer(String email){ return this.searchRelativeByMail(email);}
+
     public void addRelative(Relative relative) {
         this.getRelatives().add(relative);
     }
@@ -66,6 +76,13 @@ public class Customer {
     public void removeRelative(Long relativeId) {
         Relative relative = searchRelative(relativeId);
         this.relatives.remove(relative);
+   //     this.libraryRepository.save(library);
+    }
+
+    public void removeRelativeByMail(String mail) {
+        Relative relative = searchRelativeByMail(mail);
+        this.relatives.remove(relative);
+        //     this.libraryRepository.save(library);
     }
 
     public void updateRelative(Long relativeId, Relative relativeWithNewInformation) {

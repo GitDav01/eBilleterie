@@ -13,7 +13,7 @@ public class CustomerAdapter {
 
     public CustomerAdapter() {}
 
-    // Adapter Customer
+    // Adapter DTO Customer
     //-----------------
     static CustomerDTO adaptToCustomerDTO(Customer customer) {
         return new CustomerDTO(
@@ -40,7 +40,7 @@ public class CustomerAdapter {
         return customers.stream().map(CustomerAdapter::adaptToCustomerDTO).collect(Collectors.toList());
     }
 
-    // Adapter Relative
+    // Adapter DTO Relative
     //-----------------
     public static CustomerDTO.RelativeDTO adaptToRelativeDTO(Relative relative) {
         return new CustomerDTO.RelativeDTO(
@@ -65,6 +65,8 @@ public class CustomerAdapter {
         return new Relative(null,relativeDTO.lastname,relativeDTO.firstname,relativeDTO.email,relativeDTO.phoneNumber);
     }
 
+    // Adapter DTO Basket
+    //-------------------
     public static CustomerDTO.Basket2DTO adaptToBasket2DTO(Basket2 basket2) {
         return new CustomerDTO.Basket2DTO(
                 //   relative.getId(),
@@ -74,7 +76,8 @@ public class CustomerAdapter {
                 basket2.getReference(),
                 basket2.getPrice(),
                 basket2.getTypePrice(),
-                basket2.getPurchaseDate()
+                basket2.getPurchaseDate(),
+                basket2.getRelativeName()
         );
     }
 
@@ -89,7 +92,7 @@ public class CustomerAdapter {
 
     public static Basket2 transformToBasket2(CustomerDTO.Basket2DTO basket2DTO) {
         return new Basket2(null,basket2DTO.quantity,basket2DTO.status,basket2DTO.category,basket2DTO.reference,
-                basket2DTO.price,basket2DTO.typePrice,basket2DTO.purchaseDate);
+                basket2DTO.price,basket2DTO.typePrice,basket2DTO.purchaseDate,basket2DTO.relativeName);
     }
 
 }

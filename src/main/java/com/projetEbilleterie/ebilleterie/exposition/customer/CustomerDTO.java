@@ -95,12 +95,13 @@ public class CustomerDTO {
         @JsonProperty double price;
         @JsonProperty TypePrice typePrice;
         @JsonProperty Date purchaseDate;
+        @JsonProperty String relativeName;
 
         //Constructors
         public Basket2DTO(){}
 
         public Basket2DTO(/*Long id, */ int quantity, boolean status, Category category, String reference,
-                                        double price, TypePrice typePrice, Date purchaseDate) {
+                                        double price, TypePrice typePrice, Date purchaseDate, String relativeName) {
             //   this.id = id;
             this.quantity = quantity;
             this.status = status;
@@ -109,6 +110,7 @@ public class CustomerDTO {
             this.price = price;
             this.typePrice = typePrice;
             this.purchaseDate = purchaseDate;
+            this.relativeName = relativeName;
         }
 
         //Getter
@@ -120,6 +122,7 @@ public class CustomerDTO {
         public double getPrice() {return price;}
         public TypePrice getTypePrice() {return typePrice;}
         public Date getPurchaseDate() {return purchaseDate;}
+        public String getRelativeName() {return relativeName;}
     }
 
 }

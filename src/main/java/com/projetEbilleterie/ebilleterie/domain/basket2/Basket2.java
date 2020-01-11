@@ -15,12 +15,13 @@ public class Basket2 {
     private double price;
     private TypePrice typePrice;
     private Date purchaseDate;
+    private String relativeName;
 
     //Constructors
     public Basket2(){}
 
     public Basket2(Long id, int quantity, boolean status, Category category, String reference,
-                   double price, TypePrice typePrice, Date purchaseDate) {
+                   double price, TypePrice typePrice, Date purchaseDate, String relativeName) {
         this.id = id;
         this.quantity = quantity;
         this.status = status;
@@ -29,6 +30,7 @@ public class Basket2 {
         this.price = price;
         this.typePrice = typePrice;
         this.purchaseDate = purchaseDate;
+        this.relativeName = relativeName;
     }
 
     // Méthode
@@ -40,6 +42,7 @@ public class Basket2 {
         this.price = basket2WithNewInformation.getPrice();
         this.typePrice = basket2WithNewInformation.getTypePrice();
         this.purchaseDate= basket2WithNewInformation.getPurchaseDate();
+        this.relativeName = basket2WithNewInformation.getRelativeName();
 
     }
     //Getter
@@ -51,8 +54,10 @@ public class Basket2 {
     public double getPrice() {return price;}
     public TypePrice getTypePrice() {return typePrice;}
     public Date getPurchaseDate() {return purchaseDate;}
-    // Methode equals, hashcode et to string, notement pour les test d'equals sur l'Id
+    public String getRelativeName() {return relativeName;}
 
+    // Methode equals, hashcode et to string, notement pour les test d'equals sur l'Id
+    //-------------------------------------------------------------------------------
     @Override public boolean equals(Object obj) {
         if(obj == null) {return false; }
         if(!this.getClass().isAssignableFrom(obj.getClass())) {return false; }

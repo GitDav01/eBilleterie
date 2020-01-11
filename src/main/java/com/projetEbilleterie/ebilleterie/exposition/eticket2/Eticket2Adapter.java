@@ -1,8 +1,10 @@
 package com.projetEbilleterie.ebilleterie.exposition.eticket2;
 
 import com.projetEbilleterie.ebilleterie.domain.eticket2.Eticket2;
+import com.projetEbilleterie.ebilleterie.domain.rate.Rate;
 import com.projetEbilleterie.ebilleterie.exposition.customer.CustomerAdapter;
 import com.projetEbilleterie.ebilleterie.exposition.rate.RateAdapter;
+import com.projetEbilleterie.ebilleterie.exposition.rate.RateDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +25,7 @@ public class Eticket2Adapter {
                 eticket.getLaw(),
                 eticket.isNominative(),
                 eticket.getValidityDate(),
-                RateAdapter.adaptToRateDTOList(eticket.getRates()),
+                adaptToRateDTOList(eticket.getRates()),
                 eticket.getImage(),
                 eticket.getProvider()
               );
@@ -35,12 +37,39 @@ public class Eticket2Adapter {
     }
 
     public static Eticket2 transformToEticket(Eticket2DTO eTicketDTO) {
-       // String id = (eTicketDTO.id == null || eTicketDTO.id.trim().equals(""))? UUID.randomUUID().toString() : eTicketDTO.id;
         return new Eticket2(null, eTicketDTO.category,eTicketDTO.reference, eTicketDTO.description,eTicketDTO.law,eTicketDTO.nominative,
-                eTicketDTO.validityDate, RateAdapter.transformToRateList(eTicketDTO.rates),
+                eTicketDTO.validityDate, transformToRateList(eTicketDTO.rates),
                 eTicketDTO.image,eTicketDTO.provider);
     }
     static List<Eticket2DTO> adaptToEticketDTOList(List<Eticket2> etickets) {
         return etickets.stream().map(Eticket2Adapter::adaptToEticketDTO).collect(Collectors.toList());
     }
+
+    // Adapter DTO Rate
+    //-----------------
+
+    static Eticket2DTO.RateDTO adaptToRateDTO(Rate rate) {
+        return new Eticket2DTO.RateDTO(
+                //   rate.getId(),
+                rate.getName(),
+                rate.getPrice(),
+                rate.getQuantity(),
+                rate.getTypePrice()
+        );
+    }
+
+    public static List<Rate> transformToRateList(List<Eticket2DTO.RateDTO> rateDTO) {
+        if(rateDTO == null) {
+            return new ArrayList<>();
+        }
+        return rateDTO.stream().map(Eticket2Adapter::transformToRate).collect(Collectors.toList());
+    }
+    public static List<Eticket2DTO.RateDTO> adaptToRateDTOList(List<Rate> rates) {
+        return rates.stream().map(Eticket2Adapter::adaptToRateDTO).collect(Collectors.toList());
+    }
+
+    static Rate transformToRate(Eticket2DTO.RateDTO rateDTO) {
+        return new Rate(null,rateDTO.name,rateDTO.price,rateDTO.quantity,rateDTO.typePrice);
+    }
+
 }

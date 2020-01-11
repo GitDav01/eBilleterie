@@ -23,6 +23,14 @@ public class Rate {
         this.typePrice = typePrice;
     }
 
+    // Méthode
+    public void update(Rate rateWithNewInformation) {
+        this.name = rateWithNewInformation.getName();
+        this.price = rateWithNewInformation.getPrice();
+        this.quantity = rateWithNewInformation.getQuantity();
+        this.typePrice = rateWithNewInformation.getTypePrice();
+    }
+
     // Getter
     public Long getId() { return id; }
     public String getName() { return name; }

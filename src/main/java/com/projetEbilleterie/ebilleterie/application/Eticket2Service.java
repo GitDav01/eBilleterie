@@ -3,6 +3,7 @@ package com.projetEbilleterie.ebilleterie.application;
 
 import com.projetEbilleterie.ebilleterie.domain.eticket2.Eticket2;
 import com.projetEbilleterie.ebilleterie.domain.eticket2.Eticket2Repository;
+import com.projetEbilleterie.ebilleterie.domain.eticket2.TypePrice;
 import com.projetEbilleterie.ebilleterie.domain.rate.Rate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,4 +32,13 @@ public class Eticket2Service {
         Eticket2 eticket2 = obtainEticket(eticketId);
         return Collections.unmodifiableList(eticket2.getRates());
     }
+
+    public void updateRate(Long eticketId, TypePrice typePrice, Rate rate) {
+        Eticket2 eticket2 = obtainEticket(eticketId);
+        eticket2.updateRate(typePrice, rate);
+        this.eticket2Repository.saveEticket(eticket2);
+    }
+//    public Long updateStockRateQuery(int newQuantity, Long eticketId, TypePrice typePrice) {
+//        return this.eticket2Repository.updateStockRateQuery(newQuantity, eticketId, typePrice);
+//    }
 }

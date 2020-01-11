@@ -17,8 +17,9 @@ public final class ErrorCodes {
 
     public static final String CUSTOMER_NOT_FOUND = NOT_FOUND + " ERR_0032 ";
 
-
     public static final String RELATIVE_NOT_FOUND = NOT_FOUND + " ERR_0042 ";
+
+    public static final String RATE_NOT_FOUND = NOT_FOUND + " ERR_0042 ";
 
 
 }
