@@ -1,12 +1,42 @@
 package com.projetEbilleterie.ebilleterie;
-
+import com.projetEbilleterie.ebilleterie.domain.message.Order;
+import com.projetEbilleterie.ebilleterie.sender.OrderSender;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.concurrent.TimeUnit;
+
 @SpringBootApplication
-public class    EticketsApplication implements WebMvcConfigurer {
+public class    EticketsApplication implements ApplicationRunner,WebMvcConfigurer {
+
+    private static Logger log = LoggerFactory.getLogger(EticketsApplication.class);
+
+    @Autowired
+    private OrderSender orderSender;
+
+    @Override
+    public void run(ApplicationArguments applicationArguments) throws Exception {
+        log.info("Spring Boot ActiveMQ Queue Point to Point Configuration Example");
+
+        for (Long i = 0L; i < 5; i++){
+
+            Order order = new Order(i, "order_prov_"+Long.toString(i), i, LocalDateTime.now());
+            orderSender.sendQueue(order);
+        }
+
+        log.info("Waiting for all ActiveMQ JMS Messages to be consumed");
+        TimeUnit.SECONDS.sleep(3);
+        System.exit(-1);
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(EticketsApplication.class, args);
