@@ -9,6 +9,6 @@ public interface CustomerDAO extends JpaRepository<CustomerJPA, Long> {
 
     @Query("SELECT customer FROM CUSTOMER customer WHERE customer.email = ?1")
     CustomerJPA searchByEmailQuery(String email);
-    // JPA se dÃ©brouille pour reconstruire la Query avec le mot clÃ© FindByXXX
+    // JPA se débrouille pour reconstruire la Query avec le mot clé FindByXXX
     CustomerJPA findByEmail(String email);
 }
