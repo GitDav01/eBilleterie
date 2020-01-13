@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class EticketApplicationTests {
+public class ProviderApplicationTests {
 
     @Test
     public void value_objets_should_be_equal_if_same_properties(){

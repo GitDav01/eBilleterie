@@ -4,11 +4,9 @@ import com.projetEbilleterie.ebilleterie.domain.basket2.Basket2;
 import com.projetEbilleterie.ebilleterie.domain.customer.Adress;
 import com.projetEbilleterie.ebilleterie.domain.customer.Customer;
 import com.projetEbilleterie.ebilleterie.domain.customer.Profil;
-import com.projetEbilleterie.ebilleterie.domain.eticket2.Eticket2;
 import com.projetEbilleterie.ebilleterie.domain.relative.Relative;
 import com.projetEbilleterie.ebilleterie.infrastructure.RelativeJPA.RelativeJPA;
 import com.projetEbilleterie.ebilleterie.infrastructure.basket2JPA.Basket2JPA;
-import com.projetEbilleterie.ebilleterie.infrastructure.eticket2JPA.Eticket2JPA;
 
 import javax.persistence.*;
 import java.util.ArrayList;

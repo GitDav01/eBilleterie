@@ -3,8 +3,8 @@ package com.projetEbilleterie.ebilleterie.exposition.customer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.projetEbilleterie.ebilleterie.domain.customer.Adress;
 import com.projetEbilleterie.ebilleterie.domain.customer.Profil;
-import com.projetEbilleterie.ebilleterie.domain.eticket2.Category;
-import com.projetEbilleterie.ebilleterie.domain.eticket2.TypePrice;
+import com.projetEbilleterie.ebilleterie.domain.provider.Category;
+import com.projetEbilleterie.ebilleterie.domain.provider.TypePrice;
 
 import java.util.Date;
 import java.util.List;

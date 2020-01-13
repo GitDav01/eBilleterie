@@ -1,7 +1,7 @@
 package com.projetEbilleterie.ebilleterie.domain.basket2;
 
-import com.projetEbilleterie.ebilleterie.domain.eticket2.Category;
-import com.projetEbilleterie.ebilleterie.domain.eticket2.TypePrice;
+import com.projetEbilleterie.ebilleterie.domain.provider.Category;
+import com.projetEbilleterie.ebilleterie.domain.provider.TypePrice;
 
 import java.util.Date;
 

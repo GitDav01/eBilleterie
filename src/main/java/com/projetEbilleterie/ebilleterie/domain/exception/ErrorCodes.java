@@ -14,6 +14,9 @@ public final class ErrorCodes {
     public static final String ETICKET_NOT_FOUND = NOT_FOUND + " ERR_0022 ";
     public static final String ETICKET_MUST_HAVE_A_CATEGORY = " ERR_0023 ";
     public static final String ETICKET_MUST_HAVE_A_REFERENCE = " ERR_0024 ";
+    //public static final String PROVIDER_NOT_FOUND = NOT_FOUND + " ERR_0022 ";
+    public static final String PROVIDER_MUST_HAVE_A_CATEGORY = " ERR_0025 ";
+    public static final String PROVIDER_MUST_HAVE_A_REFERENCE = " ERR_0026 ";
 
     public static final String CUSTOMER_NOT_FOUND = NOT_FOUND + " ERR_0032 ";
 

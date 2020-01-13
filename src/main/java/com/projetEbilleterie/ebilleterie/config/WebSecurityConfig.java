@@ -64,6 +64,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable();
-    }
+            http.authorizeRequests().antMatchers("/").permitAll().and()
+                    .authorizeRequests().antMatchers("/console/**").permitAll();
+            http.csrf().disable();
+            http.headers().frameOptions().disable();
+        }
+     //   http.csrf().disable();
+        // // allow everyone to register an account; /console is just for testing
+   /*     http.authorizeRequests().antMatchers("/").permitAll()
+                .and()
+                .authorizeRequests().antMatchers("/h2-console/**").permitAll()
+                .and()
+                .headers().frameOptions().disable()
+                .and()
+                // making H2 console working
+                .csrf().ignoringAntMatchers("/h2-console/**")
+                .and()
+                .cors().disable(); */
+    /*
+    https://docs.spring.io/spring-security/site/docs/current/reference/html/csrf.html#when-to-use-csrf-protection
+    for non-browser APIs there is no need to use csrf protection
+    */
+
+
 }
