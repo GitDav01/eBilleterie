@@ -66,7 +66,7 @@ VALUES (10L, 'LOISIRS','PUY DU FOU','Nouveauté 2019 : le Premier Royaume Au Ve 
 ,false,'06122020','assets/PuyDuFou.jpg','PUY DU FOU');
 
 INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
-VALUES(2L,'CARTE UGC SOLO',51.5,200,'INTERNAL_UNIQUE_PRICE',3L);
+VALUES(2L,'CARTE UGC SOLO',51.5,51,'INTERNAL_UNIQUE_PRICE',3L);
 INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
 VALUES(3L,'CARTE UGC SOLO',68,200,'EXTERNAL_UNIQUE_PRICE',3L);
 INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
