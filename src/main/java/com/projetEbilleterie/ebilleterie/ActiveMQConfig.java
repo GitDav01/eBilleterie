@@ -10,13 +10,13 @@ import org.springframework.jms.support.converter.MappingJackson2MessageConverter
 import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.converter.MessageType;
 
-@EnableJms
-@Configuration
+//@EnableJms
+//@Configuration
 public class ActiveMQConfig {
 
     public static final String ORDER_QUEUE = "order-queue";
 
-    @Bean
+ //   @Bean
     public MessageConverter messageConverter() {
         MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
         converter.setTargetType(MessageType.TEXT);
@@ -25,7 +25,7 @@ public class ActiveMQConfig {
         return converter;
     }
 
-    @Bean
+  //  @Bean
     public ObjectMapper objectMapper(){
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
