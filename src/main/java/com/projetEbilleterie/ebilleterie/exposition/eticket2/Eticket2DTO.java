@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.projetEbilleterie.ebilleterie.domain.eticket2.Category;
 import com.projetEbilleterie.ebilleterie.domain.eticket2.TypePrice;
 import com.projetEbilleterie.ebilleterie.domain.exception.ErrorCodes;
-import com.projetEbilleterie.ebilleterie.exposition.rate.RateDTO;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -62,14 +60,13 @@ public class Eticket2DTO {
     //  RATE
     public static class RateDTO {
 
-        //    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-        //   String id;
         @JsonProperty String name;
         @JsonProperty double price;
         @JsonProperty int quantity;
         @JsonProperty TypePrice typePrice;
 
         //Constructors
+        //------------
         public RateDTO() {}
 
         public RateDTO(String name, double price, int quantity, TypePrice typePrice) {
@@ -80,12 +77,12 @@ public class Eticket2DTO {
         }
 
         //Getter
+        //------
         public String getName() {return name;}
         public double getPrice() {return price;}
         public int getQuantity() {return quantity;}
         public TypePrice getTypePrice() {return typePrice;}
     }
-
   }
 
 

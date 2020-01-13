@@ -75,6 +75,12 @@ public class CustomerResource {
         this.customerService.updateRelative(customerId, relativeId, CustomerAdapter.transformToRelative(relativeDTO));
     }
 
+    @RequestMapping(method = RequestMethod.PUT, path = {"/customers/{customerId}/relativesMailU/{email}"})
+    public void updateRelativeByMail(@PathVariable("customerId") Long customerId, @PathVariable("email") String email,
+                               @RequestBody CustomerDTO.RelativeDTO relativeDTO) {
+        this.customerService.updateRelativeByMail(customerId, email, CustomerAdapter.transformToRelative(relativeDTO));
+    }
+
 
     // API for Customer's Basket
     //---------------------------

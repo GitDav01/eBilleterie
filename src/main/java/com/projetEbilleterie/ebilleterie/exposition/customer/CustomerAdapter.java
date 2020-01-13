@@ -44,8 +44,7 @@ public class CustomerAdapter {
     //-----------------
     public static CustomerDTO.RelativeDTO adaptToRelativeDTO(Relative relative) {
         return new CustomerDTO.RelativeDTO(
-                //   relative.getId(),
-                relative.getLastname(),
+                 relative.getLastname(),
                 relative.getFirstname(),
                 relative.getEmail(),
                 relative.getPhoneNumber()
@@ -69,15 +68,14 @@ public class CustomerAdapter {
     //-------------------
     public static CustomerDTO.Basket2DTO adaptToBasket2DTO(Basket2 basket2) {
         return new CustomerDTO.Basket2DTO(
-                //   relative.getId(),
-                basket2.getQuantity(),
+                 basket2.getQuantity(),
                 basket2.isStatus(),
                 basket2.getCategory(),
                 basket2.getReference(),
                 basket2.getPrice(),
                 basket2.getTypePrice(),
                 basket2.getPurchaseDate(),
-                basket2.getRelativeName()
+                basket2.getEmailRelative()
         );
     }
 
@@ -92,7 +90,7 @@ public class CustomerAdapter {
 
     public static Basket2 transformToBasket2(CustomerDTO.Basket2DTO basket2DTO) {
         return new Basket2(null,basket2DTO.quantity,basket2DTO.status,basket2DTO.category,basket2DTO.reference,
-                basket2DTO.price,basket2DTO.typePrice,basket2DTO.purchaseDate,basket2DTO.relativeName);
+                basket2DTO.price,basket2DTO.typePrice,basket2DTO.purchaseDate,basket2DTO.emailRelative);
     }
 
 }

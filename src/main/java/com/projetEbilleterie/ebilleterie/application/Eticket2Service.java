@@ -38,7 +38,5 @@ public class Eticket2Service {
         eticket2.updateRate(typePrice, rate);
         this.eticket2Repository.saveEticket(eticket2);
     }
-//    public Long updateStockRateQuery(int newQuantity, Long eticketId, TypePrice typePrice) {
-//        return this.eticket2Repository.updateStockRateQuery(newQuantity, eticketId, typePrice);
-//    }
+
 }

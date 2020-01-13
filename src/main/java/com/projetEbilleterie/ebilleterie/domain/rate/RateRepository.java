@@ -8,5 +8,4 @@ public interface RateRepository {
 
     Rate getRate(Long id);
     List<Rate> findAllRate();
-//    Long updateStockRateQuery(int newQuantity, Long eticketId, TypePrice typePrice);
 }

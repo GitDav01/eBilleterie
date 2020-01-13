@@ -33,16 +33,10 @@ public class Eticket2RepositoryImpl implements Eticket2Repository {
 
     @Override
     public List<Eticket2> findAllEticket() {
-
         return eticket2DAO.findAll()
                 .stream()
                 .map(Eticket2JPA::toEticket2)
                 .collect(Collectors.toList());
     }
 
- //   @Override
- //   public Long updateStockRateQuery(int newQuantity, Long eticketId, TypePrice typePrice) {
- //       this.eticket2DAO.updateStockRateQuery(newQuantity, eticketId, typePrice);
- //       return eticketId;
- //   }
 }

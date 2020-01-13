@@ -86,8 +86,6 @@ public class CustomerDTO {
     // 2 - BASKET
     public static class Basket2DTO {
 
-        //   @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-        //   Long id;
         @JsonProperty int quantity;
         @JsonProperty boolean status;
         @JsonProperty Category category;
@@ -95,14 +93,14 @@ public class CustomerDTO {
         @JsonProperty double price;
         @JsonProperty TypePrice typePrice;
         @JsonProperty Date purchaseDate;
-        @JsonProperty String relativeName;
+        @JsonProperty String emailRelative;
 
         //Constructors
+        //------------
         public Basket2DTO(){}
 
-        public Basket2DTO(/*Long id, */ int quantity, boolean status, Category category, String reference,
-                                        double price, TypePrice typePrice, Date purchaseDate, String relativeName) {
-            //   this.id = id;
+        public Basket2DTO(int quantity, boolean status, Category category, String reference,
+                                        double price, TypePrice typePrice, Date purchaseDate, String emailRelative) {
             this.quantity = quantity;
             this.status = status;
             this.category = category;
@@ -110,11 +108,11 @@ public class CustomerDTO {
             this.price = price;
             this.typePrice = typePrice;
             this.purchaseDate = purchaseDate;
-            this.relativeName = relativeName;
+            this.emailRelative = emailRelative;
         }
 
         //Getter
-        //   public Long getId() {return id;}
+        //------
         public int getQuantity() { return quantity;}
         public boolean isStatus() { return status;}
         public Category getCategory() {return category;}
@@ -122,7 +120,7 @@ public class CustomerDTO {
         public double getPrice() {return price;}
         public TypePrice getTypePrice() {return typePrice;}
         public Date getPurchaseDate() {return purchaseDate;}
-        public String getRelativeName() {return relativeName;}
+        public String getEmailRelative() {return emailRelative;}
     }
 
 }

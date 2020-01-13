@@ -47,6 +47,7 @@ public class Eticket2 {
     }
 
     public void addRate(Rate rate) { this.getRates().add(rate);}
+
     public void removeRate(TypePrice typePrice) {
         Rate rate = searchRate(typePrice);
         this.rates.remove(rate);

@@ -33,7 +33,7 @@ public class Basket2JPA {
     @Column(name = "PURCHASE_DATE")
     private Date purchaseDate;
     @Column(name = "MAIL_RELATIVE")
-    private String relativeName;
+    private String emailRelative;
 
        //Constructors
     public Basket2JPA(){}
@@ -47,14 +47,13 @@ public class Basket2JPA {
         this.price = basket2.getPrice();
         this.typePrice = basket2.getTypePrice();
         this.purchaseDate = basket2.getPurchaseDate();
-        this.relativeName = basket2.getRelativeName();
+        this.emailRelative = basket2.getEmailRelative();
     }
 
     //Adapter JPA
     Basket2 toBasket2() {
- //
         return new Basket2(id, this.quantity, this.status,this.category,
-                this.reference,this.price,this.typePrice ,this.purchaseDate,this.relativeName);
+                this.reference,this.price,this.typePrice ,this.purchaseDate,this.emailRelative);
     }
 
     // Getter
@@ -66,5 +65,5 @@ public class Basket2JPA {
     public double getPrice() {return price;}
     public TypePrice getTypePrice() {return typePrice;}
     public Date getPurchaseDate() {return purchaseDate;}
-    public String getRelativeName() {return relativeName;}
+    public String getEmailRelative() {return emailRelative;}
 }

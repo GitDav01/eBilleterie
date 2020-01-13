@@ -15,13 +15,14 @@ public class Basket2 {
     private double price;
     private TypePrice typePrice;
     private Date purchaseDate;
-    private String relativeName;
+    private String emailRelative;
 
     //Constructors
+    //-----------
     public Basket2(){}
 
     public Basket2(Long id, int quantity, boolean status, Category category, String reference,
-                   double price, TypePrice typePrice, Date purchaseDate, String relativeName) {
+                   double price, TypePrice typePrice, Date purchaseDate, String emailRelative) {
         this.id = id;
         this.quantity = quantity;
         this.status = status;
@@ -30,10 +31,11 @@ public class Basket2 {
         this.price = price;
         this.typePrice = typePrice;
         this.purchaseDate = purchaseDate;
-        this.relativeName = relativeName;
+        this.emailRelative = emailRelative;
     }
 
     // Méthode
+    //--------
     public void update(Basket2 basket2WithNewInformation) {
         this.quantity = basket2WithNewInformation.getQuantity();
         this.status = basket2WithNewInformation.isStatus();
@@ -42,10 +44,11 @@ public class Basket2 {
         this.price = basket2WithNewInformation.getPrice();
         this.typePrice = basket2WithNewInformation.getTypePrice();
         this.purchaseDate= basket2WithNewInformation.getPurchaseDate();
-        this.relativeName = basket2WithNewInformation.getRelativeName();
-
+        this.emailRelative = basket2WithNewInformation.getEmailRelative();
     }
+
     //Getter
+    //------
     public Long getId() {return id; }
     public int getQuantity() {return quantity; }
     public boolean isStatus() {return status;}
@@ -54,7 +57,7 @@ public class Basket2 {
     public double getPrice() {return price;}
     public TypePrice getTypePrice() {return typePrice;}
     public Date getPurchaseDate() {return purchaseDate;}
-    public String getRelativeName() {return relativeName;}
+    public String getEmailRelative() {return emailRelative;}
 
     // Methode equals, hashcode et to string, notement pour les test d'equals sur l'Id
     //-------------------------------------------------------------------------------

@@ -60,7 +60,10 @@ INSERT INTO ETICKET2 (id, category,reference, description,law,nominative,VALIDIT
 VALUES (9L, 'LOISIRS','PARC ASTERIX','Vivez une expérience typiquement gauloise. Un détonnant mélange de 40 attractions et de 5 grands spectacles mis en scène dans 6 univers. Nouveauté 2019 : Attention Menhir, la nouvelle attraction 4D du Parc Astérix ! Pour la première fois, vivez une aventure exclusive d Astérix et Obélix : un film en 4 dimensions avec des effets spéciaux spectaculaires dans une nouvelle salle équipée de 300 fauteuils dernière technologie. Les visiteurs vont vivre et ressentir toutes les péripéties et surprises d une aventure pleine d humour inspirée de l univers de René Goscinny et Albert Uderzo. '
 ,'Billetterie également utilisable pour la saison Noël (nouveauté 2019) du 21 décembre au 5 janvier 2020. http://www.parcasterix.fr Tarif unique (3 ans et plus) CSEEPF 23 € • extérieur 34 € • public 51 € '
 ,false,'06122020','assets/parcasterix240x318.png','PARC ASTERIX');
-
+INSERT INTO ETICKET2 (id, category,reference, description,law,nominative,VALIDITY_DATE,image,provider)
+VALUES (10L, 'LOISIRS','PUY DU FOU','Nouveauté 2019 : le Premier Royaume Au Ve siècle, en pleine chute de l Empire Romain tout juste ravagé par les hordes d Attila, accompagnez Clovis, le célèbre roi Franc ! Au fil de ses conquêtes, découvrez les doutes de ce grand stratège partagé entre les traditions ancestrales de son peuple et la voie nouvelle qu il pourrait choisir pour fonder le premier royaume !  '
+,'http://www.puydufou.com Tarif enfant (5 à 13 ans inclus) CSEEPF 18 € • extérieur 24 € • public 30 € Tarif adulte (14 ans et plus) CSEEPF 28 € • extérieur 34 € • public 41 € '
+,false,'06122020','assets/PuyDuFou.jpg','PUY DU FOU');
 
 INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
 VALUES(2L,'CARTE UGC SOLO',51.5,200,'INTERNAL_UNIQUE_PRICE',3L);
@@ -81,11 +84,11 @@ VALUES(9L,'ZOO DE BEAUVAL',18,100,'EXTERNAL_CHILD_PRICE',6L);
 INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
 VALUES(10L,'ZOO DE BEAUVAL',17,200,'INTERNAL_ADULT_PRICE',6L);
 INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
-VALUES(11L,'JARDIN D ACCLIMATATION',23,100,'EXTERNAL_ADULT_PRICE',6L);
+VALUES(11L,'ZOO DE BEAUVAL',20,100,'EXTERNAL_ADULT_PRICE',6L);
 INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
-VALUES(12L,'PATHE GAUMONT LA CARTE « CINÉ ACCÈS »',15,315,'INTERNAL_UNIQUE_PRICE',7L);
+VALUES(12L,'JARDIN D ACCLIMATATION ',15,315,'INTERNAL_UNIQUE_PRICE',7L);
 INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
-VALUES(13L,'PATHE GAUMONT LA CARTE « CINÉ ACCÈS »',21,415,'EXTERNAL_UNIQUE_PRICE',7L);
+VALUES(13L,'JARDIN D ACCLIMATATION ',21,415,'EXTERNAL_UNIQUE_PRICE',7L);
 INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
 VALUES(14L,'THOIRY',20,100,'EXTERNAL_UNIQUE_PRICE',8L);
 INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
@@ -94,6 +97,34 @@ INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
 VALUES(16L,'PARC ASTERIX',23,100,'INTERNAL_UNIQUE_PRICE',9L);
 INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
 VALUES(17L,'PARC ASTERIX',34,100,'EXTERNAL_UNIQUE_PRICE',9L);
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES(18L,'PUY DU FOU',18,200,'INTERNAL_CHILD_PRICE',10L);
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES(19L,'PUY DU FOU',24,200,'EXTERNAL_CHILD_PRICE',10L);
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES(20L,'PUY DU FOU',28,200,'INTERNAL_ADULT_PRICE',10L);
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES(21L,'PUY DU FOU',34,200,'EXTERNAL_ADULT_PRICE',10L);
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES(22L,'PUY DU FOU',26,200,'RELATIVE_CHILD_PRICE',10L);
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES(23L,'PUY DU FOU',38,200,'RELATIVE_ADULT_PRICE',10L);
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES(222L,'CARTE UGC SOLO',72,200,'RELATIVE_UNIQUE_PRICE',3L);
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES(224L,'LA CONTREMARQUE CINÉCHÈQUE',75,200,'RELATIVE_UNIQUE_PRICE',4L);
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES(226L,'PATHE GAUMONT LA CARTE « CINÉ ACCÈS »',90,200,'RELATIVE_UNIQUE_PRICE',5L);
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES(228L,'ZOO DE BEAUVAL',20,200,'RELATIVE_CHILD_PRICE',6L);
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES(210L,'ZOO DE BEAUVAL',24,200,'RELATIVE_ADULT_PRICE',6L);
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES(212L,'JARDIN D ACCLIMATATION',22,315,'RELATIVE_UNIQUE_PRICE',7L);
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES(215L,'THOIRY',22,100,'RELATIVE_UNIQUE_PRICE',8L);
+INSERT INTO RATE  (ID,name, price, quantity, type_price,eticket_id)
+VALUES(216L,'PARC ASTERIX',36,100,'RELATIVE_UNIQUE_PRICE',9L);
 
 INSERT INTO BASKET2  (ID,quantity,status,category,reference,price,TYPE_PRICE,PURCHASE_DATE,CUSTOMER_ID)
 VALUES (1000L,3,true,'CINEMA','CARTE UGC SOLO',61.5,'INTERNAL_ADULT_PRICE','1980-12-12',999L);

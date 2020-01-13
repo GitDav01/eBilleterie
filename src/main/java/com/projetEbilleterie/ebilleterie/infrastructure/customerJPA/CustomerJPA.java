@@ -82,7 +82,7 @@ public class CustomerJPA {
                 .collect(Collectors.toList());
         List<Basket2> basket2List = basket2s.stream()
                 .map(c -> new Basket2(c.getId(),c.getQuantity(),c.isStatus(),c.getCategory(),
-                        c.getReference(),c.getPrice(),c.getTypePrice(),c.getPurchaseDate(),c.getRelativeName()))
+                        c.getReference(),c.getPrice(),c.getTypePrice(),c.getPurchaseDate(),c.getEmailRelative()))
                 .collect(Collectors.toList());
         Adress adress = new Adress(adressNumber, adressSreet, adressPostalCode, adressCity);
         return new Customer(id, this.lastname,this.firstname,this.profil,this.email,

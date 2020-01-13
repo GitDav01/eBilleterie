@@ -90,6 +90,11 @@ public class Customer {
         relative.update(relativeWithNewInformation);
     }
 
+    public void updateRelativeBymail(String email, Relative relativeWithNewInformation) {
+        Relative relative = searchRelativeByMail(email);
+        relative.update(relativeWithNewInformation);
+    }
+
     // Méthodes liées aux baskets
     //---------------------------
 

@@ -32,9 +32,5 @@ public class RateRepositoryImpl implements RateRepository {
                 .map(RateJPA::toRate)
                 .collect(Collectors.toList());
     }
- //   @Override
- //   public Long updateStockRateQuery(int newQuantity, Long eticketId, TypePrice typePrice) {
- //       this.rateDAO.updateStockRateQuery(newQuantity, eticketId, typePrice);
- //       return eticketId;
- //   }
+
 }

@@ -20,8 +20,9 @@ public class RateJPA {
     @Enumerated(EnumType.STRING)
     @Column(name = "TYPE_PRICE")
     private TypePrice typePrice;
-       // Constructors
 
+    // Constructors
+    //------------
     public RateJPA() {}
 
     public RateJPA(Rate rate) {

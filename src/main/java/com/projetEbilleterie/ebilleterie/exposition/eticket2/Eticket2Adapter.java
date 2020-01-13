@@ -2,10 +2,6 @@ package com.projetEbilleterie.ebilleterie.exposition.eticket2;
 
 import com.projetEbilleterie.ebilleterie.domain.eticket2.Eticket2;
 import com.projetEbilleterie.ebilleterie.domain.rate.Rate;
-import com.projetEbilleterie.ebilleterie.exposition.customer.CustomerAdapter;
-import com.projetEbilleterie.ebilleterie.exposition.rate.RateAdapter;
-import com.projetEbilleterie.ebilleterie.exposition.rate.RateDTO;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -50,7 +46,6 @@ public class Eticket2Adapter {
 
     static Eticket2DTO.RateDTO adaptToRateDTO(Rate rate) {
         return new Eticket2DTO.RateDTO(
-                //   rate.getId(),
                 rate.getName(),
                 rate.getPrice(),
                 rate.getQuantity(),

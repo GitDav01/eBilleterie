@@ -42,7 +42,7 @@ public class Eticket2JPA {
     private String  provider;
 
     // Constructors
-
+    //-------------
     public Eticket2JPA() {}
 
     public Eticket2JPA(Eticket2 eticket2) {
@@ -62,6 +62,7 @@ public class Eticket2JPA {
          }
 
     // Adapter JPA
+    //------------
     Eticket2 toEticket2() {
         List<Rate> rateList = rates.stream()
                 .map(b -> new Rate(b.getId(),b.getName(),b.getPrice(),b.getQuantity(),b.getTypePrice()))
@@ -72,6 +73,7 @@ public class Eticket2JPA {
     }
 
     //Getter
+    //------
     public Long getId() { return id; }
     public Category getCategory() { return category; }
     public String getReference() {return reference;}

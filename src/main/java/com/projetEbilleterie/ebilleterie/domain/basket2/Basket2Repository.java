@@ -5,7 +5,6 @@ import java.util.List;
 
 public interface Basket2Repository {
 
-    //Basket2 getBasket(Long id);
-    List<Basket2> findAllBasket2();
+      List<Basket2> findAllBasket2();
 
 }
