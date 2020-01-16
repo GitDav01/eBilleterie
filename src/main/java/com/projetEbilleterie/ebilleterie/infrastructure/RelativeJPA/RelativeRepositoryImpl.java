@@ -16,20 +16,6 @@ public class RelativeRepositoryImpl implements RelativeRepository {
     @Autowired
     private RelativeDAO relativeDAO;
 
- //   @Override
- //   public String saveRelative(Relative relative) {
- //       RelativeJPA relativeJPA = relativeDAO.save(new RelativeJPA(relative));
- //       return relativeJPA.getId();
- //   }
-
- //   @Override
- //   public Relative getRelative(String id) {
- //       return relativeDAO.findById(id)
- //               .map(RelativeJPA::toRelative)
- //               .orElseThrow(()
- //               -> new MyAppTicketException(ErrorCodes.RELATIVE_NOT_FOUND));
- //   }
-
     @Override
     public List<Relative> findAllRelative() {
 

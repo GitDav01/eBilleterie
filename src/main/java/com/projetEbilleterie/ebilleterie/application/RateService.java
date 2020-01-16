@@ -19,10 +19,7 @@ public class RateService {
     public List<Rate> listAllRate() {
         return this.rateRepository.findAllRate();
     }
- //   public Long updateStockRateQuery(int newQuantity, Long eticketId, TypePrice typePrice) {
-  //      return this.rateRepository.updateStockRateQuery(newQuantity, eticketId, typePrice);
- //   }
-}
+ }
 
 
 

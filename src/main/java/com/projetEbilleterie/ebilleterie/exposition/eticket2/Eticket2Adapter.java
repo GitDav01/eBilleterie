@@ -44,7 +44,7 @@ public class Eticket2Adapter {
     // Adapter DTO Rate
     //-----------------
 
-    static Eticket2DTO.RateDTO adaptToRateDTO(Rate rate) {
+    public static Eticket2DTO.RateDTO adaptToRateDTO(Rate rate) {
         return new Eticket2DTO.RateDTO(
                 rate.getName(),
                 rate.getPrice(),

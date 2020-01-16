@@ -89,7 +89,6 @@ public class CustomerJPA {
                             this.phoneNumber,adress,relativeList,password ,basket2List);
     }
 
-
     //Getter
     public Long getId() {return id;}
     public String getLastname() {return lastname;}
